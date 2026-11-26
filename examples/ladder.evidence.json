@@ -1,0 +1,77 @@
+{
+  "schema": "laddercheck/v1",
+  "constraint": {
+    "fps": "30/1",
+    "gop_frames": 60,
+    "gop_seconds": "2",
+    "horizon_seconds": "5",
+    "require_idr": true
+  },
+  "renditions": [
+    {
+      "id": "1080p",
+      "role": "1920x1080",
+      "codec": "avc1",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "media_timescale": 30000,
+      "sample_count": 150,
+      "first_pts": "0",
+      "keyframe_samples": [0, 60, 120]
+    },
+    {
+      "id": "720p",
+      "role": "1280x720",
+      "codec": "avc1",
+      "width": 1280,
+      "height": 720,
+      "fps": "30/1",
+      "media_timescale": 90000,
+      "sample_count": 150,
+      "first_pts": "0",
+      "keyframe_samples": [0, 60, 120],
+      "edits": [
+        { "empty": true, "segment_duration": "1/30" },
+        { "empty": false, "segment_duration": "5", "media_time": "0", "media_rate": "1" }
+      ]
+    },
+    {
+      "id": "480p",
+      "role": "854x480",
+      "codec": "avc1",
+      "width": 854,
+      "height": 480,
+      "fps": "30/1",
+      "media_timescale": 15360,
+      "sample_count": 150,
+      "first_pts": "1/10",
+      "keyframe_samples": [0, 60, 120]
+    },
+    {
+      "id": "360p",
+      "role": "640x360",
+      "codec": "avc1",
+      "width": 640,
+      "height": 360,
+      "fps": "30/1",
+      "media_timescale": 30000,
+      "sample_count": 150,
+      "first_pts": "0",
+      "keyframe_samples": [0, 48, 96, 144]
+    },
+    {
+      "id": "240p",
+      "role": "426x240",
+      "codec": "hvc1",
+      "width": 426,
+      "height": 240,
+      "fps": "30/1",
+      "media_timescale": 30000,
+      "sample_count": 150,
+      "first_pts": "0",
+      "keyframe_samples": [0, 60, 120],
+      "non_idr_samples": [60, 120]
+    }
+  ]
+}

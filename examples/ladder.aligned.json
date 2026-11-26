@@ -1,0 +1,21 @@
+{
+  "schema": "laddercheck/v1",
+  "constraint": { "fps": "30/1", "gop_frames": 60, "horizon_seconds": "5" },
+  "renditions": [
+    {
+      "id": "1080p", "codec": "avc1", "fps": "30/1",
+      "sample_count": 150, "first_pts": "0", "keyframe_samples": [0, 60, 120]
+    },
+    {
+      "id": "720p", "codec": "avc1", "fps": "30/1", "media_timescale": 90000,
+      "sample_count": 150, "first_pts": "0", "keyframe_samples": [0, 60, 120],
+      "edits": [
+        { "empty": false, "segment_duration": "5", "media_time": "0", "media_rate": "1" }
+      ]
+    },
+    {
+      "id": "480p-remuxed", "codec": "avc1", "fps": "30/1", "media_timescale": 15360,
+      "sample_count": 150, "first_pts": "0", "keyframe_samples": [0, 60, 120]
+    }
+  ]
+}
