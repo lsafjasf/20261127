@@ -1,0 +1,20 @@
+{
+  "direction_center": "display_white",
+  "target": "srgb",
+  "displays": [
+    {
+      "name": "样本 A：P3-like / D65",
+      "red":   [0.680, 0.320],
+      "green": [0.265, 0.690],
+      "blue":  [0.150, 0.060],
+      "white": [0.3127, 0.3290]
+    },
+    {
+      "name": "样本 B：AdobeRGB-like / D50-white-variant",
+      "red":   [0.6400, 0.3300],
+      "green": [0.2100, 0.7100],
+      "blue":  [0.1500, 0.0600],
+      "white": [0.3457, 0.3585]
+    }
+  ]
+}
