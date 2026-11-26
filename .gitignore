@@ -1,0 +1,7 @@
+/bin/
+/demo/out/
+/demo/extract/
+/demo/port/
+/demo/media2/
+*.tar
+*.tar.gz
