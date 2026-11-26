@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assetmap:AssetMap xmlns:assetmap="http://www.smpte-ra.org/schemas/429-9/2007/AM">
+  <Id>urn:uuid:aaaaaaaa-0000-4000-8000-000000000011</Id>
+  <AnnotationText>uid4-0025 supplemental package asset map (subtitle track)</AnnotationText>
+  <Creator>imfplaylist-fixture</Creator>
+  <IssueDate>2026-11-27T00:00:00+08:00</IssueDate>
+  <AssetList>
+    <Asset>
+      <Id>urn:uuid:bbbbbbbb-0000-4000-8000-000000000012</Id>
+      <PackingList>true</PackingList>
+      <ChunkList><Chunk><Path>PKL_bbbbbbbb-0000-4000-8000-000000000012.xml</Path></Chunk></ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:cccccccc-0000-4000-8000-000000000013</Id>
+      <ChunkList><Chunk><Path>CPL_cccccccc-0000-4000-8000-000000000013.xml</Path></Chunk></ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:55555555-5555-4555-8555-555555555555</Id>
+      <AnnotationText>Chinese subtitle timed-text track file</AnnotationText>
+      <ChunkList><Chunk><Path>SUBTITLE_5555.mxf</Path></Chunk></ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:22222222-2222-4222-8222-222222222222</Id>
+      <AnnotationText>shared audio asset inherited from main package (duplicate UUID)</AnnotationText>
+      <ChunkList><Chunk><Path>AUDIO_2222.mxf</Path></Chunk></ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:33333333-3333-4333-8333-333333333333</Id>
+      <AnnotationText>studio logo, re-delivered with different fixity (conflict)</AnnotationText>
+      <ChunkList><Chunk><Path>LOGO_3333.png</Path></Chunk></ChunkList>
+    </Asset>
+  </AssetList>
+</assetmap:AssetMap>

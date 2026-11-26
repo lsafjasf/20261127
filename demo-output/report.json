@@ -1,0 +1,100 @@
+{
+  "missing": [
+    {
+      "kind": "file_not_found",
+      "asset_id": "44444444-4444-4444-8444-444444444444",
+      "package": "main",
+      "path": "/home/hj/userfeedback/uid4-0025/testdata/main-imp/MISSING_4444.mxf",
+      "message": "AssetMap chunk \"MISSING_4444.mxf\" for 44444444-4444-4444-8444-444444444444 does not exist in package \"main\""
+    },
+    {
+      "kind": "unresolved_reference",
+      "asset_id": "66666666-6666-4666-8666-666666666666",
+      "referenced_by": "CPL cccccccc-0000-4000-8000-000000000013 / MainSubtitleSequence[a0000003-0000-4000-8000-000000000003] / resource d0000003-0000-4000-8000-000000000020",
+      "package": "supp-1",
+      "message": "TrackFileId 66666666-6666-4666-8666-666666666666 referenced by MainSubtitleSequence in CPL cccccccc-0000-4000-8000-000000000013 is not declared in any AssetMap/PKL of the merged packages"
+    }
+  ],
+  "duplicates": [
+    {
+      "kind": "duplicate_asset_uuid",
+      "asset_id": "22222222-2222-4222-8222-222222222222",
+      "severity": "identical",
+      "message": "Asset 22222222-2222-4222-8222-222222222222 is inherited/reused across packages main, supp-1 with consistent identity",
+      "occurrences": [
+        {
+          "package_label": "main",
+          "package_dir": "/home/hj/userfeedback/uid4-0025/testdata/main-imp",
+          "in_asset_map": true,
+          "in_pkl": true,
+          "chunk_paths": [
+            "AUDIO_2222.mxf"
+          ],
+          "resolved_path": "/home/hj/userfeedback/uid4-0025/testdata/main-imp/AUDIO_2222.mxf",
+          "file_exists": true,
+          "hash": "YF2z/br/S6E3KTca0MT7qziJN44=",
+          "size": 2048,
+          "type": "application/mxf"
+        },
+        {
+          "package_label": "supp-1",
+          "package_dir": "/home/hj/userfeedback/uid4-0025/testdata/supp-imp",
+          "in_asset_map": true,
+          "in_pkl": true,
+          "chunk_paths": [
+            "AUDIO_2222.mxf"
+          ],
+          "resolved_path": "/home/hj/userfeedback/uid4-0025/testdata/supp-imp/AUDIO_2222.mxf",
+          "file_exists": true,
+          "hash": "YF2z/br/S6E3KTca0MT7qziJN44=",
+          "size": 2048,
+          "type": "application/mxf"
+        }
+      ]
+    },
+    {
+      "kind": "duplicate_asset_uuid",
+      "asset_id": "33333333-3333-4333-8333-333333333333",
+      "severity": "conflict",
+      "message": "Asset 33333333-3333-4333-8333-333333333333 is declared in packages main, supp-1 with conflicting fixity (hash/size differs)",
+      "occurrences": [
+        {
+          "package_label": "main",
+          "package_dir": "/home/hj/userfeedback/uid4-0025/testdata/main-imp",
+          "in_asset_map": true,
+          "in_pkl": true,
+          "chunk_paths": [
+            "LOGO_3333.png"
+          ],
+          "resolved_path": "/home/hj/userfeedback/uid4-0025/testdata/main-imp/LOGO_3333.png",
+          "file_exists": true,
+          "hash": "XD64AGZCAAK8Pcx8pKtu+tftSuU=",
+          "size": 512,
+          "type": "image/png"
+        },
+        {
+          "package_label": "supp-1",
+          "package_dir": "/home/hj/userfeedback/uid4-0025/testdata/supp-imp",
+          "in_asset_map": true,
+          "in_pkl": true,
+          "chunk_paths": [
+            "LOGO_3333.png"
+          ],
+          "resolved_path": "/home/hj/userfeedback/uid4-0025/testdata/supp-imp/LOGO_3333.png",
+          "file_exists": true,
+          "hash": "AloUoRDhgKp0dUoYXdegbhHTgNU=",
+          "size": 768,
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "missing_total": 2,
+    "unresolved_references": 1,
+    "missing_files": 1,
+    "duplicate_total": 2,
+    "duplicate_identical": 1,
+    "duplicate_conflicts": 1
+  }
+}

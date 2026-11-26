@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompositionPlaylist xmlns="http://www.smpte-ra.org/schemas/2067-3/2016"
+                      xmlns:cc="http://www.smpte-ra.org/schemas/2067-2/2016"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>urn:uuid:cccccccc-0000-4000-8000-000000000013</Id>
+  <AnnotationText>uid4-0025 supplemental CPL (subtitle track only)</AnnotationText>
+  <Creator>imfplaylist-fixture</Creator>
+  <IssueDate>2026-11-27T00:00:00+08:00</IssueDate>
+  <EditRate>24 1</EditRate>
+  <SegmentList>
+    <Segment>
+      <Id>urn:uuid:eeeeeeee-0000-4000-8000-000000000001</Id>
+      <AnnotationText>Same reel as main CPL</AnnotationText>
+      <SequenceList>
+        <cc:MainSubtitleSequence>
+          <Id>urn:uuid:f3f3f3f3-0000-4000-8000-000000000003</Id>
+          <TrackId>urn:uuid:a0000003-0000-4000-8000-000000000003</TrackId>
+          <ResourceList>
+            <Resource xsi:type="TrackFileResourceType">
+              <Id>urn:uuid:d0000003-0000-4000-8000-000000000010</Id>
+              <TrackFileId>urn:uuid:55555555-5555-4555-8555-555555555555</TrackFileId>
+              <EditRate>24 1</EditRate>
+              <IntrinsicDuration>1440</IntrinsicDuration>
+              <EntryPoint>0</EntryPoint>
+              <SourceDuration>1440</SourceDuration>
+              <RepeatCount>1</RepeatCount>
+            </Resource>
+            <Resource xsi:type="TrackFileResourceType">
+              <Id>urn:uuid:d0000003-0000-4000-8000-000000000020</Id>
+              <!-- This subtitle reel was never delivered in either package. -->
+              <TrackFileId>urn:uuid:66666666-6666-4666-8666-666666666666</TrackFileId>
+              <EditRate>24 1</EditRate>
+              <IntrinsicDuration>720</IntrinsicDuration>
+              <EntryPoint>0</EntryPoint>
+              <SourceDuration>720</SourceDuration>
+              <RepeatCount>1</RepeatCount>
+            </Resource>
+          </ResourceList>
+        </cc:MainSubtitleSequence>
+      </SequenceList>
+    </Segment>
+  </SegmentList>
+</CompositionPlaylist>

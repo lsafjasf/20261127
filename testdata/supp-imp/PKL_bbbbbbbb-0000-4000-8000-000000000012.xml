@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pkl:PackingList xmlns:pkl="http://www.smpte-ra.org/schemas/429-8/2007/PKL">
+  <Id>urn:uuid:bbbbbbbb-0000-4000-8000-000000000012</Id>
+  <IssueDate>2026-11-27T00:00:00+08:00</IssueDate>
+  <Issuer>imfplaylist-fixture</Issuer>
+  <AssetList>
+    <Asset>
+      <Id>urn:uuid:cccccccc-0000-4000-8000-000000000013</Id>
+      <Hash>ccccDDDDccccDDDDccccDDDDcc=</Hash>
+      <Size>3072</Size>
+      <Type>text/xml</Type>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:55555555-5555-4555-8555-555555555555</Id>
+      <Hash>YMrL89cuHng0ID2mCAN7G/g7QOg=</Hash>
+      <Size>1024</Size>
+      <Type>application/mxf</Type>
+      <OriginalFilename>SUBTITLE_5555.mxf</OriginalFilename>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:22222222-2222-4222-8222-222222222222</Id>
+      <Hash>YF2z/br/S6E3KTca0MT7qziJN44=</Hash>
+      <Size>2048</Size>
+      <Type>application/mxf</Type>
+      <OriginalFilename>AUDIO_2222.mxf</OriginalFilename>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:33333333-3333-4333-8333-333333333333</Id>
+      <Hash>AloUoRDhgKp0dUoYXdegbhHTgNU=</Hash>
+      <Size>768</Size>
+      <Type>image/png</Type>
+      <OriginalFilename>LOGO_3333.png</OriginalFilename>
+    </Asset>
+  </AssetList>
+</pkl:PackingList>

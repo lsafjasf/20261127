@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opl:OutputProfileList xmlns:opl="http://www.smpte-ra.org/schemas/2067-100/2016">
+  <Id>urn:uuid:dddddddd-0000-4000-8000-000000000004</Id>
+  <AnnotationText>uid4-0025 output profile following the main CPL</AnnotationText>
+  <IssueDate>2026-11-27T00:00:00+08:00</IssueDate>
+  <CompositionPlaylistId>urn:uuid:cccccccc-0000-4000-8000-000000000003</CompositionPlaylistId>
+  <ProfileList>
+    <Profile>
+      <Name>Deliverable-HD</Name>
+      <MacroList>
+        <Macro>
+          <Name>ScaleToHD</Name>
+          <ParameterList>
+            <Parameter>
+              <Name>SourceVirtualTrack</Name>
+              <VirtualTrackId>urn:uuid:a0000001-0000-4000-8000-000000000001</VirtualTrackId>
+            </Parameter>
+          </ParameterList>
+        </Macro>
+      </MacroList>
+    </Profile>
+  </ProfileList>
+</opl:OutputProfileList>
