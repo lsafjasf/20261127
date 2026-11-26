@@ -1,0 +1,41 @@
+{
+  "version": "1",
+  "media_id": "demo-ep01",
+  "tracks": [
+    {
+      "language": "zh",
+      "label": "简体中文",
+      "default": true,
+      "cues": [
+        {
+          "id": "c1",
+          "start": "00:00:01,000",
+          "end": "00:00:03,500",
+          "text": "你好，世界"
+        },
+        {
+          "start": "00:00:04.000",
+          "end": "00:00:07.250",
+          "text": "这是第二句\n带换行的字幕"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "label": "English",
+      "cues": [
+        {
+          "id": "c1",
+          "start": "00:00:01,000",
+          "end": "00:00:03,500",
+          "text": "Hello, world"
+        },
+        {
+          "start": "00:00:04.000",
+          "end": "00:00:07.250",
+          "text": "This is the second cue\nwith a line break"
+        }
+      ]
+    }
+  ]
+}
