@@ -1,0 +1,78 @@
+{
+  "schema": "hdr-sdr-delivery-input/v1",
+  "project": {
+    "id": "feature-2026-001",
+    "title": "Feature Delivery"
+  },
+  "hdr": {
+    "path": "media/feature_HDR10.mxf",
+    "label": "HDR10",
+    "color": {
+      "primaries": "bt2020",
+      "transfer": "smpte2084",
+      "matrix": "bt2020nc",
+      "range": "tv",
+      "bit_depth": 10,
+      "require_mastering_display": true,
+      "require_content_light": true
+    }
+  },
+  "sdr": {
+    "path": "media/feature_SDR.mxf",
+    "label": "SDR",
+    "color": {
+      "primaries": "bt709",
+      "transfer": "bt709",
+      "matrix": "bt709",
+      "range": "tv",
+      "bit_depth": 8
+    }
+  },
+  "shared": {
+    "audio": [
+      {
+        "id": "main-5.1",
+        "path": "shared/feature_5.1_48k.mxf",
+        "language": "zho",
+        "title": "Main 5.1",
+        "default": true
+      },
+      {
+        "id": "main-stereo",
+        "path": "shared/feature_stereo_48k.mxf",
+        "language": "zho",
+        "title": "Main Stereo",
+        "default": false
+      }
+    ],
+    "subtitles": [
+      {
+        "id": "zh-hans",
+        "path": "shared/feature_zh-Hans.ass",
+        "language": "zho",
+        "title": "简体中文",
+        "default": true
+      },
+      {
+        "id": "en",
+        "path": "shared/feature_en.ass",
+        "language": "eng",
+        "title": "English",
+        "default": false
+      }
+    ]
+  },
+  "timeline": {
+    "duration_tolerance_ms": 40,
+    "start_tolerance_ms": 100,
+    "frame_rate_tolerance": 0.0001
+  },
+  "cuts": {
+    "source": "list",
+    "path": "cuts.example.json",
+    "tolerance_ms": 2
+  },
+  "checks": {
+    "media_hashes": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "cuts": [
+    {
+      "id": "C001",
+      "time_ms": 0,
+      "label": "Opening"
+    },
+    {
+      "id": "C002",
+      "time_ms": 125000,
+      "label": "Reel 2"
+    },
+    {
+      "id": "C003",
+      "time_ms": 650000,
+      "label": "Act 2"
+    }
+  ]
+}
