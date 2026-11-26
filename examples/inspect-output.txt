@@ -1,0 +1,23 @@
+$ observermap inspect testdata/monitor-d65.icc
+ICC profile / provenance
+------------------------------------------------------------------------
+profile: testdata/monitor-d65.icc
+  ICC version 4.3.0, class mntr (display (monitor)), colorSpace=RGB PCS=XYZ, tags=[wtpt]
+  wtpt XYZ=(95.0500,100.0000,108.9005) -> xy=(0.3127,0.3290)
+  observer recorded in profile: false
+  white point class: D65 (supported=true)
+  status: OK (empirical approximation still applies)
+   - ICC.1 headers/tags do not record whether CIE 1931 2° or CIE 1964 10° observer data produced the profile transform; observer provenance is unknown
+
+$ observermap inspect testdata/illuminant-a-white.icc --strict
+ICC profile / provenance
+------------------------------------------------------------------------
+profile: testdata/illuminant-a-white.icc
+  ICC version 4.3.0, class mntr (display (monitor)), colorSpace=RGB PCS=XYZ, tags=[wtpt]
+  wtpt XYZ=(109.8495,100.0000,35.5804) -> xy=(0.4476,0.4074)
+  observer recorded in profile: false
+  white point class: UNSUPPORTED (supported=false)
+  status: UNCERTAIN
+   - ICC.1 headers/tags do not record whether CIE 1931 2° or CIE 1964 10° observer data produced the profile transform; observer provenance is unknown
+   - media white point xy=(0.4476,0.4074) is outside supported D50/D65 classes (tol=0.015); no reliable observer map is defined for it
+(strict exit 3)
