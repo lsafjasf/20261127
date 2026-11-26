@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompositionPlaylist xmlns="http://www.smpte-ra.org/schemas/433/2006/CPL">
+  <Id>urn:uuid:dddddddd-0000-4000-8000-000000000000</Id>
+  <AnnotationText>Short asset boundary fixture</AnnotationText>
+  <EditRate>24 1</EditRate>
+  <ReelList>
+    <Reel>
+      <Id>urn:uuid:eeeeeeee-0000-4000-8000-000000000000</Id>
+      <AssetList>
+        <MainPicture>
+          <Id>urn:uuid:aaaaaaaa-0000-4000-8000-000000000001</Id>
+          <EditRate>24 1</EditRate>
+          <IntrinsicDuration>130</IntrinsicDuration>
+          <EntryPoint>10</EntryPoint>
+          <Duration>120</Duration>
+        </MainPicture>
+        <MainSound>
+          <Id>urn:uuid:bbbbbbbb-0000-4000-8000-000000000002</Id>
+          <EditRate>24 1</EditRate>
+          <IntrinsicDuration>120</IntrinsicDuration>
+          <EntryPoint>0</EntryPoint>
+          <Duration>120</Duration>
+        </MainSound>
+        <MainSubtitle>
+          <Id>urn:uuid:cccccccc-0000-4000-8000-000000000003</Id>
+          <EditRate>24 1</EditRate>
+          <IntrinsicDuration>124</IntrinsicDuration>
+          <EntryPoint>5</EntryPoint>
+          <Duration>120</Duration>
+        </MainSubtitle>
+      </AssetList>
+    </Reel>
+  </ReelList>
+</CompositionPlaylist>

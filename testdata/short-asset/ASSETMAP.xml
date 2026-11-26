@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetMap xmlns="http://www.smpte-ra.org/schemas/429-9/2007/AM">
+  <Id>urn:uuid:12345678-0000-4000-8000-000000000000</Id>
+  <AssetList>
+    <Asset>
+      <Id>urn:uuid:aaaaaaaa-0000-4000-8000-000000000001</Id>
+      <ChunkList>
+        <Chunk><Path>picture.mxf</Path></Chunk>
+      </ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:bbbbbbbb-0000-4000-8000-000000000002</Id>
+      <ChunkList>
+        <Chunk><Path>sound.mxf</Path></Chunk>
+      </ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:cccccccc-0000-4000-8000-000000000003</Id>
+      <ChunkList>
+        <Chunk><Path>subtitle.xml</Path></Chunk>
+      </ChunkList>
+    </Asset>
+  </AssetList>
+</AssetMap>
