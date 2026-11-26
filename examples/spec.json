@@ -1,0 +1,23 @@
+{
+  "name": "daily-render",
+  "files": [
+    {
+      "path": "report/summary.bin",
+      "fragments": 4,
+      "fragment_size": 4096,
+      "size": 16500
+    },
+    {
+      "path": "report/detail.bin",
+      "fragments": 2,
+      "fragment_size": 8192,
+      "size": 12000
+    },
+    {
+      "path": "index.bin",
+      "fragments": 1,
+      "fragment_size": 2048,
+      "size": 2048
+    }
+  ]
+}

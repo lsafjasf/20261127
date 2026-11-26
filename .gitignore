@@ -1,0 +1,5 @@
+# Render output directories
+out/
+
+# Built binaries
+renderbatch
