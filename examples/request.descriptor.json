@@ -1,0 +1,35 @@
+{
+  "schema_version": "iccproof/v1",
+  "intents": ["perceptual", "relative-colorimetric", "absolute-colorimetric"],
+  "source_profile": {
+    "descriptor": {
+      "id": "wide-gamut-source",
+      "description": "Explicit BT.2020-like RGB source; not an implicit sRGB fallback",
+      "color_space": "RGB",
+      "gamma": 2.2,
+      "red": {"x": 0.708, "y": 0.292},
+      "green": {"x": 0.170, "y": 0.797},
+      "blue": {"x": 0.131, "y": 0.046},
+      "white": {"x": 0.3127, "y": 0.3290}
+    }
+  },
+  "media_profile": {
+    "descriptor": {
+      "id": "narrow-print-media",
+      "description": "Explicit narrower RGB media surrogate",
+      "color_space": "RGB",
+      "gamma": 2.4,
+      "red": {"x": 0.640, "y": 0.330},
+      "green": {"x": 0.300, "y": 0.600},
+      "blue": {"x": 0.150, "y": 0.060},
+      "white": {"x": 0.3457, "y": 0.3585}
+    }
+  },
+  "config": {"output_bit_depth": 8},
+  "samples": [
+    {"id": "wide-green", "rgb": [0.0, 1.0, 0.0]},
+    {"id": "bright-cyan", "rgb": [0.0, 0.9, 1.0]},
+    {"id": "neutral-50", "rgb": [0.5, 0.5, 0.5]},
+    {"id": "source-overrange", "rgb": [0.0, 1.12, 0.0]}
+  ]
+}
