@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "source": "camera-capture-2026-11-27.mp4",
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "frame_timing": [
+      {"frame_index": 41, "pts_seconds": 1.3667, "capture_seconds": 1764200001.366, "expected_interval": 0.0333},
+      {"frame_index": 42, "pts_seconds": 1.4000, "capture_seconds": 1764200001.401, "expected_interval": 0.0333}
+    ]
+  },
+  "observations": [
+    {
+      "frame_index": 42,
+      "time_seconds": 1.4,
+      "seam_y": 421,
+      "intra_frame_tear": 0.91,
+      "seam_coverage": 0.94,
+      "adjacent_frame_match": 0.93,
+      "match_contrast": 0.82,
+      "repeated_side": "below",
+      "horizontal_shift": -2,
+      "timing_fault": 0.72,
+      "arbitrary_scanline": 0.86,
+      "block_alignment": 0.08,
+      "block_artifact": 0.16,
+      "temporal_block_repeat": 0.12
+    },
+    {
+      "frame_index": 88,
+      "time_seconds": 2.933,
+      "seam_y": 512,
+      "intra_frame_tear": 0.7,
+      "seam_coverage": 0.62,
+      "adjacent_frame_match": 0.55,
+      "match_contrast": 0.38,
+      "block_alignment": 1,
+      "block_artifact": 0.5,
+      "codec_error": 0.25
+    }
+  ]
+}

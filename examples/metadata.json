@@ -1,0 +1,24 @@
+{
+  "frame_timing": [
+    {"frame_index": 41, "pts_seconds": 1.3667, "capture_seconds": 1764200001.366, "expected_interval": 0.0333},
+    {"frame_index": 42, "pts_seconds": 1.4000, "capture_seconds": 1764200001.401, "expected_interval": 0.0333},
+    {"frame_index": 43, "pts_seconds": 1.4333, "capture_seconds": 1764200001.434, "expected_interval": 0.0333}
+  ],
+  "content_effect_windows": [
+    {
+      "start_seconds": 10.2,
+      "end_seconds": 11.0,
+      "confidence": 0.95,
+      "label": "scripted in-game tear glitch"
+    }
+  ],
+  "codec_events": [
+    {
+      "frame_index": 88,
+      "time_seconds": 2.933,
+      "y": 512,
+      "confidence": 1.0,
+      "message": "error while decoding MB 32 32"
+    }
+  ]
+}

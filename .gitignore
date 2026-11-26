@@ -1,0 +1,4 @@
+/tearcheck
+/tearcheck.exe
+*.test
+*.out
