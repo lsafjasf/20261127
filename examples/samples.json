@@ -1,0 +1,779 @@
+{
+  "schema_version": 1,
+  "samples": [
+    {
+      "schema_version": 1,
+      "name": "duplicate_conflicting_metadata",
+      "fps": "24",
+      "policy": {
+        "duplicate": "latest",
+        "missing_metadata": "hold_last"
+      },
+      "targets": [
+        {
+          "frame": 120,
+          "expected_scene_id": 42,
+          "label": "neon-sign"
+        },
+        {
+          "frame": 121,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 122,
+          "expected_scene_id": 42,
+          "label": "duplicate-sei"
+        },
+        {
+          "frame": 123,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 124,
+          "expected_scene_id": 42
+        }
+      ],
+      "metadata": [
+        {
+          "id": "EXP-120-id",
+          "version": "EXP-120",
+          "sequence": 120,
+          "frame": 120,
+          "scene_id": 42,
+          "scene_frame_index": 0,
+          "effective_seconds": 5,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1000,
+            "peak_nits": 1000,
+            "gain": 1.4,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-121-id",
+          "version": "EXP-121",
+          "sequence": 121,
+          "frame": 121,
+          "scene_id": 42,
+          "scene_frame_index": 1,
+          "effective_seconds": 5.041666666666667,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1120,
+            "peak_nits": 1120,
+            "gain": 1.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SEI-122-A-old",
+          "version": "HM-122-A-old",
+          "sequence": 122,
+          "frame": 122,
+          "scene_id": 42,
+          "scene_frame_index": 2,
+          "effective_seconds": 5.083333333333333,
+          "ingest_order": 1,
+          "bitstream_order": 1,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 800,
+            "peak_nits": 800,
+            "gain": 1.1,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 9,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SEI-122-B-right",
+          "version": "HM-122-B-right",
+          "sequence": 122,
+          "frame": 122,
+          "scene_id": 42,
+          "scene_frame_index": 2,
+          "effective_seconds": 5.083333333333333,
+          "ingest_order": 2,
+          "bitstream_order": 2,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2200,
+            "peak_nits": 2200,
+            "gain": 2.4,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -8,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-123-id",
+          "version": "EXP-123",
+          "sequence": 123,
+          "frame": 123,
+          "scene_id": 42,
+          "scene_frame_index": 3,
+          "effective_seconds": 5.125,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1800,
+            "peak_nits": 1800,
+            "gain": 2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -5,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-124-id",
+          "version": "EXP-124",
+          "sequence": 124,
+          "frame": 124,
+          "scene_id": 42,
+          "scene_frame_index": 4,
+          "effective_seconds": 5.166666666666667,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1600,
+            "peak_nits": 1600,
+            "gain": 1.8,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -4,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "expected_metadata": [
+        {
+          "id": "EXP-120-id",
+          "version": "EXP-120",
+          "sequence": 120,
+          "frame": 120,
+          "scene_id": 42,
+          "scene_frame_index": 0,
+          "effective_seconds": 5,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1000,
+            "peak_nits": 1000,
+            "gain": 1.4,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-121-id",
+          "version": "EXP-121",
+          "sequence": 121,
+          "frame": 121,
+          "scene_id": 42,
+          "scene_frame_index": 1,
+          "effective_seconds": 5.041666666666667,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1120,
+            "peak_nits": 1120,
+            "gain": 1.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "HM-122-B-right-id",
+          "version": "HM-122-B-right",
+          "sequence": 122,
+          "frame": 122,
+          "scene_id": 42,
+          "scene_frame_index": 2,
+          "effective_seconds": 5.083333333333333,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2200,
+            "peak_nits": 2200,
+            "gain": 2.4,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -8,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-123-id",
+          "version": "EXP-123",
+          "sequence": 123,
+          "frame": 123,
+          "scene_id": 42,
+          "scene_frame_index": 3,
+          "effective_seconds": 5.125,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1800,
+            "peak_nits": 1800,
+            "gain": 2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -5,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "EXP-124-id",
+          "version": "EXP-124",
+          "sequence": 124,
+          "frame": 124,
+          "scene_id": 42,
+          "scene_frame_index": 4,
+          "effective_seconds": 5.166666666666667,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1600,
+            "peak_nits": 1600,
+            "gain": 1.8,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -4,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "player_events": [
+        {
+          "target_frame": 122,
+          "applied_version": "HM-122-A-old",
+          "source": "player_hdr10plus_debug_log",
+          "evidence": "T.35 active metadata digest=old-a; tone mapper used 800 nits/+9 hue"
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "name": "missing_frame_metadata",
+      "fps": "24000/1001",
+      "policy": {
+        "duplicate": "latest",
+        "missing_metadata": "hold_last"
+      },
+      "targets": [
+        {
+          "frame": 200,
+          "expected_scene_id": 42,
+          "label": "carousel-lights"
+        },
+        {
+          "frame": 201,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 202,
+          "expected_scene_id": 42,
+          "label": "missing-dynamic-metadata"
+        },
+        {
+          "frame": 203,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 204,
+          "expected_scene_id": 42
+        }
+      ],
+      "metadata": [
+        {
+          "id": "SRC-200-id",
+          "version": "SRC-200",
+          "sequence": 200,
+          "frame": 200,
+          "scene_id": 42,
+          "scene_frame_index": 10,
+          "effective_seconds": 8.341666666666667,
+          "source": "transcoded_h265_sei",
+          "highlight": {
+            "target_peak_nits": 900,
+            "peak_nits": 900,
+            "gain": 1.2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 3,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-201-id",
+          "version": "SRC-201",
+          "sequence": 201,
+          "frame": 201,
+          "scene_id": 42,
+          "scene_frame_index": 11,
+          "effective_seconds": 8.383375,
+          "source": "transcoded_h265_sei",
+          "highlight": {
+            "target_peak_nits": 980,
+            "peak_nits": 980,
+            "gain": 1.3,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-203-id",
+          "version": "SRC-203",
+          "sequence": 203,
+          "frame": 203,
+          "scene_id": 42,
+          "scene_frame_index": 13,
+          "effective_seconds": 8.466791666666666,
+          "source": "transcoded_h265_sei",
+          "highlight": {
+            "target_peak_nits": 2100,
+            "peak_nits": 2100,
+            "gain": 2.2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -7,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-204-id",
+          "version": "SRC-204",
+          "sequence": 204,
+          "frame": 204,
+          "scene_id": 42,
+          "scene_frame_index": 14,
+          "effective_seconds": 8.5085,
+          "source": "transcoded_h265_sei",
+          "highlight": {
+            "target_peak_nits": 1700,
+            "peak_nits": 1700,
+            "gain": 1.9,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -5,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "expected_metadata": [
+        {
+          "id": "SRC-200-id",
+          "version": "SRC-200",
+          "sequence": 200,
+          "frame": 200,
+          "scene_id": 42,
+          "scene_frame_index": 10,
+          "effective_seconds": 8.341666666666667,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 900,
+            "peak_nits": 900,
+            "gain": 1.2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 3,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-201-id",
+          "version": "SRC-201",
+          "sequence": 201,
+          "frame": 201,
+          "scene_id": 42,
+          "scene_frame_index": 11,
+          "effective_seconds": 8.383375,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 980,
+            "peak_nits": 980,
+            "gain": 1.3,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": 2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "HM-202-required-id",
+          "version": "HM-202-required",
+          "sequence": 202,
+          "frame": 202,
+          "scene_id": 42,
+          "scene_frame_index": 12,
+          "effective_seconds": 8.425083333333333,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2400,
+            "peak_nits": 2400,
+            "gain": 2.7,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -10,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-203-id",
+          "version": "SRC-203",
+          "sequence": 203,
+          "frame": 203,
+          "scene_id": 42,
+          "scene_frame_index": 13,
+          "effective_seconds": 8.466791666666666,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2100,
+            "peak_nits": 2100,
+            "gain": 2.2,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -7,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SRC-204-id",
+          "version": "SRC-204",
+          "sequence": 204,
+          "frame": 204,
+          "scene_id": 42,
+          "scene_frame_index": 14,
+          "effective_seconds": 8.5085,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1700,
+            "peak_nits": 1700,
+            "gain": 1.9,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -5,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "player_events": [
+        {
+          "target_frame": 202,
+          "applied_version": "SRC-201",
+          "source": "player_hdr10plus_debug_log",
+          "evidence": "no new T.35 metadata at this picture; active id remains sequence 201"
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "name": "sequence_number_jump",
+      "fps": "25",
+      "policy": {
+        "missing_metadata": "hold_last",
+        "sequence_gap": "accept"
+      },
+      "targets": [
+        {
+          "frame": 300,
+          "expected_scene_id": 42,
+          "label": "stage-spotlight"
+        },
+        {
+          "frame": 301,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 302,
+          "expected_scene_id": 42,
+          "label": "sequence-jump-but-pts-continuous"
+        },
+        {
+          "frame": 303,
+          "expected_scene_id": 42
+        },
+        {
+          "frame": 304,
+          "expected_scene_id": 42
+        }
+      ],
+      "metadata": [
+        {
+          "id": "JMP-300-id",
+          "version": "JMP-300",
+          "sequence": 300,
+          "frame": 300,
+          "scene_id": 42,
+          "scene_frame_index": 40,
+          "effective_seconds": 12,
+          "source": "transcoded_mp4_sample",
+          "highlight": {
+            "target_peak_nits": 1200,
+            "peak_nits": 1200,
+            "gain": 1.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "JMP-301-id",
+          "version": "JMP-301",
+          "sequence": 301,
+          "frame": 301,
+          "scene_id": 42,
+          "scene_frame_index": 41,
+          "effective_seconds": 12.04,
+          "source": "transcoded_mp4_sample",
+          "highlight": {
+            "target_peak_nits": 1300,
+            "peak_nits": 1300,
+            "gain": 1.6,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -3,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SEI-JUMP-305",
+          "version": "JMP-302-frame-right",
+          "sequence": 305,
+          "frame": 302,
+          "scene_id": 42,
+          "scene_frame_index": 42,
+          "effective_seconds": 12.08,
+          "ingest_order": 1,
+          "bitstream_order": 1,
+          "source": "transcoded_mp4_sample",
+          "highlight": {
+            "target_peak_nits": 2600,
+            "peak_nits": 2600,
+            "gain": 2.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -12,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SEI-JUMP-306",
+          "version": "JMP-303",
+          "sequence": 306,
+          "frame": 303,
+          "scene_id": 42,
+          "scene_frame_index": 43,
+          "effective_seconds": 12.12,
+          "ingest_order": 1,
+          "bitstream_order": 1,
+          "source": "transcoded_mp4_sample",
+          "highlight": {
+            "target_peak_nits": 2200,
+            "peak_nits": 2200,
+            "gain": 2.1,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -9,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "SEI-JUMP-307",
+          "version": "JMP-304",
+          "sequence": 307,
+          "frame": 304,
+          "scene_id": 42,
+          "scene_frame_index": 44,
+          "effective_seconds": 12.16,
+          "ingest_order": 1,
+          "bitstream_order": 1,
+          "source": "transcoded_mp4_sample",
+          "highlight": {
+            "target_peak_nits": 1800,
+            "peak_nits": 1800,
+            "gain": 1.9,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -6,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "expected_metadata": [
+        {
+          "id": "JMP-300-id",
+          "version": "JMP-300",
+          "sequence": 300,
+          "frame": 300,
+          "scene_id": 42,
+          "scene_frame_index": 40,
+          "effective_seconds": 12,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1200,
+            "peak_nits": 1200,
+            "gain": 1.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -2,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "JMP-301-id",
+          "version": "JMP-301",
+          "sequence": 301,
+          "frame": 301,
+          "scene_id": 42,
+          "scene_frame_index": 41,
+          "effective_seconds": 12.04,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1300,
+            "peak_nits": 1300,
+            "gain": 1.6,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -3,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "JMP-302-frame-right-id",
+          "version": "JMP-302-frame-right",
+          "sequence": 302,
+          "frame": 302,
+          "scene_id": 42,
+          "scene_frame_index": 42,
+          "effective_seconds": 12.08,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2600,
+            "peak_nits": 2600,
+            "gain": 2.5,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -12,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "JMP-303-id",
+          "version": "JMP-303",
+          "sequence": 303,
+          "frame": 303,
+          "scene_id": 42,
+          "scene_frame_index": 43,
+          "effective_seconds": 12.12,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 2200,
+            "peak_nits": 2200,
+            "gain": 2.1,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -9,
+            "saturation": 1.12
+          }
+        },
+        {
+          "id": "JMP-304-id",
+          "version": "JMP-304",
+          "sequence": 304,
+          "frame": 304,
+          "scene_id": 42,
+          "scene_frame_index": 44,
+          "effective_seconds": 12.16,
+          "source": "hdr10plus_sei_json",
+          "highlight": {
+            "target_peak_nits": 1800,
+            "peak_nits": 1800,
+            "gain": 1.9,
+            "knee_x": 0.72,
+            "knee_y": 0.88
+          },
+          "color": {
+            "hue_shift_degrees": -6,
+            "saturation": 1.12
+          }
+        }
+      ],
+      "player_events": [
+        {
+          "target_frame": 302,
+          "applied_version": "JMP-302-frame-right",
+          "applied_sequence": 305,
+          "source": "player_hdr10plus_debug_log",
+          "evidence": "presented PTS=12.080; active T.35 sequence_number=305 with correct picture PTS"
+        }
+      ]
+    }
+  ]
+}

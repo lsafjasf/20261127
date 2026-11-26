@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "name": "sequence_number_jump",
+  "fps": "25",
+  "policy": {
+    "missing_metadata": "hold_last",
+    "sequence_gap": "accept"
+  },
+  "targets": [
+    {
+      "frame": 300,
+      "expected_scene_id": 42,
+      "label": "stage-spotlight"
+    },
+    {
+      "frame": 301,
+      "expected_scene_id": 42
+    },
+    {
+      "frame": 302,
+      "expected_scene_id": 42,
+      "label": "sequence-jump-but-pts-continuous"
+    },
+    {
+      "frame": 303,
+      "expected_scene_id": 42
+    },
+    {
+      "frame": 304,
+      "expected_scene_id": 42
+    }
+  ],
+  "metadata": [
+    {
+      "id": "JMP-300-id",
+      "version": "JMP-300",
+      "sequence": 300,
+      "frame": 300,
+      "scene_id": 42,
+      "scene_frame_index": 40,
+      "effective_seconds": 12,
+      "source": "transcoded_mp4_sample",
+      "highlight": {
+        "target_peak_nits": 1200,
+        "peak_nits": 1200,
+        "gain": 1.5,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -2,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "JMP-301-id",
+      "version": "JMP-301",
+      "sequence": 301,
+      "frame": 301,
+      "scene_id": 42,
+      "scene_frame_index": 41,
+      "effective_seconds": 12.04,
+      "source": "transcoded_mp4_sample",
+      "highlight": {
+        "target_peak_nits": 1300,
+        "peak_nits": 1300,
+        "gain": 1.6,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -3,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "SEI-JUMP-305",
+      "version": "JMP-302-frame-right",
+      "sequence": 305,
+      "frame": 302,
+      "scene_id": 42,
+      "scene_frame_index": 42,
+      "effective_seconds": 12.08,
+      "ingest_order": 1,
+      "bitstream_order": 1,
+      "source": "transcoded_mp4_sample",
+      "highlight": {
+        "target_peak_nits": 2600,
+        "peak_nits": 2600,
+        "gain": 2.5,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -12,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "SEI-JUMP-306",
+      "version": "JMP-303",
+      "sequence": 306,
+      "frame": 303,
+      "scene_id": 42,
+      "scene_frame_index": 43,
+      "effective_seconds": 12.12,
+      "ingest_order": 1,
+      "bitstream_order": 1,
+      "source": "transcoded_mp4_sample",
+      "highlight": {
+        "target_peak_nits": 2200,
+        "peak_nits": 2200,
+        "gain": 2.1,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -9,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "SEI-JUMP-307",
+      "version": "JMP-304",
+      "sequence": 307,
+      "frame": 304,
+      "scene_id": 42,
+      "scene_frame_index": 44,
+      "effective_seconds": 12.16,
+      "ingest_order": 1,
+      "bitstream_order": 1,
+      "source": "transcoded_mp4_sample",
+      "highlight": {
+        "target_peak_nits": 1800,
+        "peak_nits": 1800,
+        "gain": 1.9,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -6,
+        "saturation": 1.12
+      }
+    }
+  ],
+  "expected_metadata": [
+    {
+      "id": "JMP-300-id",
+      "version": "JMP-300",
+      "sequence": 300,
+      "frame": 300,
+      "scene_id": 42,
+      "scene_frame_index": 40,
+      "effective_seconds": 12,
+      "source": "hdr10plus_sei_json",
+      "highlight": {
+        "target_peak_nits": 1200,
+        "peak_nits": 1200,
+        "gain": 1.5,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -2,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "JMP-301-id",
+      "version": "JMP-301",
+      "sequence": 301,
+      "frame": 301,
+      "scene_id": 42,
+      "scene_frame_index": 41,
+      "effective_seconds": 12.04,
+      "source": "hdr10plus_sei_json",
+      "highlight": {
+        "target_peak_nits": 1300,
+        "peak_nits": 1300,
+        "gain": 1.6,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -3,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "JMP-302-frame-right-id",
+      "version": "JMP-302-frame-right",
+      "sequence": 302,
+      "frame": 302,
+      "scene_id": 42,
+      "scene_frame_index": 42,
+      "effective_seconds": 12.08,
+      "source": "hdr10plus_sei_json",
+      "highlight": {
+        "target_peak_nits": 2600,
+        "peak_nits": 2600,
+        "gain": 2.5,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -12,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "JMP-303-id",
+      "version": "JMP-303",
+      "sequence": 303,
+      "frame": 303,
+      "scene_id": 42,
+      "scene_frame_index": 43,
+      "effective_seconds": 12.12,
+      "source": "hdr10plus_sei_json",
+      "highlight": {
+        "target_peak_nits": 2200,
+        "peak_nits": 2200,
+        "gain": 2.1,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -9,
+        "saturation": 1.12
+      }
+    },
+    {
+      "id": "JMP-304-id",
+      "version": "JMP-304",
+      "sequence": 304,
+      "frame": 304,
+      "scene_id": 42,
+      "scene_frame_index": 44,
+      "effective_seconds": 12.16,
+      "source": "hdr10plus_sei_json",
+      "highlight": {
+        "target_peak_nits": 1800,
+        "peak_nits": 1800,
+        "gain": 1.9,
+        "knee_x": 0.72,
+        "knee_y": 0.88
+      },
+      "color": {
+        "hue_shift_degrees": -6,
+        "saturation": 1.12
+      }
+    }
+  ],
+  "player_events": [
+    {
+      "target_frame": 302,
+      "applied_version": "JMP-302-frame-right",
+      "applied_sequence": 305,
+      "source": "player_hdr10plus_debug_log",
+      "evidence": "presented PTS=12.080; active T.35 sequence_number=305 with correct picture PTS"
+    }
+  ]
+}
