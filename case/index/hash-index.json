@@ -1,0 +1,496 @@
+{
+  "schema": "evidencechain/v1",
+  "tool": "evidencechain",
+  "version": "1.0.0",
+  "case_id": "CASE-2026-1127",
+  "algorithm": "sha256",
+  "chunk_size": 128,
+  "chunk_root_algorithm": "sha256-domain-separated",
+  "note": "信任基准：00-originals 下的原始材料；任何对该层的改动都会导致封印校验失败。",
+  "entries": [
+    {
+      "evidence_id": "EV-001",
+      "logical_name": "EV-001_值班日志_20261120.txt",
+      "rel_path": "00-originals/EV-001_值班日志_20261120.txt",
+      "size": 1278,
+      "sha256": "abddb74ee677bda3f55dd6a02b262e2556971422d1a9797db1337df19ae9a7aa",
+      "chunk_root": "554be31ca578fea58731981d31a3679cccd049936e03f2771ee1e3e1807ad3ba",
+      "chunks": [
+        {
+          "index": 0,
+          "start": 0,
+          "end": 128,
+          "size": 128,
+          "sha256": "a3703f1e16d1e8c32168272356f8dba7348d54d489bc4530d1b8607597e4c65a"
+        },
+        {
+          "index": 1,
+          "start": 128,
+          "end": 256,
+          "size": 128,
+          "sha256": "f72f38a7e8db8ac48d27f106204200e50e365f05f3d134ffe95e008e6efb4ddc"
+        },
+        {
+          "index": 2,
+          "start": 256,
+          "end": 384,
+          "size": 128,
+          "sha256": "11a419136bcb3cae33dc47fa68ec06c444c1e470ca6c8e35fc369f5f02ec5642"
+        },
+        {
+          "index": 3,
+          "start": 384,
+          "end": 512,
+          "size": 128,
+          "sha256": "34c09d0872a3f28f38df8492959c1f09514f194a85a977c7a4f33a73aa0a52e2"
+        },
+        {
+          "index": 4,
+          "start": 512,
+          "end": 640,
+          "size": 128,
+          "sha256": "89153b1e8232ffbd56232e31ff6d85e9465b4f628f724b3ac2dff1d83ed9a214"
+        },
+        {
+          "index": 5,
+          "start": 640,
+          "end": 768,
+          "size": 128,
+          "sha256": "b8a45780b75b4ad99b4fa0dd763b65e3c1e26f482cff95c8313c162fc1c8329c"
+        },
+        {
+          "index": 6,
+          "start": 768,
+          "end": 896,
+          "size": 128,
+          "sha256": "6fcc44fd277786dcd26a837d1e385ef7cf13d5563bd2830556c2dee6cf4918e2"
+        },
+        {
+          "index": 7,
+          "start": 896,
+          "end": 1024,
+          "size": 128,
+          "sha256": "bc187716188db00b803c3318d8f401bc7c51f97bc552754edbfbe0f51b3481f1"
+        },
+        {
+          "index": 8,
+          "start": 1024,
+          "end": 1152,
+          "size": 128,
+          "sha256": "5a75b37b6ecc848a61d8ca010b00ea8940404d6e9641c5bfa074dd57917333d3"
+        },
+        {
+          "index": 9,
+          "start": 1152,
+          "end": 1278,
+          "size": 126,
+          "sha256": "359095684fbfcdace51cd625f54beb5de269999a146948de595cfccb40c73636"
+        }
+      ],
+      "fuzzy": {
+        "algorithm": "ecsh1",
+        "simhash": "99ffd7165bfbd2af",
+        "features": 1271,
+        "unique": 1236
+      }
+    },
+    {
+      "evidence_id": "EV-002",
+      "logical_name": "EV-002_客户名单.csv",
+      "rel_path": "00-originals/EV-002_客户名单.csv",
+      "size": 544,
+      "sha256": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+      "chunk_root": "9ba31047b0a9e4828fb4342c150b49fbee7e8e5733e54750426349f49aecf103",
+      "chunks": [
+        {
+          "index": 0,
+          "start": 0,
+          "end": 128,
+          "size": 128,
+          "sha256": "f42c6f7473851c353f321bb0efb09695c05adfcd423b5906ff16340723abb200"
+        },
+        {
+          "index": 1,
+          "start": 128,
+          "end": 256,
+          "size": 128,
+          "sha256": "83d987264f1f657453f7022b366cee93c093c3b7d105e48f038d046f10ab6496"
+        },
+        {
+          "index": 2,
+          "start": 256,
+          "end": 384,
+          "size": 128,
+          "sha256": "99b97a75fa8134774f748d471e448510ef29fa839859b4a430eba4f1251d89bc"
+        },
+        {
+          "index": 3,
+          "start": 384,
+          "end": 512,
+          "size": 128,
+          "sha256": "d68c086c354d37aa5a58b4df09ce875ee509e520f9c892eaa2722284362006f9"
+        },
+        {
+          "index": 4,
+          "start": 512,
+          "end": 544,
+          "size": 32,
+          "sha256": "c027584c94abefed37309c44faf575bd175017ec1c298da1ff6295b88b382833"
+        }
+      ],
+      "fuzzy": {
+        "algorithm": "ecsh1",
+        "simhash": "5d7902ad68527612",
+        "features": 537,
+        "unique": 481
+      }
+    },
+    {
+      "evidence_id": "EV-003",
+      "logical_name": "EV-003_设备固件片段.bin",
+      "rel_path": "00-originals/EV-003_设备固件片段.bin",
+      "size": 4161,
+      "sha256": "1cfce9a1baf3a203cbafd24a373cbaf470620b23c7fa717404cc87ca0bd8899b",
+      "chunk_root": "2614c2e10166e44908df09123641a1583fd61e063d16a6439673d95e727b3a9a",
+      "chunks": [
+        {
+          "index": 0,
+          "start": 0,
+          "end": 128,
+          "size": 128,
+          "sha256": "1c49b5c14fb731c5024e104e1dc5e683337bfa029efbe383dc138bf6353422ad"
+        },
+        {
+          "index": 1,
+          "start": 128,
+          "end": 256,
+          "size": 128,
+          "sha256": "ad90dcbcae672c4baef3d3e6bba32e3f6a7f3f0529f19337449e34f0981f17da"
+        },
+        {
+          "index": 2,
+          "start": 256,
+          "end": 384,
+          "size": 128,
+          "sha256": "397ab2cc6da78438141df2c8bbfe2041f02bb048b9bd866068399cebf24a1331"
+        },
+        {
+          "index": 3,
+          "start": 384,
+          "end": 512,
+          "size": 128,
+          "sha256": "9707bd142e0c8771958d70f8ad6b317cd244c16a0988b00d6495192ba66183d8"
+        },
+        {
+          "index": 4,
+          "start": 512,
+          "end": 640,
+          "size": 128,
+          "sha256": "e6bc593afb44290b7d6099f8d403e4edd555962fada61631397462739da50d47"
+        },
+        {
+          "index": 5,
+          "start": 640,
+          "end": 768,
+          "size": 128,
+          "sha256": "182ab5653778d58a6795ffd89e8a8dd4a18249fdf9ef2581ae114cc3faa20b2c"
+        },
+        {
+          "index": 6,
+          "start": 768,
+          "end": 896,
+          "size": 128,
+          "sha256": "cc35d29607ca47451de317dcabbb1b62394c4d6423af831064706013809a023c"
+        },
+        {
+          "index": 7,
+          "start": 896,
+          "end": 1024,
+          "size": 128,
+          "sha256": "40eaa71e801d321d9872d8e7f0dcd3a4fd1d2008e51c7962107c31a29c053daf"
+        },
+        {
+          "index": 8,
+          "start": 1024,
+          "end": 1152,
+          "size": 128,
+          "sha256": "0556d8fa287debbf423c143475b13db28e6bfa1a427c6cb087467d6079e4100c"
+        },
+        {
+          "index": 9,
+          "start": 1152,
+          "end": 1280,
+          "size": 128,
+          "sha256": "b3c28025a364f5712cdbc7b682b18aabe4d1083dbd79b19fab4d9e0c644a0c41"
+        },
+        {
+          "index": 10,
+          "start": 1280,
+          "end": 1408,
+          "size": 128,
+          "sha256": "aa23a6fa383591f38f759edd60d6d48aa4758475fd3358174b1b78bcd374bd66"
+        },
+        {
+          "index": 11,
+          "start": 1408,
+          "end": 1536,
+          "size": 128,
+          "sha256": "c03da08c3f8cb0713eb5faba84a4ebbfaeda67fcb80d4b6f4f3a167e9176ac6d"
+        },
+        {
+          "index": 12,
+          "start": 1536,
+          "end": 1664,
+          "size": 128,
+          "sha256": "45249481983b3a3de98c47534df71c3dc00e377fd87b3e768a6481f94d667712"
+        },
+        {
+          "index": 13,
+          "start": 1664,
+          "end": 1792,
+          "size": 128,
+          "sha256": "4c9c4ae53a7d10a94d1873ad32ab551177f036dc081bf27504866bd48442122a"
+        },
+        {
+          "index": 14,
+          "start": 1792,
+          "end": 1920,
+          "size": 128,
+          "sha256": "2883c3c36f8eba35269504f059ead04ef96068ed9b676a22c74d22691ac3cbbc"
+        },
+        {
+          "index": 15,
+          "start": 1920,
+          "end": 2048,
+          "size": 128,
+          "sha256": "098f17cb5bf5849f528dbc0e81a3d3adcc33ffba333a4e2843a0e1abd9be40b8"
+        },
+        {
+          "index": 16,
+          "start": 2048,
+          "end": 2176,
+          "size": 128,
+          "sha256": "20ba0e8c16eaa1fb9dafb062b2aa2911b9531760230c6119e069db8c660749c0"
+        },
+        {
+          "index": 17,
+          "start": 2176,
+          "end": 2304,
+          "size": 128,
+          "sha256": "64d3ecddaf68a70fe1ed5e25283177eb28f91756a7f1ee50a5684ea5733e0580"
+        },
+        {
+          "index": 18,
+          "start": 2304,
+          "end": 2432,
+          "size": 128,
+          "sha256": "a1013ddb9ea46802c591d0e3f418c92f93730d7eae4f969b41c2556b0130695a"
+        },
+        {
+          "index": 19,
+          "start": 2432,
+          "end": 2560,
+          "size": 128,
+          "sha256": "16d32f1a8abe157a72baf7280940834653aff1845c856a8d19bc98db98dc49b4"
+        },
+        {
+          "index": 20,
+          "start": 2560,
+          "end": 2688,
+          "size": 128,
+          "sha256": "f9ca387a2e3cb472e1e7f3aead55c148bee67a7e0e3bdee084a62aab944d8abd"
+        },
+        {
+          "index": 21,
+          "start": 2688,
+          "end": 2816,
+          "size": 128,
+          "sha256": "318f2a36e47816bbe76e2c2bc823d5b552052212235f2e7d866c1496e30acdaa"
+        },
+        {
+          "index": 22,
+          "start": 2816,
+          "end": 2944,
+          "size": 128,
+          "sha256": "78d06746f30e939438d2b9415e8b1e56ad6be72ebd28001d4bfb6d6d283237c2"
+        },
+        {
+          "index": 23,
+          "start": 2944,
+          "end": 3072,
+          "size": 128,
+          "sha256": "79b7b9867c117e6981404042f7fcdb810cf774c67af9b0e0c04d55f6a4f62339"
+        },
+        {
+          "index": 24,
+          "start": 3072,
+          "end": 3200,
+          "size": 128,
+          "sha256": "fedb7fdd28c71cf4b0dbf9760479752c96055c4b1c5c2143764b5be136643525"
+        },
+        {
+          "index": 25,
+          "start": 3200,
+          "end": 3328,
+          "size": 128,
+          "sha256": "ae9c925c3c28bf193385daed935ffc9b5741a8064ca6059cd9ab90239835a6cd"
+        },
+        {
+          "index": 26,
+          "start": 3328,
+          "end": 3456,
+          "size": 128,
+          "sha256": "f4121232172167e80389a41a50d76b86bf52d8bed7a73b688928a9d2fd4524a7"
+        },
+        {
+          "index": 27,
+          "start": 3456,
+          "end": 3584,
+          "size": 128,
+          "sha256": "a7b74613afca37df408de97469b77f49856a560db62a488d39c43244c703f463"
+        },
+        {
+          "index": 28,
+          "start": 3584,
+          "end": 3712,
+          "size": 128,
+          "sha256": "53db7ca737445f2b1cb57f7cbdeca63c2c888f963909fb95e687bd56caece4cc"
+        },
+        {
+          "index": 29,
+          "start": 3712,
+          "end": 3840,
+          "size": 128,
+          "sha256": "84af5f8635fa846f7f210d1cd04c2cd50d5fbc321ce4720ba4fec92248390b2d"
+        },
+        {
+          "index": 30,
+          "start": 3840,
+          "end": 3968,
+          "size": 128,
+          "sha256": "78e259b5acc2d8744f4b0c4756d934c4a5cfe34cf2f9b2922194eb0790fb8787"
+        },
+        {
+          "index": 31,
+          "start": 3968,
+          "end": 4096,
+          "size": 128,
+          "sha256": "24d2debd651d47db4888547e8ed63684259488320bf4d487f40a41b984e0291b"
+        },
+        {
+          "index": 32,
+          "start": 4096,
+          "end": 4161,
+          "size": 65,
+          "sha256": "52f760dd152b507dfd2581a2579f1752c98d7ddb95fcad13162065c70f13ba27"
+        }
+      ],
+      "fuzzy": {
+        "algorithm": "ecsh1",
+        "simhash": "81fc0c2174668626",
+        "features": 4154,
+        "unique": 4121
+      }
+    },
+    {
+      "evidence_id": "EV-004",
+      "logical_name": "EV-004_出入口抓拍.png",
+      "rel_path": "00-originals/EV-004_出入口抓拍.png",
+      "size": 1409,
+      "sha256": "53698c9f6b47abd156408cb358f8f64972d95fe43329e4103f09523b9e4d6d86",
+      "chunk_root": "de6419aef8280fc8395e8c06e8a124f4766c182eb7a23cf4173b720aa61e7269",
+      "chunks": [
+        {
+          "index": 0,
+          "start": 0,
+          "end": 128,
+          "size": 128,
+          "sha256": "154c5d461dc3e5319b22c9a13838d65928351b4e330af480b3d5401a4025b55e"
+        },
+        {
+          "index": 1,
+          "start": 128,
+          "end": 256,
+          "size": 128,
+          "sha256": "14f21b8472f9b68ef01ac1582d080d5645652b945cc9045f278ddaf9a26de0d2"
+        },
+        {
+          "index": 2,
+          "start": 256,
+          "end": 384,
+          "size": 128,
+          "sha256": "4fa04c6235c596bcb3212c88d9e6d6d9bc987ddf94a2f444a2146e34d3e66f33"
+        },
+        {
+          "index": 3,
+          "start": 384,
+          "end": 512,
+          "size": 128,
+          "sha256": "73997ac5801d5b53253ac13dfd38b65c7a8094e6b3547d069800868093c70a36"
+        },
+        {
+          "index": 4,
+          "start": 512,
+          "end": 640,
+          "size": 128,
+          "sha256": "06c735813e346c69859773f77558d37d3720f285f4f9cec3631be7fda90dcbce"
+        },
+        {
+          "index": 5,
+          "start": 640,
+          "end": 768,
+          "size": 128,
+          "sha256": "637e4a3fcb7c401a5466456a32589b6f1d68a0fa7c2a10715edf6fa3bc11e726"
+        },
+        {
+          "index": 6,
+          "start": 768,
+          "end": 896,
+          "size": 128,
+          "sha256": "dbb3bc5eb683f96f0692c460548f67e66a5316c6e3a4e63a80ec937380db4ae2"
+        },
+        {
+          "index": 7,
+          "start": 896,
+          "end": 1024,
+          "size": 128,
+          "sha256": "33d5aa095cd828035d7eab3c4206743e26124d5552a84e34a8cf60460982dd86"
+        },
+        {
+          "index": 8,
+          "start": 1024,
+          "end": 1152,
+          "size": 128,
+          "sha256": "4bbd529ddfcb3185e75a5cadecc49dd1d7e8c583fce7b6b5553f9169267faf1e"
+        },
+        {
+          "index": 9,
+          "start": 1152,
+          "end": 1280,
+          "size": 128,
+          "sha256": "302a6cb08252dbd1dd7bacb29961d7bedefdf4fe2fcddf0923022a6af39a4e02"
+        },
+        {
+          "index": 10,
+          "start": 1280,
+          "end": 1408,
+          "size": 128,
+          "sha256": "653f045f29fc5bd33f5535888b72057706ea1c174246da65b6f5d64c687ae8bb"
+        },
+        {
+          "index": 11,
+          "start": 1408,
+          "end": 1409,
+          "size": 1,
+          "sha256": "a5ab782c805e8bfbe34cb65742a0471cf5a53a97f0a1160ab6cccbb64c9131ce"
+        }
+      ],
+      "fuzzy": {
+        "algorithm": "ecsh1",
+        "simhash": "c732253a165cdb91",
+        "features": 1402,
+        "unique": 1402
+      }
+    }
+  ]
+}

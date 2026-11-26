@@ -1,0 +1,184 @@
+{
+  "schema": "evidencechain/v1",
+  "case_id": "CASE-2026-1127",
+  "analyst": "何鉴（证据链演练中的虚构分析员，工号 HJ-07）",
+  "reviewed_at": "2026-11-27T10:30:00+08:00",
+  "judgments": [
+    {
+      "id": "J-01",
+      "target": "file:30-field-returns/未命名_扫描件_01.dat",
+      "verdict": "rename-confirmed",
+      "confidence": "高",
+      "basis": ["exact-sha256", "content-hash-identification"],
+      "rationale": "该 .dat 文件的完整 SHA-256 与 EV-001 完全一致，位级同一；文件名与扩展名均被更改，不影响内容同一认定。"
+    },
+    {
+      "id": "J-02",
+      "target": "file:30-field-returns/客户导出_20261126.csv",
+      "verdict": "rename-confirmed",
+      "confidence": "高",
+      "basis": ["exact-sha256"],
+      "rationale": "完整 SHA-256 精确命中 EV-002，仅文件名不同，认定为同一文件的改名回传。"
+    },
+    {
+      "id": "J-03",
+      "target": "file:30-field-returns/值班日志_外传修订版.txt",
+      "verdict": "tamper-localized",
+      "confidence": "高",
+      "basis": ["exact-sha256", "chunk-sha256", "byte-offset-diff", "manual-review"],
+      "rationale": "整文件哈希不同，但 10 个对齐块中 8 个与 EV-001 逐块相同，差异集中在第 3、4 块（字节区间 384-640）。人工 diff 确认仅把出警时间 02:40 改为 01:50、3号库改为5号库，文件总长度不变；后文 02:55 处置记录、3号库门锁复查及备注中的 02:40 均未同步修改，形成明显内部矛盾，反向印证局部篡改。"
+    },
+    {
+      "id": "J-04",
+      "target": "file:30-field-returns/值班日志_同题仿作.txt",
+      "verdict": "similarity-only",
+      "confidence": "中",
+      "basis": ["fuzzy-similarity", "manual-text-review"],
+      "rationale": "与 EV-001 的 8 字节 shingle Jaccard 相似度约 28.7%、SimHash 汉明距离 13，超过相似线索阈值；但没有任何对齐块哈希相同，完整 SHA-256 不同。人工通读为同模板、同行业套话下的不同值班记录（日期、人员、事件均不同），只能判定为相似文本。"
+    },
+    {
+      "id": "J-05",
+      "target": "file:30-field-returns/值班日志_同题仿作.txt",
+      "verdict": "uncertain-origin",
+      "confidence": "低",
+      "basis": ["fuzzy-similarity", "manual-text-review"],
+      "rationale": "无法仅凭哈希与文本判断它是否参考/抄袭 EV-001，也无法判断二者是否来自同一模板来源；需要文档元数据、编辑历史或传播链路等额外证据。相似哈希绝不能作为同源结论。"
+    },
+    {
+      "id": "J-06",
+      "target": "file:30-field-returns/设备缓存_dc88.bin",
+      "verdict": "unknown-item",
+      "confidence": "高",
+      "basis": ["exact-sha256", "fuzzy-similarity"],
+      "rationale": "无任何基准哈希命中，与全部原件相似度接近 0；可以高置信度地说它不属于已固定的四件原件集合，但其具体用途与来源未知。"
+    },
+    {
+      "id": "J-07",
+      "target": "file:30-field-returns/设备缓存_dc88.bin",
+      "verdict": "uncertain-origin",
+      "confidence": "低",
+      "basis": ["manual-review"],
+      "rationale": "内容为确定性伪随机字节（演练夹具），真实案件中需结合文件格式识别、逆向或现场关联进一步判断，当前不对来源作任何归因。"
+    },
+    {
+      "id": "J-08",
+      "target": "container:20-containers/sealed-pack.zip",
+      "verdict": "container-set-confirmed",
+      "confidence": "高",
+      "basis": ["memberset-sha256", "exact-sha256"],
+      "rationale": "基准封存包，成员集合摘要与 EV-001..EV-004 完全一致，四个成员均精确命中。"
+    },
+    {
+      "id": "J-09",
+      "target": "container:30-field-returns/backup_20261126.zip",
+      "verdict": "container-rearranged",
+      "confidence": "高",
+      "basis": ["memberset-sha256", "exact-sha256"],
+      "rationale": "容器文件 SHA-256 与封存包不同，但成员内容集合摘要完全相同；四个成员全部精确命中 EV-001..EV-004，仅条目顺序被打乱且均改为通用文件名。结论：同一内容集合的改名与重排/重打包。"
+    },
+    {
+      "id": "J-10",
+      "target": "container:30-field-returns/现场资料_打包.tar",
+      "verdict": "container-rearranged",
+      "confidence": "高",
+      "basis": ["memberset-sha256", "exact-sha256"],
+      "rationale": "tar 中 blob_a.bin、pic_b.png 分别精确命中 EV-003、EV-004，是原件集合的子集并跨容器迁移、改名；容器格式由 zip 变为 tar 不影响成员同一认定。"
+    },
+    {
+      "id": "J-11",
+      "target": "container:30-field-returns/邮件附件_日志终稿.zip",
+      "verdict": "container-contains-tamper",
+      "confidence": "高",
+      "basis": ["member-hash", "chunk-sha256"],
+      "rationale": "混合容器：客户名单成员完好命中 EV-002，而“日志终稿”成员未精确命中，需按成员级块差异认定为篡改件。"
+    },
+    {
+      "id": "J-12",
+      "target": "member:30-field-returns/邮件附件_日志终稿.zip#日志终稿(请查收).txt",
+      "verdict": "tamper-localized",
+      "confidence": "高",
+      "basis": ["chunk-sha256", "fuzzy-similarity", "manual-review"],
+      "rationale": "压缩包内成员与 loose 的外传修订版表现一致：高相似且差异块定位相同，说明同一篡改文本被放入邮件容器传播；容器解析无需先落地即可对成员检验。"
+    },
+    {
+      "id": "J-13",
+      "target": "watch:WL-1",
+      "verdict": "watchlist-hit",
+      "confidence": "高",
+      "basis": ["exact-sha256"],
+      "rationale": "协查通报中的完整 SHA-256 精确命中 EV-002，并同时出现在改名回传文件与多个容器成员中。"
+    },
+    {
+      "id": "J-14",
+      "target": "watch:WL-2",
+      "verdict": "watchlist-rejected",
+      "confidence": "高",
+      "basis": ["full-sha256-required", "prefix-only"],
+      "rationale": "该值与 EV-003 仅有 12 位十六进制前缀相同、全值不同。前缀/疑似转录错误的哈希不能作为同一认定，工具正确拒绝命中。"
+    },
+    {
+      "id": "J-15",
+      "target": "watch:WL-2",
+      "verdict": "uncertain-origin",
+      "confidence": "低",
+      "basis": ["prefix-only"],
+      "rationale": "无法确认通报中的哈希是否本想指向 EV-003（截断、口口转录错误）还是无关样本；需向通报来源核对完整值。"
+    },
+    {
+      "id": "J-16",
+      "target": "watch:WL-3",
+      "verdict": "watchlist-similarity-lead",
+      "confidence": "高",
+      "basis": ["fuzzy-similarity"],
+      "rationale": "模糊指纹与 EV-001 的 SimHash 汉明距离为 0/64，但篡改件同样距离很小。模糊哈希相同只表示高度相似，既不能证明字节同一，也不能证明共同来源。"
+    },
+    {
+      "id": "J-17",
+      "target": "watch:WL-4",
+      "verdict": "watchlist-rejected",
+      "confidence": "高",
+      "basis": ["exact-sha256"],
+      "rationale": "完整哈希在案例材料中无命中，相似性也不足，按无命中处理。"
+    },
+    {
+      "id": "J-18",
+      "target": "link:L-01",
+      "verdict": "link-verified",
+      "confidence": "高",
+      "basis": ["exact-sha256"],
+      "rationale": "EV-001 字节副本与来源哈希一致。"
+    },
+    {
+      "id": "J-19",
+      "target": "link:L-02",
+      "verdict": "link-verified",
+      "confidence": "高",
+      "basis": ["deterministic-transform", "manual-review"],
+      "rationale": "规范化文本可由 derive.NormalizeEOL 从 EV-001 确定性复算，人工确认仅统一换行与行尾空白，未改动事实内容。"
+    },
+    {
+      "id": "J-20",
+      "target": "link:L-04",
+      "verdict": "link-verified",
+      "confidence": "高",
+      "basis": ["pixel-compare", "manual-image-inspection"],
+      "rationale": "PNG 重编码副本字节哈希不同，但解码像素逐点一致；分析员查看原图为 96×96 合成图形（渐变背景、黄色圆形、斜向线条与底部横线），未发现可识别人脸或车牌，重编码不改变画面。"
+    },
+    {
+      "id": "J-21",
+      "target": "link:L-03",
+      "verdict": "link-verified",
+      "confidence": "高",
+      "basis": ["exact-sha256"],
+      "rationale": "EV-002 字节副本与来源哈希一致。"
+    },
+    {
+      "id": "J-22",
+      "target": "link:L-05",
+      "verdict": "link-verified",
+      "confidence": "高",
+      "basis": ["memberset-sha256"],
+      "rationale": "封存 zip 的成员集合摘要与声明的四件来源一致。"
+    }
+  ]
+}

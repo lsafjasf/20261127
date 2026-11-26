@@ -1,0 +1,34 @@
+{
+  "schema": "evidencechain/v1",
+  "case_id": "CASE-2026-1127",
+  "source": "虚构协查通报 XB-2026-1127（教学数据）",
+  "hashes": [
+    {
+      "label": "WL-1 客户名单完整哈希",
+      "kind": "sha256",
+      "value": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+      "intended_evidence": "EV-002",
+      "note": "通报要求排查的完整 SHA-256"
+    },
+    {
+      "label": "WL-2 设备固件疑似哈希（转录可能有误）",
+      "kind": "sha256-lookalike",
+      "value": "1cfce9a1baf366e7aec2d0d0626659fde7066295f3ef72609e3fcb802023c78b",
+      "intended_evidence": "EV-003",
+      "note": "与 EV-003 共享 12 位前缀，但全值不同；不得据此认定同一"
+    },
+    {
+      "label": "WL-3 值班日志模糊指纹",
+      "kind": "fuzzy",
+      "value": "99ffd7165bfbd2af",
+      "intended_evidence": "EV-001",
+      "note": "仅用于发现相似材料，不能证明同一来源"
+    },
+    {
+      "label": "WL-4 无关样本哈希",
+      "kind": "sha256",
+      "value": "592bbe611df9a896c60bad20ee560922cb3f6bcaaf184d6979dead7b06b9e5d8",
+      "note": "用于演示无命中"
+    }
+  ]
+}

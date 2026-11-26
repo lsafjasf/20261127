@@ -1,0 +1,665 @@
+{
+  "schema": "evidencechain/v1",
+  "tool": "evidencechain",
+  "version": "1.0.0",
+  "case_id": "CASE-2026-1127",
+  "ok": true,
+  "summary": {
+    "anchor_intact": 4,
+    "anchors": 4,
+    "container_contains-altered-or-unknown": 1,
+    "container_pristine-anchor-set": 2,
+    "container_pristine-subset": 1,
+    "containers": 4,
+    "errors": 0,
+    "field_files": 5,
+    "file_identified": 2,
+    "file_similar-only": 1,
+    "file_tampered-localized": 1,
+    "file_unknown": 1,
+    "findings": 10,
+    "judgment_supported": 19,
+    "judgment_uncertain-allowed": 3,
+    "judgments": 22,
+    "link_verified": 5,
+    "provenance_links": 5,
+    "warnings": 0,
+    "watch_exact-hit": 1,
+    "watch_no-match": 1,
+    "watch_rejected-prefix-only": 1,
+    "watch_similarity-lead": 1,
+    "watchlist_items": 4
+  },
+  "anchors": [
+    {
+      "evidence_id": "EV-001",
+      "rel_path": "00-originals/EV-001_值班日志_20261120.txt",
+      "status": "intact",
+      "detail": "SHA-256、尺寸与索引一致"
+    },
+    {
+      "evidence_id": "EV-002",
+      "rel_path": "00-originals/EV-002_客户名单.csv",
+      "status": "intact",
+      "detail": "SHA-256、尺寸与索引一致"
+    },
+    {
+      "evidence_id": "EV-003",
+      "rel_path": "00-originals/EV-003_设备固件片段.bin",
+      "status": "intact",
+      "detail": "SHA-256、尺寸与索引一致"
+    },
+    {
+      "evidence_id": "EV-004",
+      "rel_path": "00-originals/EV-004_出入口抓拍.png",
+      "status": "intact",
+      "detail": "SHA-256、尺寸与索引一致"
+    }
+  ],
+  "links": [
+    {
+      "id": "L-01",
+      "to": "10-derived/EV-001.字节副本.txt",
+      "relation": "byte-copy",
+      "status": "verified",
+      "detail": "字节副本 SHA-256 与来源一致"
+    },
+    {
+      "id": "L-02",
+      "to": "10-derived/EV-001.规范化.txt",
+      "relation": "normalize-eol",
+      "status": "verified",
+      "detail": "规范化结果可由来源确定性复算"
+    },
+    {
+      "id": "L-03",
+      "to": "10-derived/EV-002.字节副本.csv",
+      "relation": "byte-copy",
+      "status": "verified",
+      "detail": "字节副本 SHA-256 与来源一致"
+    },
+    {
+      "id": "L-04",
+      "to": "10-derived/EV-004.像素重编码.png",
+      "relation": "png-reencode",
+      "status": "verified",
+      "detail": "字节哈希不同，但解码像素逐点完全一致"
+    },
+    {
+      "id": "L-05",
+      "to": "20-containers/sealed-pack.zip",
+      "relation": "zip-pack",
+      "status": "verified",
+      "detail": "容器成员集合摘要与声明的来源集合一致（与顺序/名称无关）"
+    }
+  ],
+  "field_files": [
+    {
+      "path": "30-field-returns/值班日志_同题仿作.txt",
+      "size": 1265,
+      "sha256": "6ae2407a43a81c055f99bdbea852008670c8bcea53e0182cde7f4a571d9de5e6",
+      "status": "similar-only",
+      "candidate": "EV-001",
+      "fuzzy": {
+        "jaccard_percent": 28.7,
+        "hamming_bits": 13,
+        "lead": true
+      },
+      "block_diffs": [
+        {
+          "chunk_index": 0,
+          "start": 0,
+          "end": 128,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 1,
+          "start": 128,
+          "end": 256,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 2,
+          "start": 256,
+          "end": 384,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 3,
+          "start": 384,
+          "end": 512,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 4,
+          "start": 512,
+          "end": 640,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 5,
+          "start": 640,
+          "end": 768,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 6,
+          "start": 768,
+          "end": 896,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 7,
+          "start": 896,
+          "end": 1024,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 8,
+          "start": 1024,
+          "end": 1152,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 9,
+          "start": 1152,
+          "end": 1265,
+          "status": "differ"
+        }
+      ],
+      "total_blocks": 10,
+      "detail": "仅存在相似性信号；没有完整哈希或足够对齐块支持同一/篡改结论"
+    },
+    {
+      "path": "30-field-returns/值班日志_外传修订版.txt",
+      "size": 1278,
+      "sha256": "31c79f6e10de14fa019174206ea08733391890c447d5797af467ad83fc0e94ef",
+      "status": "tampered-localized",
+      "candidate": "EV-001",
+      "fuzzy": {
+        "jaccard_percent": 97.2,
+        "hamming_bits": 3,
+        "lead": true
+      },
+      "block_diffs": [
+        {
+          "chunk_index": 3,
+          "start": 384,
+          "end": 512,
+          "status": "differ"
+        },
+        {
+          "chunk_index": 4,
+          "start": 512,
+          "end": 640,
+          "status": "differ"
+        }
+      ],
+      "matched_blocks": 8,
+      "total_blocks": 10,
+      "detail": "整文件 SHA-256 不一致，但多数对齐块仍与基准逐块相同，可定位局部篡改"
+    },
+    {
+      "path": "30-field-returns/客户导出_20261126.csv",
+      "size": 544,
+      "sha256": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+      "status": "identified",
+      "matched_evidence": "EV-002",
+      "renamed_from": "EV-002_客户名单.csv",
+      "detail": "完整 SHA-256 与基准一致：位级同一（改名不影响内容认定）"
+    },
+    {
+      "path": "30-field-returns/未命名_扫描件_01.dat",
+      "size": 1278,
+      "sha256": "abddb74ee677bda3f55dd6a02b262e2556971422d1a9797db1337df19ae9a7aa",
+      "status": "identified",
+      "matched_evidence": "EV-001",
+      "renamed_from": "EV-001_值班日志_20261120.txt",
+      "detail": "完整 SHA-256 与基准一致：位级同一（改名不影响内容认定）"
+    },
+    {
+      "path": "30-field-returns/设备缓存_dc88.bin",
+      "size": 896,
+      "sha256": "295b6ed235c09c8aeb6da8f235167d1e85d948721cddce5ee3ccd5645a666215",
+      "status": "unknown",
+      "detail": "未命中任何基准哈希，且无显著相似性；来源不明"
+    }
+  ],
+  "containers": [
+    {
+      "path": "20-containers/sealed-pack.zip",
+      "format": "zip",
+      "file_sha256": "85c4bf32e1419297b5862efe503d2288baf7a437305cda3cbe2185d45706150a",
+      "memberset_sha256": "0166da513ef82ff52124c250f402fbcb80a7c457052fcba7ea88f43708655f13",
+      "pathset_sha256": "3592b0e5d98098d1e03fc5f2ba443d0c65f5782b60d7d04c9c399a675ee6e073",
+      "matches_anchor_set": "EV-001,EV-002,EV-003,EV-004",
+      "status": "pristine-anchor-set",
+      "members": [
+        {
+          "name": "EV-001_值班日志_20261120.txt",
+          "size": 1278,
+          "sha256": "abddb74ee677bda3f55dd6a02b262e2556971422d1a9797db1337df19ae9a7aa",
+          "status": "identified",
+          "matched_evidence": "EV-001"
+        },
+        {
+          "name": "EV-002_客户名单.csv",
+          "size": 544,
+          "sha256": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+          "status": "identified",
+          "matched_evidence": "EV-002"
+        },
+        {
+          "name": "EV-003_设备固件片段.bin",
+          "size": 4161,
+          "sha256": "1cfce9a1baf3a203cbafd24a373cbaf470620b23c7fa717404cc87ca0bd8899b",
+          "status": "identified",
+          "matched_evidence": "EV-003"
+        },
+        {
+          "name": "EV-004_出入口抓拍.png",
+          "size": 1409,
+          "sha256": "53698c9f6b47abd156408cb358f8f64972d95fe43329e4103f09523b9e4d6d86",
+          "status": "identified",
+          "matched_evidence": "EV-004"
+        }
+      ],
+      "detail": "成员内容集合摘要与全部基准原件完全一致：仅存在改名/重排/重打包"
+    },
+    {
+      "path": "30-field-returns/backup_20261126.zip",
+      "format": "zip",
+      "file_sha256": "0197553b603515931a46c054d793aa71e5dc51fcbbdfd3d17a6998a851de8e38",
+      "memberset_sha256": "0166da513ef82ff52124c250f402fbcb80a7c457052fcba7ea88f43708655f13",
+      "pathset_sha256": "73dc61caf57fcae2d3a2c144d4dc290b740c038f2a4ccbf4df384258fb143154",
+      "matches_anchor_set": "EV-001,EV-002,EV-003,EV-004",
+      "status": "pristine-anchor-set",
+      "members": [
+        {
+          "name": "dump_fw.bin",
+          "size": 4161,
+          "sha256": "1cfce9a1baf3a203cbafd24a373cbaf470620b23c7fa717404cc87ca0bd8899b",
+          "status": "identified",
+          "matched_evidence": "EV-003",
+          "renamed_from": "EV-003_设备固件片段.bin"
+        },
+        {
+          "name": "memo_final.txt",
+          "size": 1278,
+          "sha256": "abddb74ee677bda3f55dd6a02b262e2556971422d1a9797db1337df19ae9a7aa",
+          "status": "identified",
+          "matched_evidence": "EV-001",
+          "renamed_from": "EV-001_值班日志_20261120.txt"
+        },
+        {
+          "name": "cap_0926.png",
+          "size": 1409,
+          "sha256": "53698c9f6b47abd156408cb358f8f64972d95fe43329e4103f09523b9e4d6d86",
+          "status": "identified",
+          "matched_evidence": "EV-004",
+          "renamed_from": "EV-004_出入口抓拍.png"
+        },
+        {
+          "name": "customers_q4.csv",
+          "size": 544,
+          "sha256": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+          "status": "identified",
+          "matched_evidence": "EV-002",
+          "renamed_from": "EV-002_客户名单.csv"
+        }
+      ],
+      "detail": "成员内容集合摘要与全部基准原件完全一致：仅存在改名/重排/重打包"
+    },
+    {
+      "path": "30-field-returns/现场资料_打包.tar",
+      "format": "tar",
+      "file_sha256": "ab45948e21d7c88e9b1512564ca8543b4fcf955239dd9c23b63999e8041aa009",
+      "memberset_sha256": "2878400fb29aa2648ffa50716622841a17287e1ec3c3c13f22c9a30a5900d097",
+      "pathset_sha256": "d49b55343e2bc2ac0e0c1f2458f7cd1e1d06ac0d895203e0c161a2996d8b81ec",
+      "status": "pristine-subset",
+      "members": [
+        {
+          "name": "blob_a.bin",
+          "size": 4161,
+          "sha256": "1cfce9a1baf3a203cbafd24a373cbaf470620b23c7fa717404cc87ca0bd8899b",
+          "status": "identified",
+          "matched_evidence": "EV-003",
+          "renamed_from": "EV-003_设备固件片段.bin"
+        },
+        {
+          "name": "pic_b.png",
+          "size": 1409,
+          "sha256": "53698c9f6b47abd156408cb358f8f64972d95fe43329e4103f09523b9e4d6d86",
+          "status": "identified",
+          "matched_evidence": "EV-004",
+          "renamed_from": "EV-004_出入口抓拍.png"
+        }
+      ],
+      "detail": "所有成员均精确命中基准哈希，为原件集合的子集（可能跨容器迁移）"
+    },
+    {
+      "path": "30-field-returns/邮件附件_日志终稿.zip",
+      "format": "zip",
+      "file_sha256": "bbae3950f52846935c818a1d5178c024f22a78e2b016d0022d44f5c4f9352c53",
+      "memberset_sha256": "7a126958f917541dbae1dda6a5e6bb1987251b31101ba4a28dcd671977974e57",
+      "pathset_sha256": "4207f719c2d98788560d607c3df7eb051be65588b32bf60198a66bd2e8191ea6",
+      "status": "contains-altered-or-unknown",
+      "members": [
+        {
+          "name": "日志终稿(请查收).txt",
+          "size": 1278,
+          "sha256": "31c79f6e10de14fa019174206ea08733391890c447d5797af467ad83fc0e94ef",
+          "status": "tampered-localized",
+          "candidate": "EV-001",
+          "fuzzy": {
+            "jaccard_percent": 97.2,
+            "hamming_bits": 3,
+            "lead": true
+          },
+          "block_diffs": [
+            {
+              "chunk_index": 3,
+              "start": 384,
+              "end": 512,
+              "status": "differ"
+            },
+            {
+              "chunk_index": 4,
+              "start": 512,
+              "end": 640,
+              "status": "differ"
+            }
+          ],
+          "matched_blocks": 8,
+          "total_blocks": 10
+        },
+        {
+          "name": "客户名单(最新).csv",
+          "size": 544,
+          "sha256": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+          "status": "identified",
+          "matched_evidence": "EV-002",
+          "renamed_from": "EV-002_客户名单.csv"
+        }
+      ],
+      "detail": "存在未精确命中基准的成员，需要篡改定位或相似性分析"
+    }
+  ],
+  "watchlist": [
+    {
+      "label": "WL-1 客户名单完整哈希",
+      "kind": "sha256",
+      "value": "16ba382736fa7bca6febc82a62d4f805338edf2c6e9fff253f79d5becbcaee51",
+      "status": "exact-hit",
+      "against": "anchor:EV-002(EV-002_客户名单.csv) ; file:30-field-returns/客户导出_20261126.csv ; member:20-containers/sealed-pack.zip#EV-002_客户名单.csv ; member:30-field-returns/backup_20261126.zip#customers_q4.csv ; member:30-field-returns/邮件附件_日志终稿.zip#客户名单(最新).csv",
+      "detail": "完整 64 位哈希精确命中 5 处（含基准原件与派生/回传位置）"
+    },
+    {
+      "label": "WL-2 设备固件疑似哈希（转录可能有误）",
+      "kind": "sha256-lookalike",
+      "value": "1cfce9a1baf366e7aec2d0d0626659fde7066295f3ef72609e3fcb802023c78b",
+      "status": "rejected-prefix-only",
+      "against": "EV-003",
+      "detail": "与 EV-003 仅有 12 位十六进制前缀相同，全值不同；相似/前缀哈希不是同一证据"
+    },
+    {
+      "label": "WL-3 值班日志模糊指纹",
+      "kind": "fuzzy",
+      "value": "99ffd7165bfbd2af",
+      "status": "similarity-lead",
+      "against": "EV-001",
+      "detail": "SimHash 汉明距离 0/64，仅说明相似；即使距离为 0 也不等于文件同一或同源"
+    },
+    {
+      "label": "WL-4 无关样本哈希",
+      "kind": "sha256",
+      "value": "592bbe611df9a896c60bad20ee560922cb3f6bcaaf184d6979dead7b06b9e5d8",
+      "status": "no-match",
+      "detail": "全值无命中，亦无值得报告的前缀相似"
+    }
+  ],
+  "judgments": [
+    {
+      "id": "J-01",
+      "target": "file:30-field-returns/未命名_扫描件_01.dat",
+      "verdict": "rename-confirmed",
+      "status": "supported",
+      "detail": "完整哈希精确命中，同一认定有机器事实支撑"
+    },
+    {
+      "id": "J-02",
+      "target": "file:30-field-returns/客户导出_20261126.csv",
+      "verdict": "rename-confirmed",
+      "status": "supported",
+      "detail": "完整哈希精确命中，同一认定有机器事实支撑"
+    },
+    {
+      "id": "J-03",
+      "target": "file:30-field-returns/值班日志_外传修订版.txt",
+      "verdict": "tamper-localized",
+      "status": "supported",
+      "detail": "块级哈希差异已定位，局部篡改结论成立"
+    },
+    {
+      "id": "J-04",
+      "target": "file:30-field-returns/值班日志_同题仿作.txt",
+      "verdict": "similarity-only",
+      "status": "supported",
+      "detail": "仅主张相似性；记录明确排除同一/同源推断，用法正确"
+    },
+    {
+      "id": "J-05",
+      "target": "file:30-field-returns/值班日志_同题仿作.txt",
+      "verdict": "uncertain-origin",
+      "status": "uncertain-allowed",
+      "detail": "分析员明确保留不确定性；证据链允许并显式记录该结论"
+    },
+    {
+      "id": "J-06",
+      "target": "file:30-field-returns/设备缓存_dc88.bin",
+      "verdict": "unknown-item",
+      "status": "supported",
+      "detail": "对象无哈希命中且无显著相似性，未知结论与事实一致"
+    },
+    {
+      "id": "J-07",
+      "target": "file:30-field-returns/设备缓存_dc88.bin",
+      "verdict": "uncertain-origin",
+      "status": "uncertain-allowed",
+      "detail": "分析员明确保留不确定性；证据链允许并显式记录该结论"
+    },
+    {
+      "id": "J-08",
+      "target": "container:20-containers/sealed-pack.zip",
+      "verdict": "container-set-confirmed",
+      "status": "supported",
+      "detail": "容器成员集合与基准原件集合（或其子集）一致，封存/迁移关系成立"
+    },
+    {
+      "id": "J-09",
+      "target": "container:30-field-returns/backup_20261126.zip",
+      "verdict": "container-rearranged",
+      "status": "supported",
+      "detail": "成员内容集合摘要证明容器仅改名/重排，内容未变"
+    },
+    {
+      "id": "J-10",
+      "target": "container:30-field-returns/现场资料_打包.tar",
+      "verdict": "container-rearranged",
+      "status": "supported",
+      "detail": "成员内容集合摘要证明容器仅改名/重排，内容未变"
+    },
+    {
+      "id": "J-11",
+      "target": "container:30-field-returns/邮件附件_日志终稿.zip",
+      "verdict": "container-contains-tamper",
+      "status": "supported",
+      "detail": "容器内存在未精确命中的成员，已结合成员级块差异/相似性检验处理"
+    },
+    {
+      "id": "J-12",
+      "target": "member:30-field-returns/邮件附件_日志终稿.zip#日志终稿(请查收).txt",
+      "verdict": "tamper-localized",
+      "status": "supported",
+      "detail": "块级哈希差异已定位，局部篡改结论成立"
+    },
+    {
+      "id": "J-13",
+      "target": "watch:WL-1",
+      "verdict": "watchlist-hit",
+      "status": "supported",
+      "detail": "协查哈希完整精确命中"
+    },
+    {
+      "id": "J-14",
+      "target": "watch:WL-2",
+      "verdict": "watchlist-rejected",
+      "status": "supported",
+      "detail": "工具正确拒绝了把前缀/残缺/模糊哈希当作同一命中"
+    },
+    {
+      "id": "J-15",
+      "target": "watch:WL-2",
+      "verdict": "uncertain-origin",
+      "status": "uncertain-allowed",
+      "detail": "分析员明确保留不确定性；证据链允许并显式记录该结论"
+    },
+    {
+      "id": "J-16",
+      "target": "watch:WL-3",
+      "verdict": "watchlist-similarity-lead",
+      "status": "supported",
+      "detail": "协查模糊指纹仅产生相似线索；明确不得据此认定同一来源"
+    },
+    {
+      "id": "J-17",
+      "target": "watch:WL-4",
+      "verdict": "watchlist-rejected",
+      "status": "supported",
+      "detail": "工具正确拒绝了把前缀/残缺/模糊哈希当作同一命中"
+    },
+    {
+      "id": "J-18",
+      "target": "link:L-01",
+      "verdict": "link-verified",
+      "status": "supported",
+      "detail": "派生/保管步骤可复算验证"
+    },
+    {
+      "id": "J-19",
+      "target": "link:L-02",
+      "verdict": "link-verified",
+      "status": "supported",
+      "detail": "派生/保管步骤可复算验证"
+    },
+    {
+      "id": "J-20",
+      "target": "link:L-04",
+      "verdict": "link-verified",
+      "status": "supported",
+      "detail": "派生/保管步骤可复算验证"
+    },
+    {
+      "id": "J-21",
+      "target": "link:L-03",
+      "verdict": "link-verified",
+      "status": "supported",
+      "detail": "派生/保管步骤可复算验证"
+    },
+    {
+      "id": "J-22",
+      "target": "link:L-05",
+      "verdict": "link-verified",
+      "status": "supported",
+      "detail": "派生/保管步骤可复算验证"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-SEAL",
+      "title": "原始材料封印完好",
+      "severity": "info",
+      "status": "confirmed",
+      "summary": "4 件原始材料的 SHA-256 与哈希索引一致，信任基准未被改动。"
+    },
+    {
+      "id": "F-RENAME",
+      "title": "改名文件经内容哈希同一认定",
+      "severity": "confirmed",
+      "status": "confirmed",
+      "summary": "2 个文件改名但完整 SHA-256 精确命中原件：EV-002（原名 EV-002_客户名单.csv → 现名 30-field-returns/客户导出_20261126.csv）；EV-001（原名 EV-001_值班日志_20261120.txt → 现名 30-field-returns/未命名_扫描件_01.dat）"
+    },
+    {
+      "id": "F-REPACK-679f",
+      "title": "容器改名/重排但成员集合未变",
+      "severity": "confirmed",
+      "status": "confirmed",
+      "summary": "20-containers/sealed-pack.zip 的成员内容集合摘要与全部基准原件一致；条目改名、顺序重排和重打包只改变容器文件哈希。",
+      "evidence": [
+        "20-containers/sealed-pack.zip",
+        "0166da513ef82ff52124c250f402fbcb80a7c457052fcba7ea88f43708655f13"
+      ]
+    },
+    {
+      "id": "F-REPACK-a1a6",
+      "title": "容器改名/重排但成员集合未变",
+      "severity": "confirmed",
+      "status": "confirmed",
+      "summary": "30-field-returns/backup_20261126.zip 的成员内容集合摘要与全部基准原件一致；条目改名、顺序重排和重打包只改变容器文件哈希。",
+      "evidence": [
+        "30-field-returns/backup_20261126.zip",
+        "0166da513ef82ff52124c250f402fbcb80a7c457052fcba7ea88f43708655f13"
+      ]
+    },
+    {
+      "id": "F-TAMPER-d619",
+      "title": "检测到局部篡改并定位块范围",
+      "severity": "critical",
+      "status": "confirmed",
+      "summary": "30-field-returns/值班日志_外传修订版.txt 相对候选基准 EV-001：8/10 个对齐块完全匹配，2 个块不一致，篡改范围已定位到字节区间。",
+      "evidence": [
+        "30-field-returns/值班日志_外传修订版.txt",
+        "EV-001"
+      ]
+    },
+    {
+      "id": "F-TAMPER-M-4c24",
+      "title": "容器成员被局部篡改",
+      "severity": "critical",
+      "status": "confirmed",
+      "summary": "30-field-returns/邮件附件_日志终稿.zip#日志终稿(请查收).txt 相对 EV-001 出现块级差异。",
+      "evidence": [
+        "30-field-returns/邮件附件_日志终稿.zip#日志终稿(请查收).txt",
+        "EV-001"
+      ]
+    },
+    {
+      "id": "F-SIM-9489",
+      "title": "高相似但不能认定同源",
+      "severity": "warning",
+      "status": "uncertain",
+      "summary": "30-field-returns/值班日志_同题仿作.txt 与 EV-001 的 Jaccard 相似度 28.7%、SimHash 距离 13；仅为相似性线索，来源关系不确定。"
+    },
+    {
+      "id": "F-UNK-eb37",
+      "title": "未知检材",
+      "severity": "warning",
+      "status": "uncertain",
+      "summary": "30-field-returns/设备缓存_dc88.bin 无哈希命中且相似性不足，来源与用途无法从哈希证据确定。"
+    },
+    {
+      "id": "F-WL-HIT-87c7",
+      "title": "协查哈希精确命中",
+      "severity": "confirmed",
+      "status": "confirmed",
+      "summary": "WL-1 客户名单完整哈希 完整哈希命中 anchor:EV-002(EV-002_客户名单.csv) ; file:30-field-returns/客户导出_20261126.csv ; member:20-containers/sealed-pack.zip#EV-002_客户名单.csv ; member:30-field-returns/backup_20261126.zip#customers_q4.csv ; member:30-field-returns/邮件附件_日志终稿.zip#客户名单(最新).csv。"
+    },
+    {
+      "id": "F-WL-DECOY-a5bc",
+      "title": "相似哈希诱饵被拒绝同一认定",
+      "severity": "info",
+      "status": "confirmed",
+      "summary": "WL-2 设备固件疑似哈希（转录可能有误）：与 EV-003 仅有 12 位十六进制前缀相同，全值不同；相似/前缀哈希不是同一证据"
+    }
+  ]
+}

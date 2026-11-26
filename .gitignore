@@ -1,0 +1,4 @@
+/bin/
+/evidencechain
+*.test
+*.out

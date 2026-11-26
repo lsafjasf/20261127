@@ -1,0 +1,64 @@
+{
+  "schema": "evidencechain/v1",
+  "case_id": "CASE-2026-1127",
+  "note": "参考案例的保管与派生关系；时间为虚构的固定时间线。",
+  "links": [
+    {
+      "id": "L-01",
+      "from": [
+        "EV-001"
+      ],
+      "to": "10-derived/EV-001.字节副本.txt",
+      "relation": "byte-copy",
+      "operator": "analyst.he",
+      "at": "2026-11-26T09:10:00+08:00",
+      "details": "位对位复制，哈希应完全一致"
+    },
+    {
+      "id": "L-02",
+      "from": [
+        "EV-001"
+      ],
+      "to": "10-derived/EV-001.规范化.txt",
+      "relation": "normalize-eol",
+      "operator": "analyst.he",
+      "at": "2026-11-26T09:12:00+08:00",
+      "details": "CRLF→LF、去除行尾空白；可用 derive.NormalizeEOL 复算"
+    },
+    {
+      "id": "L-03",
+      "from": [
+        "EV-002"
+      ],
+      "to": "10-derived/EV-002.字节副本.csv",
+      "relation": "byte-copy",
+      "operator": "analyst.he",
+      "at": "2026-11-26T09:15:00+08:00"
+    },
+    {
+      "id": "L-04",
+      "from": [
+        "EV-004"
+      ],
+      "to": "10-derived/EV-004.像素重编码.png",
+      "relation": "png-reencode",
+      "operator": "analyst.he",
+      "at": "2026-11-26T09:20:00+08:00",
+      "details": "改变 PNG 压缩级别，字节哈希变化但解码像素应完全一致"
+    },
+    {
+      "id": "L-05",
+      "from": [
+        "EV-001",
+        "EV-002",
+        "EV-003",
+        "EV-004"
+      ],
+      "to": "20-containers/sealed-pack.zip",
+      "relation": "zip-pack",
+      "operator": "analyst.he",
+      "at": "2026-11-26T09:30:00+08:00",
+      "details": "封存打包；成员集合摘要应与四件原件一致，与条目顺序/压缩元数据无关"
+    }
+  ]
+}
