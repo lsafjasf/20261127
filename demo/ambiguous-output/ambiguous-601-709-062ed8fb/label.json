@@ -1,0 +1,75 @@
+{
+  "schema": "colorfix/labels/v1",
+  "input": "/home/hj/userfeedback/uid4-0047/demo/ambiguous-601-709.mp4",
+  "status": "ambiguous",
+  "unique": false,
+  "declared_matrix": "bt709",
+  "labels": {
+    "declared_matrix": "bt709",
+    "declared_source": "stream.color_space",
+    "candidates": [
+      {
+        "matrix": "bt709",
+        "matrix_family": "bt709",
+        "label": "Rec.709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "color_range": "tv",
+        "matrix_coefficients": 1,
+        "colour_primaries": 1,
+        "transfer_characteristics": 1,
+        "scope": "matrix_coefficients only; other colour descriptions are preserved"
+      },
+      {
+        "matrix": "bt470bg",
+        "matrix_family": "bt601",
+        "label": "Rec.601 / BT.470BG",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "color_range": "tv",
+        "matrix_coefficients": 5,
+        "colour_primaries": 1,
+        "transfer_characteristics": 1,
+        "scope": "matrix_coefficients only; other colour descriptions are preserved"
+      }
+    ],
+    "note": "Only the matrix-coefficients declaration is changed. Primaries, transfer and range from the source are retained unless explicitly listed."
+  },
+  "evidence": [
+    {
+      "source": "color_bars",
+      "observation": "found=true at 0.000s, y=4, templates=75%/75%, coverage=100%/100%",
+      "effect": "establishes that a structured reference pattern is present; it does not by itself choose a matrix"
+    },
+    {
+      "source": "matrix_residual",
+      "observation": "BT.601=0.0293, BT.709=0.0263, delta=-0.0030",
+      "effect": "compares each candidate decode against the same measured bar patches"
+    },
+    {
+      "source": "container_declaration",
+      "observation": "bt709 (bt709)",
+      "effect": "is treated as prior metadata, not as ground truth; a strong residual conflict can overturn it"
+    }
+  ],
+  "frames": [
+    {
+      "label": "bars",
+      "time": 0,
+      "frames": {
+        "bt709": "bars-bt709.png",
+        "bt601": "bars-bt601.png",
+        "compare": "bars-compare.png"
+      }
+    },
+    {
+      "label": "content",
+      "time": 0,
+      "frames": {
+        "bt709": "content-bt709.png",
+        "bt601": "content-bt601.png",
+        "compare": "content-compare.png"
+      }
+    }
+  ]
+}

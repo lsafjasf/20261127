@@ -1,0 +1,227 @@
+{
+  "schema": "colorfix/report/v1",
+  "generated_at": "2026-11-26T20:24:41Z",
+  "files": [
+    {
+      "id": "ambiguous-601-709-062ed8fb",
+      "input": "/home/hj/userfeedback/uid4-0047/demo/ambiguous-601-709.mp4",
+      "output_dir": "demo/ambiguous-output/ambiguous-601-709-062ed8fb",
+      "probe": {
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "duration_seconds": 2,
+        "codec": "h264",
+        "width": 720,
+        "height": 576,
+        "pix_fmt": "yuv420p",
+        "declared_color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "color_range": "tv",
+        "matrix_source": "stream.color_space"
+      },
+      "color_bars": {
+        "found": true,
+        "frame_time": 0,
+        "y": 4,
+        "x_start": 0,
+        "x_end": 720,
+        "candidates": [
+          {
+            "matrix": "bt601",
+            "template": "75%",
+            "residual": 0.029323143491534347,
+            "coverage": 1,
+            "structure": 1
+          },
+          {
+            "matrix": "bt709",
+            "template": "75%",
+            "residual": 0.026310758803335894,
+            "coverage": 1,
+            "structure": 1
+          }
+        ],
+        "samples": [
+          {
+            "index": 0,
+            "rgb_bt601": {
+              "R": 0.7488584474885844,
+              "G": 0.7488584474885844,
+              "B": 0.7488584474885844
+            },
+            "rgb_bt709": {
+              "R": 0.7488584474885844,
+              "G": 0.7488584474885844,
+              "B": 0.7488584474885844
+            }
+          },
+          {
+            "index": 1,
+            "rgb_bt601": {
+              "R": 0.7429545825179387,
+              "G": 0.7775353199236336,
+              "B": 0.015865296803653006
+            },
+            "rgb_bt709": {
+              "R": 0.7506688682322245,
+              "G": 0.7297134941110994,
+              "B": -0.015484703196346983
+            }
+          },
+          {
+            "index": 2,
+            "rgb_bt601": {
+              "R": 0.031327625570776174,
+              "G": 0.7880069879460501,
+              "B": 0.7469347684279191
+            },
+            "rgb_bt709": {
+              "R": -0.033472374429223795,
+              "G": 0.7125537701057715,
+              "B": 0.755891911285062
+            }
+          },
+          {
+            "index": 3,
+            "rgb_bt601": {
+              "R": 0.025423760600130407,
+              "G": 0.8166838603810991,
+              "B": 0.013941617742987578
+            },
+            "rgb_bt709": {
+              "R": -0.03166195368558383,
+              "G": 0.6934088167282865,
+              "B": -0.008451239399869526
+            }
+          },
+          {
+            "index": 4,
+            "rgb_bt601": {
+              "R": 0.723434686888454,
+              "G": -0.06782541289251462,
+              "B": 0.7349168297455968
+            },
+            "rgb_bt709": {
+              "R": 0.7805204011741682,
+              "G": 0.05544963076029799,
+              "B": 0.7573096868884539
+            }
+          },
+          {
+            "index": 5,
+            "rgb_bt601": {
+              "R": 0.7175308219178083,
+              "G": -0.039148540457465575,
+              "B": 0.001923679060665373
+            },
+            "rgb_bt709": {
+              "R": 0.7823308219178082,
+              "G": 0.036304677382812955,
+              "B": -0.007033463796477485
+            }
+          },
+          {
+            "index": 6,
+            "rgb_bt601": {
+              "R": 0.005903864970645781,
+              "G": -0.02867687243504905,
+              "B": 0.7329931506849314
+            },
+            "rgb_bt709": {
+              "R": -0.0018104207436399206,
+              "G": 0.01914495337748503,
+              "B": 0.7643431506849314
+            }
+          }
+        ]
+      },
+      "decision": {
+        "status": "ambiguous",
+        "candidates": [
+          {
+            "matrix": "bt709",
+            "label": "Rec.709",
+            "bars_residual": 0.026310758803335894,
+            "preferred": true
+          },
+          {
+            "matrix": "bt601",
+            "label": "Rec.601 / BT.470BG",
+            "bars_residual": 0.029323143491534347,
+            "preferred": false
+          }
+        ],
+        "unique": false,
+        "reason": "color bars fit both matrices too closely (residuals 0.0293 vs 0.0263, margin 0.0030)",
+        "evidence": [
+          {
+            "source": "color_bars",
+            "observation": "found=true at 0.000s, y=4, templates=75%/75%, coverage=100%/100%",
+            "effect": "establishes that a structured reference pattern is present; it does not by itself choose a matrix"
+          },
+          {
+            "source": "matrix_residual",
+            "observation": "BT.601=0.0293, BT.709=0.0263, delta=-0.0030",
+            "effect": "compares each candidate decode against the same measured bar patches"
+          },
+          {
+            "source": "container_declaration",
+            "observation": "bt709 (bt709)",
+            "effect": "is treated as prior metadata, not as ground truth; a strong residual conflict can overturn it"
+          }
+        ]
+      },
+      "labels": {
+        "declared_matrix": "bt709",
+        "declared_source": "stream.color_space",
+        "candidates": [
+          {
+            "matrix": "bt709",
+            "matrix_family": "bt709",
+            "label": "Rec.709",
+            "color_primaries": "bt709",
+            "color_transfer": "bt709",
+            "color_range": "tv",
+            "matrix_coefficients": 1,
+            "colour_primaries": 1,
+            "transfer_characteristics": 1,
+            "scope": "matrix_coefficients only; other colour descriptions are preserved"
+          },
+          {
+            "matrix": "bt470bg",
+            "matrix_family": "bt601",
+            "label": "Rec.601 / BT.470BG",
+            "color_primaries": "bt709",
+            "color_transfer": "bt709",
+            "color_range": "tv",
+            "matrix_coefficients": 5,
+            "colour_primaries": 1,
+            "transfer_characteristics": 1,
+            "scope": "matrix_coefficients only; other colour descriptions are preserved"
+          }
+        ],
+        "note": "Only the matrix-coefficients declaration is changed. Primaries, transfer and range from the source are retained unless explicitly listed."
+      },
+      "bars_frame": {
+        "label": "bars",
+        "time": 0,
+        "frames": {
+          "bt709": "bars-bt709.png",
+          "bt601": "bars-bt601.png",
+          "compare": "bars-compare.png"
+        }
+      },
+      "content_frame": {
+        "label": "content",
+        "time": 0,
+        "frames": {
+          "bt709": "content-bt709.png",
+          "bt601": "content-bt601.png",
+          "compare": "content-compare.png"
+        }
+      },
+      "frames_scanned": 4,
+      "fallback_scan": false
+    }
+  ]
+}
