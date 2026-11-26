@@ -1,0 +1,46 @@
+{
+  "fps": 30,
+  "window_s": 1,
+  "dir": "examples/scenario",
+  "first_anomaly": {
+    "kind": "capture_drop",
+    "at_s": 3,
+    "source_frames": [
+      90,
+      91,
+      92
+    ],
+    "note": "采集端缺失3帧，录制端帧号连续、PTS单调但时间窗少3帧，并有跳变"
+  },
+  "planted": [
+    {
+      "kind": "capture_drop",
+      "at_s": 3,
+      "source_frames": [
+        90,
+        91,
+        92
+      ]
+    },
+    {
+      "kind": "encode_duplicate",
+      "at_s": 6.033333333333333,
+      "source_frames": [
+        181,
+        182
+      ],
+      "note": "第180帧被额外编码2次，帧号/PTS照常递增，画面零推进"
+    },
+    {
+      "kind": "player_skip",
+      "at_s": 9,
+      "source_frames": [
+        270,
+        271,
+        272,
+        273
+      ],
+      "note": "录制文件完好，播放器未呈现对应4个录制帧"
+    }
+  ]
+}

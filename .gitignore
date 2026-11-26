@@ -1,0 +1,4 @@
+/framedoctor
+/dist/
+*.test
+*.out
