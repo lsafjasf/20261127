@@ -1,0 +1,63 @@
+{
+  "path": "classic-film.mkv",
+  "timecode_scale_ns": 1000000,
+  "tracks": [
+    {
+      "uid": 101,
+      "number": 1,
+      "legacy_line": 1,
+      "type": 1,
+      "codec_id": "V_MPEG4/ISO/AVC",
+      "default": true,
+      "default_set": true,
+      "enabled": true
+    },
+    {
+      "uid": 201,
+      "number": 2,
+      "legacy_line": 2,
+      "type": 2,
+      "codec_id": "A_AC3",
+      "language": "eng",
+      "default": true,
+      "default_set": true,
+      "enabled": true
+    },
+    {
+      "uid": 202,
+      "number": 3,
+      "legacy_line": 3,
+      "type": 2,
+      "codec_id": "A_DTS",
+      "language": "chi",
+      "default": false,
+      "default_set": true,
+      "enabled": true
+    }
+  ],
+  "editions": [
+    {"uid": 500, "default": true, "ordered": false}
+  ],
+  "chapters": [
+    {
+      "uid": 700,
+      "legacy_line": 1,
+      "edition_uid": 500,
+      "ordinal": 1,
+      "start": {"raw": "00:00:00.000000000", "ns": 0, "status": "resolved"},
+      "track_uids": [201],
+      "displays": [{"string": "Opening"}],
+      "enabled": true
+    },
+    {
+      "uid": 701,
+      "legacy_line": 2,
+      "edition_uid": 500,
+      "ordinal": 2,
+      "start": {"raw": "00:01:15.000000000", "ns": 75000000000, "status": "resolved"},
+      "track_uids": [201],
+      "displays": [{"string": "Reel change"}],
+      "enabled": true
+    }
+  ]
+}

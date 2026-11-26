@@ -1,0 +1,35 @@
+{
+  "path": "classic-film.remuxed.mkv",
+  "timecode_scale_ns": 1000000,
+  "tracks": [
+    {
+      "uid": 202,
+      "number": 1,
+      "type": 2,
+      "codec_id": "A_DTS",
+      "language": "chi",
+      "default": true,
+      "default_set": true,
+      "enabled": true
+    },
+    {
+      "uid": 201,
+      "number": 2,
+      "type": 2,
+      "codec_id": "A_AC3",
+      "language": "und",
+      "default": false,
+      "default_set": true,
+      "enabled": true
+    },
+    {
+      "uid": 101,
+      "number": 3,
+      "type": 1,
+      "codec_id": "V_MPEG4/ISO/AVC",
+      "default": true,
+      "default_set": true,
+      "enabled": true
+    }
+  ]
+}

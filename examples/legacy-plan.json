@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    {"line": 2, "language": "eng", "language_ietf": "en", "default": true},
+    {"line": 3, "language": "chi", "language_ietf": "zh-Hant", "default": false}
+  ],
+  "chapters": [
+    {"line": 1, "track_lines": [2]},
+    {"line": 2, "track_lines": [2]}
+  ]
+}

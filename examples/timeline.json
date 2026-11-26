@@ -1,0 +1,6 @@
+{
+  "offset_ns": 0,
+  "cuts": [
+    {"start_ns": 70000000000, "end_ns": 80000000000, "reason": "damaged reel section removed in remaster"}
+  ]
+}
