@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0d0e">
+  <title>曝光实验室 · Exposure Lab</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="曝光实验室首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-copy">
+          <strong>EXPOSURE LAB</strong>
+          <small>LUMEN / 04</small>
+        </span>
+      </a>
+      <div class="title-block">
+        <div class="eyebrow">SCENE ANALYSIS / 现场分析</div>
+        <h1>可信曝光伪色</h1>
+      </div>
+      <div class="top-actions">
+        <span class="compute-status"><i></i>本地计算</span>
+        <label class="button button-quiet upload-button">
+          <span>载入照片</span>
+          <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+        </label>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="viewer-panel" aria-label="曝光分析视口">
+        <div class="viewer-toolbar">
+          <div class="segmented" role="group" aria-label="显示模式">
+            <button class="segment is-active" type="button" data-view="false">伪色图</button>
+            <button class="segment" type="button" data-view="original">原图</button>
+            <button class="segment" type="button" data-view="split">对照</button>
+          </div>
+          <div class="overlay-controls" aria-label="叠加显示">
+            <button class="chip is-on" type="button" data-overlay="reference">参考灰</button>
+            <button class="chip is-on" type="button" data-overlay="clip">裁切</button>
+            <button class="chip is-on" type="button" data-overlay="overexposure">过曝区</button>
+          </div>
+          <div class="recalc-badge"><i></i><span id="recalcText">即时重算</span></div>
+        </div>
+
+        <div class="viewport" id="viewport">
+          <div class="canvas-frame" id="canvasFrame">
+            <canvas id="imageCanvas" aria-label="曝光伪色图"></canvas>
+            <div class="split-line" id="splitLine" aria-hidden="true"><span>原图</span><span>伪色</span></div>
+            <div class="overlay-layer" id="overlayLayer">
+              <div class="reference-marker" id="referenceMarker" aria-hidden="true">
+                <span class="marker-ring"></span>
+                <span class="marker-tag"><b>REF</b> <span id="markerEV">EV +0.0</span></span>
+              </div>
+              <div id="regionLabels" class="region-labels"></div>
+              <div class="probe-chip" id="probeChip" hidden></div>
+            </div>
+            <div class="scene-caption">
+              <span class="caption-index">01</span>
+              <span id="sceneDescription">载入场景中</span>
+            </div>
+            <div class="view-badge" id="viewBadge">FALSE COLOR</div>
+            <div class="loading-layer" id="loadingLayer">
+              <span class="spinner"></span>
+              <span>正在解析线性光…</span>
+            </div>
+            <div class="drop-hint" id="dropHint">松开以载入照片</div>
+          </div>
+
+          <div class="hud-stats" aria-label="场景统计">
+            <div class="hud-stat">
+              <span>裁切像素</span>
+              <strong id="hudClip">—</strong>
+            </div>
+            <div class="hud-stat">
+              <span>局部过曝</span>
+              <strong id="hudOver">—</strong>
+            </div>
+            <div class="hud-stat">
+              <span>镜面高光</span>
+              <strong id="hudSpecular">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="scale-panel">
+          <div class="scale-heading">
+            <div>
+              <span class="section-kicker">EXPOSURE BANDS</span>
+              <strong>相对参考灰的曝光值</strong>
+            </div>
+            <div class="scale-readout">
+              <span id="scalePointerLabel">指针 EV +0.0</span>
+              <small>线性亮度 / 参考灰 = 2<sup>EV</sup></small>
+            </div>
+          </div>
+          <div class="scale-wrap">
+            <div class="scale-bar" id="scaleBar"></div>
+            <div class="scale-pointer" id="scalePointer"><span id="scalePointerDot"></span></div>
+            <div class="scale-ticks" id="scaleTicks"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="inspector" aria-label="分析控制">
+        <section class="panel-card reference-card">
+          <div class="card-heading">
+            <div>
+              <span class="section-kicker">REFERENCE</span>
+              <h2>已知参考灰</h2>
+            </div>
+            <span class="status-pill" id="referencePercent">18%</span>
+          </div>
+          <div class="reference-summary">
+            <span class="reference-swatch" id="referenceSwatch"></span>
+            <div>
+              <strong id="referenceLuma">L 18.0%</strong>
+              <span id="referencePointLabel">灰卡中心 · 5×5 平均</span>
+            </div>
+          </div>
+          <div class="control-label">
+            <label for="referenceOffset">曝光参考偏移</label>
+            <output id="offsetOutput" for="referenceOffset">0.0 EV</output>
+          </div>
+          <input id="referenceOffset" class="range" type="range" min="-3" max="3" step="0.1" value="0" aria-label="曝光参考偏移">
+          <div class="range-ends"><span>−3 EV</span><span>0</span><span>+3 EV</span></div>
+          <div class="reference-actions">
+            <button class="button button-accent" id="eyedropperButton" type="button">
+              <span class="eyedropper-icon" aria-hidden="true"></span>
+              <span id="eyedropperLabel">拾取参考灰</span>
+            </button>
+            <button class="button button-quiet" id="resetButton" type="button">复位</button>
+          </div>
+          <p class="helper" id="referenceHint">点击画面中的中性区域，重新锚定参考灰。</p>
+        </section>
+
+        <section class="panel-card probe-readout">
+          <div class="card-heading">
+            <div>
+              <span class="section-kicker">NUMERIC PROBE</span>
+              <h2>指针读数</h2>
+            </div>
+            <span class="probe-coord" id="probeCoord">x 203 · y 715</span>
+          </div>
+          <div class="probe-hero">
+            <div class="probe-ev">
+              <span>EV</span>
+              <strong id="probeEV">+0.00</strong>
+            </div>
+            <span class="zone-badge" id="probeZone">参考灰</span>
+          </div>
+          <div class="probe-meta">
+            <div class="rgb-row" id="rgbRow">
+              <span><i class="swatch-dot r"></i><b id="probeR">118</b><small>R</small></span>
+              <span><i class="swatch-dot g"></i><b id="probeG">118</b><small>G</small></span>
+              <span><i class="swatch-dot b"></i><b id="probeB">118</b><small>B</small></span>
+            </div>
+            <div class="probe-detail">
+              <span>线性亮度 <b id="probeLuma">18.0%</b></span>
+              <span>场景状态 <b id="probeState">正常</b></span>
+            </div>
+            <div class="clip-channels" id="clipChannels" aria-label="通道裁切">
+              <span data-channel="r">R</span>
+              <span data-channel="g">G</span>
+              <span data-channel="b">B</span>
+              <small id="clipChannelText">无通道裁切</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-card legend-card">
+          <div class="card-heading compact">
+            <div>
+              <span class="section-kicker">READ THE MAP</span>
+              <h2>图例与语义</h2>
+            </div>
+          </div>
+          <div class="semantic-list">
+            <div class="semantic-row">
+              <span class="semantic-swatch swatch-neutral"></span>
+              <div><strong>参考灰 18%</strong><span>十字准星；基准 EV 0.0</span></div>
+            </div>
+            <div class="semantic-row">
+              <span class="semantic-swatch swatch-specular"></span>
+              <div><strong>镜面高光</strong><span>小而孤立的全通道亮点</span></div>
+            </div>
+            <div class="semantic-row">
+              <span class="semantic-swatch swatch-over"></span>
+              <div><strong>局部过曝</strong><span>连续成片的裁切或近裁切区</span></div>
+            </div>
+            <div class="semantic-row">
+              <span class="semantic-swatch swatch-clip"><i></i><i></i><i></i></span>
+              <div><strong>通道裁切</strong><span>斜纹标出 R / G / B 达到上限</span></div>
+            </div>
+          </div>
+          <div class="clipping-summary">
+            <div class="clip-summary-head"><span>全图通道裁切</span><b id="totalClip">—</b></div>
+            <div class="channel-bars">
+              <span><i>R</i><b class="bar-track"><em id="clipBarR"></em></b><small id="clipPctR">0%</small></span>
+              <span><i>G</i><b class="bar-track"><em id="clipBarG"></em></b><small id="clipPctG">0%</small></span>
+              <span><i>B</i><b class="bar-track"><em id="clipBarB"></em></b><small id="clipPctB">0%</small></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="inspector-foot">
+          <span>sRGB → linear</span>
+          <span>5×5 参考采样</span>
+          <span>GO / STD LIB</span>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="statusbar">
+      <span><i class="status-dot"></i><b id="imageStatus">样片 1440 × 960</b></span>
+      <span>阈值 <b>250</b> / 255</span>
+      <span>过曝判定 <b>≥ +2.0 EV</b></span>
+      <span class="status-spacer"></span>
+      <span>所有分析仅在本机完成</span>
+    </footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
