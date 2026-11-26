@@ -1,0 +1,53 @@
+MASTER: audio (master device local time (seconds))
+
+DEVICE audio [master]
+  SEGMENT audio-1 [0.000, 480.000] status=master
+    identity mapping; master reference
+    map:
+      local [0.000, 480.000) -> master [0.000, 480.000) err<=0.0 ms
+    undetermined: none
+
+DEVICE cam-a
+  SEGMENT cam-a-1 [0.000, 360.000] status=locked
+    first trusted: clap-01 (clap) local=9.748 master=10.000 offset=+0.252 s conf=0.96
+    drift: +200.0 ppm (confirmed=true, anchors=12, rms=0.0 ms)
+    map:
+      local [0.000, 360.000) -> master [0.250, 360.322) err<=8.9 ms
+    undetermined: none
+
+DEVICE cam-b
+  SEGMENT cam-b-1 [0.000, 180.000] status=locked
+    first trusted: clap-01 (clap) local=9.599 master=10.000 offset=+0.401 s conf=0.96
+    drift: +100.0 ppm (confirmed=true, anchors=6, rms=0.0 ms)
+    map:
+      local [0.000, 180.000) -> master [0.400, 180.418) err<=9.0 ms
+    undetermined: none
+  SEGMENT cam-b-2 [0.000, 180.000] status=locked
+    first trusted: clap-03 (clap) local=19.554 master=200.000 offset=+180.446 s conf=0.96
+    drift: -200.0 ppm (confirmed=true, anchors=6, rms=0.0 ms)
+    map:
+      local [0.000, 180.000) -> master [180.450, 360.414) err<=8.8 ms
+    undetermined: none
+
+DEVICE cam-c
+  SEGMENT cam-c-1 [0.000, 480.000] status=locked
+    first trusted: clap-01 (clap) local=10.203 master=10.000 offset=-0.203 s conf=0.96
+    drift: -250.0 ppm (confirmed=true, anchors=12, rms=0.0 ms)
+    map:
+      local [0.000, 400.285) -> master [-0.200, 399.985) err<=10.4 ms
+    undetermined:
+      local [400.285, 480.000): after_last_anchor_coverage
+
+DEVICE cam-d
+  SEGMENT cam-d-1 [0.000, 340.000] status=locked
+    first trusted: flash-01 (flash) local=54.373 master=55.000 offset=+0.627 s conf=0.79
+    drift: +500.0 ppm (confirmed=true, anchors=3, rms=0.0 ms)
+    map:
+      local [0.000, 314.273) -> master [0.600, 315.030) err<=10.4 ms
+    undetermined:
+      local [314.273, 340.000): after_last_anchor_coverage
+
+DIAGNOSTICS
+  info event_time_propagated: derived from 3 prediction(s) on 3 locked segment(s)
+  info event_time_propagated: derived from 3 prediction(s) on 3 locked segment(s)
+  info event_time_propagated: derived from 3 prediction(s) on 3 locked segment(s)

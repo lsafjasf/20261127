@@ -1,0 +1,146 @@
+{
+  "master_device": "audio",
+  "config": {
+    "max_anchor_gap_sec": 150
+  },
+  "events": [
+    {"id": "clap-01", "kind": "clap"},
+    {"id": "clap-02", "kind": "clap"},
+    {"id": "clap-03", "kind": "clap"},
+    {"id": "clap-04", "kind": "clap"},
+    {"id": "amb-01", "kind": "ambient"},
+    {"id": "amb-02", "kind": "ambient"},
+    {"id": "amb-03", "kind": "ambient"},
+    {"id": "amb-04", "kind": "ambient"},
+    {"id": "amb-05", "kind": "ambient"},
+    {"id": "flash-01", "kind": "flash"},
+    {"id": "flash-02", "kind": "flash"},
+    {"id": "flash-03", "kind": "flash"}
+  ],
+  "devices": [
+    {
+      "id": "audio",
+      "role": "master",
+      "segments": [
+        {
+          "id": "audio-1",
+          "start": 0,
+          "end": 480,
+          "observations": [
+            {"event": "clap-01", "local": 10, "confidence": 0.99},
+            {"event": "amb-01", "local": 40, "confidence": 0.92},
+            {"event": "clap-02", "local": 100, "confidence": 0.99},
+            {"event": "amb-02", "local": 130, "confidence": 0.92},
+            {"event": "clap-03", "local": 200, "confidence": 0.99},
+            {"event": "amb-03", "local": 220, "confidence": 0.92},
+            {"event": "amb-04", "local": 280, "confidence": 0.92},
+            {"event": "clap-04", "local": 300, "confidence": 0.99},
+            {"event": "amb-05", "local": 340, "confidence": 0.92}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cam-a",
+      "role": "camera",
+      "fps": 25,
+      "segments": [
+        {
+          "id": "cam-a-1",
+          "start": 0,
+          "end": 360,
+          "observations": [
+            {"event": "clap-01", "local": 9.74805, "confidence": 0.97},
+            {"event": "amb-01", "local": 39.74205, "confidence": 0.86},
+            {"event": "flash-01", "local": 54.73905, "confidence": 0.96},
+            {"event": "clap-02", "local": 99.73005, "confidence": 0.97},
+            {"event": "amb-02", "local": 129.72406, "confidence": 0.86},
+            {"event": "flash-02", "local": 154.71906, "confidence": 0.96},
+            {"event": "clap-03", "local": 199.71006, "confidence": 0.97},
+            {"event": "amb-03", "local": 219.70606, "confidence": 0.86},
+            {"event": "flash-03", "local": 254.69906, "confidence": 0.96},
+            {"event": "amb-04", "local": 279.69406, "confidence": 0.86},
+            {"event": "clap-04", "local": 299.69006, "confidence": 0.97},
+            {"event": "amb-05", "local": 339.68206, "confidence": 0.86}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cam-b",
+      "role": "camera",
+      "fps": 25,
+      "segments": [
+        {
+          "id": "cam-b-1",
+          "start": 0,
+          "end": 180,
+          "observations": [
+            {"event": "clap-01", "local": 9.59904, "confidence": 0.97},
+            {"event": "amb-01", "local": 39.59604, "confidence": 0.86},
+            {"event": "flash-01", "local": 54.59454, "confidence": 0.96},
+            {"event": "clap-02", "local": 99.59004, "confidence": 0.97},
+            {"event": "amb-02", "local": 129.58704, "confidence": 0.86},
+            {"event": "flash-02", "local": 154.58454, "confidence": 0.96}
+          ]
+        },
+        {
+          "id": "cam-b-2",
+          "start": 0,
+          "end": 180,
+          "observations": [
+            {"event": "clap-03", "local": 19.55391, "confidence": 0.97},
+            {"event": "amb-03", "local": 39.55791, "confidence": 0.86},
+            {"event": "flash-03", "local": 74.56491, "confidence": 0.96},
+            {"event": "amb-04", "local": 99.56991, "confidence": 0.86},
+            {"event": "clap-04", "local": 119.57391, "confidence": 0.97},
+            {"event": "amb-05", "local": 159.58192, "confidence": 0.86}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cam-c",
+      "role": "camera",
+      "fps": 25,
+      "segments": [
+        {
+          "id": "cam-c-1",
+          "start": 0,
+          "end": 480,
+          "observations": [
+            {"event": "clap-01", "local": 10.20255, "confidence": 0.97},
+            {"event": "amb-01", "local": 40.21005, "confidence": 0.86},
+            {"event": "flash-01", "local": 55.2138, "confidence": 0.96},
+            {"event": "clap-02", "local": 100.22506, "confidence": 0.97},
+            {"event": "amb-02", "local": 130.23256, "confidence": 0.86},
+            {"event": "flash-02", "local": 155.23881, "confidence": 0.96},
+            {"event": "clap-03", "local": 200.25006, "confidence": 0.97},
+            {"event": "amb-03", "local": 220.25506, "confidence": 0.86},
+            {"event": "flash-03", "local": 255.26382, "confidence": 0.96},
+            {"event": "amb-04", "local": 280.27007, "confidence": 0.86},
+            {"event": "clap-04", "local": 300.27507, "confidence": 0.97},
+            {"event": "amb-05", "local": 340.28507, "confidence": 0.86}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cam-d",
+      "role": "camera",
+      "fps": 25,
+      "segments": [
+        {
+          "id": "cam-d-1",
+          "start": 0,
+          "end": 340,
+          "observations": [
+            {"event": "flash-01", "local": 54.37281, "confidence": 0.97},
+            {"event": "flash-02", "local": 154.32284, "confidence": 0.97},
+            {"event": "flash-03", "local": 254.27286, "confidence": 0.97}
+          ]
+        }
+      ]
+    }
+  ]
+}

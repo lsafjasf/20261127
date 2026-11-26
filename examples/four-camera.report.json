@@ -1,0 +1,471 @@
+{
+  "version": 1,
+  "master_device": "audio",
+  "timeline": "master device local time (seconds)",
+  "config": {
+    "min_anchor_confidence": 0.55,
+    "min_offset_anchors": 2,
+    "min_drift_anchors": 3,
+    "min_drift_baseline_sec": 60,
+    "max_drift_ppm": 1500,
+    "anchor_tolerance_ms": 25,
+    "base_uncertainty_ms": 8,
+    "max_unverified_drift_ppm": 500,
+    "confirmed_drift_uncertainty_ppm": 40,
+    "max_anchor_gap_sec": 150,
+    "max_extrapolation_sec": 60,
+    "max_mapping_error_ms": 20,
+    "propagation_factor": 0.85,
+    "ambient_confidence_factor": 0.9
+  },
+  "events": [
+    {
+      "id": "clap-01",
+      "kind": "clap",
+      "master_time": 10,
+      "source": "master_observation",
+      "confidence": 0.99,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "clap-02",
+      "kind": "clap",
+      "master_time": 100,
+      "source": "master_observation",
+      "confidence": 0.99,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "clap-03",
+      "kind": "clap",
+      "master_time": 200,
+      "source": "master_observation",
+      "confidence": 0.99,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "clap-04",
+      "kind": "clap",
+      "master_time": 300,
+      "source": "master_observation",
+      "confidence": 0.99,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "amb-01",
+      "kind": "ambient",
+      "master_time": 40,
+      "source": "master_observation",
+      "confidence": 0.828,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "amb-02",
+      "kind": "ambient",
+      "master_time": 130,
+      "source": "master_observation",
+      "confidence": 0.828,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "amb-03",
+      "kind": "ambient",
+      "master_time": 220,
+      "source": "master_observation",
+      "confidence": 0.828,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "amb-04",
+      "kind": "ambient",
+      "master_time": 280,
+      "source": "master_observation",
+      "confidence": 0.828,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "amb-05",
+      "kind": "ambient",
+      "master_time": 340,
+      "source": "master_observation",
+      "confidence": 0.828,
+      "observed_by": [
+        "audio",
+        "cam-a",
+        "cam-b",
+        "cam-c"
+      ]
+    },
+    {
+      "id": "flash-01",
+      "kind": "flash",
+      "master_time": 54.99999821359971,
+      "source": "propagated",
+      "confidence": 0.816,
+      "observed_by": [
+        "cam-a",
+        "cam-b",
+        "cam-c",
+        "cam-d"
+      ]
+    },
+    {
+      "id": "flash-02",
+      "kind": "flash",
+      "master_time": 155.00000157056226,
+      "source": "propagated",
+      "confidence": 0.816,
+      "observed_by": [
+        "cam-a",
+        "cam-b",
+        "cam-c",
+        "cam-d"
+      ]
+    },
+    {
+      "id": "flash-03",
+      "kind": "flash",
+      "master_time": 255.0000011839761,
+      "source": "propagated",
+      "confidence": 0.816,
+      "observed_by": [
+        "cam-a",
+        "cam-b",
+        "cam-c",
+        "cam-d"
+      ]
+    }
+  ],
+  "devices": [
+    {
+      "id": "audio",
+      "role": "master",
+      "master": true,
+      "segments": [
+        {
+          "device": "audio",
+          "segment": "audio-1",
+          "local_start": 0,
+          "local_end": 480,
+          "status": "master",
+          "offset_at_local_start_sec": 0,
+          "drift_confirmed": false,
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 480,
+              "master_start": 0,
+              "master_end": 480,
+              "slope": 1,
+              "intercept": 0,
+              "max_error_ms": 0
+            }
+          ],
+          "indeterminate": []
+        }
+      ]
+    },
+    {
+      "id": "cam-a",
+      "role": "camera",
+      "master": false,
+      "segments": [
+        {
+          "device": "cam-a",
+          "segment": "cam-a-1",
+          "local_start": 0,
+          "local_end": 360,
+          "status": "locked",
+          "first_trusted_anchor": {
+            "event": "clap-01",
+            "kind": "clap",
+            "local": 9.74805,
+            "master": 10,
+            "offset_sec": 0.25195,
+            "confidence": 0.9603,
+            "residual_ms": -0.001
+          },
+          "offset_at_local_start_sec": 0.25,
+          "drift_ppm": 200.004,
+          "drift_confirmed": true,
+          "fit": {
+            "slope": 1.000200004,
+            "intercept": 0.25,
+            "anchor_count": 12,
+            "rejected_anchors": 0,
+            "baseline_sec": 329.93401,
+            "rms_residual_ms": 0.002,
+            "max_residual_ms": 0.005
+          },
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 360,
+              "master_start": 0.24999975538819816,
+              "master_end": 360.32200114810826,
+              "slope": 1.0002000038686667,
+              "intercept": 0.24999975538819816,
+              "max_error_ms": 8.905
+            }
+          ],
+          "indeterminate": null
+        }
+      ]
+    },
+    {
+      "id": "cam-b",
+      "role": "camera",
+      "master": false,
+      "segments": [
+        {
+          "device": "cam-b",
+          "segment": "cam-b-1",
+          "local_start": 0,
+          "local_end": 180,
+          "status": "locked",
+          "first_trusted_anchor": {
+            "event": "clap-01",
+            "kind": "clap",
+            "local": 9.59904,
+            "master": 10,
+            "offset_sec": 0.40096,
+            "confidence": 0.9603,
+            "residual_ms": -0.001
+          },
+          "offset_at_local_start_sec": 0.399999,
+          "drift_ppm": 100.02,
+          "drift_confirmed": true,
+          "fit": {
+            "slope": 1.00010002,
+            "intercept": 0.399999,
+            "anchor_count": 6,
+            "rejected_anchors": 0,
+            "baseline_sec": 144.9855,
+            "rms_residual_ms": 0.001,
+            "max_residual_ms": 0.002
+          },
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 180,
+              "master_start": 0.3999991844259464,
+              "master_end": 180.41800275903427,
+              "slope": 1.0001000198589352,
+              "intercept": 0.3999991844259464,
+              "max_error_ms": 9.018
+            }
+          ],
+          "indeterminate": null
+        },
+        {
+          "device": "cam-b",
+          "segment": "cam-b-2",
+          "local_start": 0,
+          "local_end": 180,
+          "status": "locked",
+          "first_trusted_anchor": {
+            "event": "clap-03",
+            "kind": "clap",
+            "local": 19.55391,
+            "master": 200,
+            "offset_sec": 180.44609,
+            "confidence": 0.9603,
+            "residual_ms": 0.002
+          },
+          "offset_at_local_start_sec": 180.450003,
+          "drift_ppm": -200.01,
+          "drift_confirmed": true,
+          "fit": {
+            "slope": 0.99979999,
+            "intercept": 180.450003,
+            "anchor_count": 6,
+            "rejected_anchors": 0,
+            "baseline_sec": 140.02801,
+            "rms_residual_ms": 0.003,
+            "max_residual_ms": 0.005
+          },
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 180,
+              "master_start": 180.45000292638295,
+              "master_end": 360.4140010715139,
+              "slope": 0.9997999896951717,
+              "intercept": 180.45000292638295,
+              "max_error_ms": 8.822
+            }
+          ],
+          "indeterminate": null
+        }
+      ]
+    },
+    {
+      "id": "cam-c",
+      "role": "camera",
+      "master": false,
+      "segments": [
+        {
+          "device": "cam-c",
+          "segment": "cam-c-1",
+          "local_start": 0,
+          "local_end": 480,
+          "status": "locked",
+          "first_trusted_anchor": {
+            "event": "clap-01",
+            "kind": "clap",
+            "local": 10.20255,
+            "master": 10,
+            "offset_sec": -0.20255,
+            "confidence": 0.9603,
+            "residual_ms": -0
+          },
+          "offset_at_local_start_sec": -0.199999,
+          "drift_ppm": -250.003,
+          "drift_confirmed": true,
+          "fit": {
+            "slope": 0.999749997,
+            "intercept": -0.199999,
+            "anchor_count": 12,
+            "rejected_anchors": 0,
+            "baseline_sec": 330.08252,
+            "rms_residual_ms": 0.002,
+            "max_residual_ms": 0.004
+          },
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 400.28507,
+              "master_start": -0.19999934317956616,
+              "master_end": 399.9849979984498,
+              "slope": 0.9997499965252996,
+              "intercept": -0.19999934317956616,
+              "max_error_ms": 10.404
+            }
+          ],
+          "indeterminate": [
+            {
+              "local_start": 400.28507,
+              "local_end": 480,
+              "reason": "after_last_anchor_coverage",
+              "detail": "extrapolation exceeds the error budget"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cam-d",
+      "role": "camera",
+      "master": false,
+      "segments": [
+        {
+          "device": "cam-d",
+          "segment": "cam-d-1",
+          "local_start": 0,
+          "local_end": 340,
+          "status": "locked",
+          "first_trusted_anchor": {
+            "event": "flash-01",
+            "kind": "flash",
+            "local": 54.37281,
+            "master": 54.99999821359971,
+            "offset_sec": 0.627188,
+            "confidence": 0.79152,
+            "residual_ms": -0.001
+          },
+          "offset_at_local_start_sec": 0.6,
+          "drift_ppm": 500.015,
+          "drift_confirmed": true,
+          "fit": {
+            "slope": 1.000500015,
+            "intercept": 0.6,
+            "anchor_count": 3,
+            "rejected_anchors": 0,
+            "baseline_sec": 199.90005,
+            "rms_residual_ms": 0.001,
+            "max_residual_ms": 0.002
+          },
+          "map": [
+            {
+              "local_start": 0,
+              "local_end": 314.27286000000004,
+              "master_start": 0.5999999638822268,
+              "master_end": 315.03000102445554,
+              "slope": 1.0005000147342449,
+              "intercept": 0.5999999638822268,
+              "max_error_ms": 10.402
+            }
+          ],
+          "indeterminate": [
+            {
+              "local_start": 314.27286000000004,
+              "local_end": 340,
+              "reason": "after_last_anchor_coverage",
+              "detail": "extrapolation exceeds the error budget"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "info",
+      "code": "event_time_propagated",
+      "event": "flash-01",
+      "message": "derived from 3 prediction(s) on 3 locked segment(s)"
+    },
+    {
+      "severity": "info",
+      "code": "event_time_propagated",
+      "event": "flash-02",
+      "message": "derived from 3 prediction(s) on 3 locked segment(s)"
+    },
+    {
+      "severity": "info",
+      "code": "event_time_propagated",
+      "event": "flash-03",
+      "message": "derived from 3 prediction(s) on 3 locked segment(s)"
+    }
+  ]
+}
