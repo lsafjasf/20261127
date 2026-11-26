@@ -1,0 +1,117 @@
+{
+  "sequence": {
+    "id": "seq-wedding-ceremony",
+    "name": "Wedding ceremony multicam",
+    "master_duration_seconds": 360,
+    "tolerance_seconds": 0.08
+  },
+  "machines": [
+    {"id": "cam-a", "name": "A wide"},
+    {"id": "cam-b", "name": "B aisle"},
+    {"id": "cam-c", "name": "C altar"},
+    {"id": "cam-d", "name": "D roaming"},
+    {"id": "cam-e", "name": "E balcony"},
+    {"id": "cam-f", "name": "F rear"}
+  ],
+  "lenses": [
+    {"id": "lens-a-35", "machine_id": "cam-a", "focal_length_mm": 35},
+    {"id": "lens-b-50", "machine_id": "cam-b", "focal_length_mm": 50},
+    {"id": "lens-c-85", "machine_id": "cam-c", "focal_length_mm": 85},
+    {"id": "lens-d-24", "machine_id": "cam-d", "focal_length_mm": 24},
+    {"id": "lens-d-50", "machine_id": "cam-d", "focal_length_mm": 50},
+    {"id": "lens-e-70", "machine_id": "cam-e", "focal_length_mm": 70},
+    {"id": "lens-f-35", "machine_id": "cam-f", "focal_length_mm": 35}
+  ],
+  "clips": [
+    {
+      "id": "a-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-a",
+      "lens_id": "lens-a-35",
+      "start_seconds": 100,
+      "end_seconds": 460
+    },
+    {
+      "id": "b-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-b",
+      "lens_id": "lens-b-50",
+      "start_seconds": 2500,
+      "end_seconds": 2560
+    },
+    {
+      "id": "b-0002",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-b",
+      "lens_id": "lens-b-50",
+      "start_seconds": 2620,
+      "end_seconds": 2860
+    },
+    {
+      "id": "c-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-c",
+      "lens_id": "lens-c-85",
+      "start_seconds": 4300,
+      "end_seconds": 4660
+    },
+    {
+      "id": "d-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-d",
+      "lens_id": "lens-d-24",
+      "start_seconds": 6100,
+      "end_seconds": 6280
+    },
+    {
+      "id": "d-0002",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-d",
+      "lens_id": "lens-d-50",
+      "start_seconds": 6280,
+      "end_seconds": 6460
+    },
+    {
+      "id": "e-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-e",
+      "lens_id": "lens-e-70",
+      "start_seconds": 7900,
+      "end_seconds": 8260
+    },
+    {
+      "id": "f-0001",
+      "sequence_id": "seq-wedding-ceremony",
+      "machine_id": "cam-f",
+      "lens_id": "lens-f-35",
+      "start_seconds": 9700,
+      "end_seconds": 10060
+    }
+  ],
+  "claps": [
+    {
+      "id": "clap-open",
+      "master_seconds": 0,
+      "observations": [
+        {"machine_id": "cam-a", "clip_id": "a-0001", "local_seconds": 100.00, "error_seconds": 0.01},
+        {"machine_id": "cam-b", "clip_id": "b-0001", "local_seconds": 2500.00, "error_seconds": 0.01},
+        {"machine_id": "cam-c", "clip_id": "c-0001", "local_seconds": 4300.00, "error_seconds": 0.02},
+        {"machine_id": "cam-d", "clip_id": "d-0001", "local_seconds": 6100.00, "error_seconds": 0.01},
+        {"machine_id": "cam-e", "clip_id": "e-0001", "local_seconds": 7900.00, "error_seconds": 0.02},
+        {"machine_id": "cam-f", "clip_id": "f-0001", "local_seconds": 9700.00, "error_seconds": 0.02}
+      ]
+    },
+    {
+      "id": "clap-mid",
+      "master_seconds": 180,
+      "observations": [
+        {"machine_id": "cam-a", "local_seconds": 280.00, "error_seconds": 0.01},
+        {"machine_id": "cam-b", "local_seconds": 2680.00, "error_seconds": 0.01},
+        {"machine_id": "cam-c", "local_seconds": 4480.00, "error_seconds": 0.02},
+        {"machine_id": "cam-d", "local_seconds": 6280.00, "error_seconds": 0.01},
+        {"machine_id": "cam-e", "local_seconds": 8080.00, "error_seconds": 0.02},
+        {"machine_id": "cam-f", "local_seconds": 9880.20, "error_seconds": 0.02}
+      ]
+    }
+  ]
+}
