@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "tracks": [
+    {
+      "id": "track:lead-a",
+      "name": "Lead Vox",
+      "outputs": [
+        {"id": "main-l", "label": "Main L"},
+        {"id": "main-r", "label": "Main R"}
+      ]
+    }
+  ],
+  "buses": [
+    {
+      "id": "bus:master",
+      "name": "Main Output",
+      "inputs": [
+        {"id": "main-l", "label": "L"},
+        {"id": "main-r", "label": "R"}
+      ],
+      "outputs": [
+        {"id": "program-l", "label": "Program L"},
+        {"id": "program-r", "label": "Program R"}
+      ]
+    },
+    {
+      "id": "bus:fx-return",
+      "name": "FX Return",
+      "inputs": [
+        {"id": "return-l", "label": "Return L"},
+        {"id": "return-r", "label": "Return R"}
+      ],
+      "outputs": [
+        {"id": "return-l-out", "label": "Return L Out"},
+        {"id": "return-r-out", "label": "Return R Out"}
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "valid-left-patch",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-a", "port": "main-l"},
+      "to": {"node": "bus:master", "port": "main-l"}
+    },
+    {
+      "id": "missing-bus-port",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-a", "port": "main-r"},
+      "to": {"node": "bus:master", "port": "main-right"}
+    },
+    {
+      "id": "cycle-master-to-fx",
+      "kind": "send",
+      "from": {"node": "bus:master", "port": "program-l"},
+      "to": {"node": "bus:fx-return", "port": "return-l"}
+    },
+    {
+      "id": "cycle-fx-to-master",
+      "kind": "send",
+      "from": {"node": "bus:fx-return", "port": "return-l-out"},
+      "to": {"node": "bus:master", "port": "main-r"}
+    }
+  ]
+}

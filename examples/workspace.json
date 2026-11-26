@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "tracks": [
+    {
+      "id": "track:lead-a",
+      "name": "Lead Vox",
+      "outputs": [
+        {"id": "main-l", "label": "Main L"},
+        {"id": "main-r", "label": "Main R"},
+        {"id": "send-l", "label": "FX Send L"},
+        {"id": "send-r", "label": "FX Send R"}
+      ]
+    },
+    {
+      "id": "track:lead-b",
+      "name": "Lead Vox",
+      "outputs": [
+        {"id": "main-left", "label": "Main L"},
+        {"id": "main-right", "label": "Main R"}
+      ]
+    }
+  ],
+  "buses": [
+    {
+      "id": "bus:master",
+      "name": "Main Output",
+      "inputs": [
+        {"id": "main-l", "label": "L"},
+        {"id": "main-r", "label": "R"}
+      ],
+      "outputs": [
+        {"id": "program-l", "label": "Program L"},
+        {"id": "program-r", "label": "Program R"}
+      ]
+    },
+    {
+      "id": "bus:fx-return",
+      "name": "FX Return",
+      "inputs": [
+        {"id": "return-l", "label": "Return L"},
+        {"id": "return-r", "label": "Return R"}
+      ],
+      "outputs": []
+    },
+    {
+      "id": "bus:stream",
+      "name": "Stream Output",
+      "inputs": [
+        {"id": "stream-l", "label": "L"},
+        {"id": "stream-r", "label": "R"}
+      ],
+      "outputs": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "patch-lead-a-left",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-a", "port": "main-l"},
+      "to": {"node": "bus:master", "port": "main-l"}
+    },
+    {
+      "id": "patch-lead-a-right",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-a", "port": "main-r"},
+      "to": {"node": "bus:master", "port": "main-r"}
+    },
+    {
+      "id": "patch-lead-b-left",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-b", "port": "main-left"},
+      "to": {"node": "bus:master", "port": "main-l"}
+    },
+    {
+      "id": "patch-lead-b-right",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-b", "port": "main-right"},
+      "to": {"node": "bus:master", "port": "main-r"}
+    },
+    {
+      "id": "send-lead-a-fx-left",
+      "kind": "send",
+      "from": {"node": "track:lead-a", "port": "send-l"},
+      "to": {"node": "bus:fx-return", "port": "return-l"}
+    },
+    {
+      "id": "send-lead-a-fx-right",
+      "kind": "send",
+      "from": {"node": "track:lead-a", "port": "send-r"},
+      "to": {"node": "bus:fx-return", "port": "return-r"}
+    },
+    {
+      "id": "send-master-stream-left",
+      "kind": "send",
+      "from": {"node": "bus:master", "port": "program-l"},
+      "to": {"node": "bus:stream", "port": "stream-l"}
+    },
+    {
+      "id": "send-master-stream-right",
+      "kind": "send",
+      "from": {"node": "bus:master", "port": "program-r"},
+      "to": {"node": "bus:stream", "port": "stream-r"}
+    }
+  ]
+}

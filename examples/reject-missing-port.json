@@ -1,0 +1,20 @@
+[
+  {
+    "op": "replace_route",
+    "route": {
+      "id": "patch-lead-a-left",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-b", "port": "main-left"},
+      "to": {"node": "bus:master", "port": "main-l"}
+    }
+  },
+  {
+    "op": "add_route",
+    "route": {
+      "id": "migrated-wrong-left",
+      "kind": "track_patch",
+      "from": {"node": "track:lead-b", "port": "main-l"},
+      "to": {"node": "bus:fx-return", "port": "return-l"}
+    }
+  }
+]
