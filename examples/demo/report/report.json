@@ -1,0 +1,886 @@
+{
+  "schema_version": "proalpha.report/v1",
+  "status": "fail",
+  "summary": "发现 12 个错误参数/通道冲突，0 个警告，2 个提示；修复帧已输出",
+  "source": {
+    "path": "examples/demo/fixtures/source-prores4444-alpha.mov",
+    "codec": "prores",
+    "profile": "4444",
+    "pixel_format": "yuva444p12le",
+    "width": 96,
+    "height": 54,
+    "color_primaries": "bt709",
+    "color_transfer": "bt709",
+    "color_matrix": "bt709",
+    "prores_alpha_type": 2,
+    "mov_metadata": {
+      "major_brand": "qt  ",
+      "color_box": {
+        "offset": 59496,
+        "size": 18,
+        "color_type": "nclc",
+        "primaries": 1,
+        "transfer": 1,
+        "matrix": 1,
+        "primaries_name": "bt709",
+        "transfer_name": "bt709",
+        "matrix_name": "bt709"
+      },
+      "prores_alpha_types": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "prores_alpha_marked": true,
+      "icpf_count": 4
+    }
+  },
+  "variants": [
+    {
+      "file": {
+        "path": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+        "codec": "prores",
+        "profile": "Proxy",
+        "pixel_format": "yuv422p10le",
+        "width": 96,
+        "height": 54,
+        "color_primaries": "smpte170m",
+        "color_transfer": "smpte170m",
+        "color_matrix": "smpte170m",
+        "prores_alpha_type": 0,
+        "alpha_stats": {
+          "pixels": 5184,
+          "min": 65535,
+          "max": 65535,
+          "transparent": 0,
+          "partial": 0,
+          "opaque": 5184,
+          "non_opaque": 0,
+          "mean_alpha": 65535,
+          "rgb_exceeds_alpha": 0,
+          "premul_compatible": 0,
+          "straight_evidence": 0
+        },
+        "alpha_model": "opaque",
+        "mov_metadata": {
+          "major_brand": "qt  ",
+          "color_box": {
+            "offset": 4817,
+            "size": 18,
+            "color_type": "nclc",
+            "primaries": 6,
+            "transfer": 6,
+            "matrix": 6,
+            "primaries_name": "smpte170m",
+            "transfer_name": "smpte170m",
+            "matrix_name": "smpte170m"
+          },
+          "prores_alpha_types": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "prores_alpha_marked": false,
+          "icpf_count": 4
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 56752,
+            "transparent": 2119,
+            "partial": 3065,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18640.320987654322,
+            "rgb_exceeds_alpha": 3065,
+            "premul_compatible": 0,
+            "straight_evidence": 3065
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 65535,
+            "max": 65535,
+            "transparent": 0,
+            "partial": 0,
+            "opaque": 5184,
+            "non_opaque": 0,
+            "mean_alpha": 65535,
+            "rgb_exceeds_alpha": 0,
+            "premul_compatible": 0,
+            "straight_evidence": 0
+          },
+          "variant_model": "opaque",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 3156.507716049383,
+            "g_mean_abs_error": 4144.651234567901,
+            "b_mean_abs_error": 3734.634259259259,
+            "a_mean_abs_error": 46894.67901234568,
+            "rgb_mean_abs_error": 3678.5977366255142
+          },
+          "models": {
+            "straight_rgb_error": 4752.368787384448,
+            "premultiplied_error": 15410.95892066486,
+            "alpha_error": 46894.67901234568,
+            "winner": "straight"
+          },
+          "attach_source_alpha": true,
+          "unpremultiply": false,
+          "repair_confidence": "high: source alpha available",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_repaired.png",
+            "source_aligned": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+              "frame": 0,
+              "code": "pixel_alpha_channel_dropped",
+              "severity": "error",
+              "parameter": "RGBA.A",
+              "expected": "source non-opaque pixels=5184",
+              "actual": "variant non-opaque pixels=0",
+              "message": "decoded variant frame is opaque where the ProRes source has transparency",
+              "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 59696,
+            "transparent": 2237,
+            "partial": 2947,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18809.01851851852,
+            "rgb_exceeds_alpha": 2947,
+            "premul_compatible": 0,
+            "straight_evidence": 2947
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 65535,
+            "max": 65535,
+            "transparent": 0,
+            "partial": 0,
+            "opaque": 5184,
+            "non_opaque": 0,
+            "mean_alpha": 65535,
+            "rgb_exceeds_alpha": 0,
+            "premul_compatible": 0,
+            "straight_evidence": 0
+          },
+          "variant_model": "opaque",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 3158.5692515432097,
+            "g_mean_abs_error": 4026.139274691358,
+            "b_mean_abs_error": 3512.983024691358,
+            "a_mean_abs_error": 46725.98148148148,
+            "rgb_mean_abs_error": 3565.8971836419755
+          },
+          "models": {
+            "straight_rgb_error": 4699.960185499378,
+            "premultiplied_error": 14891.47308861804,
+            "alpha_error": 46725.98148148148,
+            "winner": "straight"
+          },
+          "attach_source_alpha": true,
+          "unpremultiply": false,
+          "repair_confidence": "high: source alpha available",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_repaired.png",
+            "source_aligned": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+              "frame": 1,
+              "code": "pixel_alpha_channel_dropped",
+              "severity": "error",
+              "parameter": "RGBA.A",
+              "expected": "source non-opaque pixels=5184",
+              "actual": "variant non-opaque pixels=0",
+              "message": "decoded variant frame is opaque where the ProRes source has transparency",
+              "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 62640,
+            "transparent": 2118,
+            "partial": 3066,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 20594.956790123455,
+            "rgb_exceeds_alpha": 3066,
+            "premul_compatible": 0,
+            "straight_evidence": 3066
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 65535,
+            "max": 65535,
+            "transparent": 0,
+            "partial": 0,
+            "opaque": 5184,
+            "non_opaque": 0,
+            "mean_alpha": 65535,
+            "rgb_exceeds_alpha": 0,
+            "premul_compatible": 0,
+            "straight_evidence": 0
+          },
+          "variant_model": "opaque",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 3198.847222222222,
+            "g_mean_abs_error": 4130.606481481482,
+            "b_mean_abs_error": 3764.5372299382716,
+            "a_mean_abs_error": 44940.043209876545,
+            "rgb_mean_abs_error": 3697.9969778806585
+          },
+          "models": {
+            "straight_rgb_error": 4811.865296803653,
+            "premultiplied_error": 14641.281642300237,
+            "alpha_error": 44940.043209876545,
+            "winner": "straight"
+          },
+          "attach_source_alpha": true,
+          "unpremultiply": false,
+          "repair_confidence": "high: source alpha available",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_repaired.png",
+            "source_aligned": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+              "frame": 2,
+              "code": "pixel_alpha_channel_dropped",
+              "severity": "error",
+              "parameter": "RGBA.A",
+              "expected": "source non-opaque pixels=5184",
+              "actual": "variant non-opaque pixels=0",
+              "message": "decoded variant frame is opaque where the ProRes source has transparency",
+              "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 65520,
+            "transparent": 2108,
+            "partial": 2521,
+            "opaque": 555,
+            "non_opaque": 4629,
+            "mean_alpha": 21469.966049382718,
+            "rgb_exceeds_alpha": 2521,
+            "premul_compatible": 0,
+            "straight_evidence": 2521
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 65535,
+            "max": 65535,
+            "transparent": 0,
+            "partial": 0,
+            "opaque": 5184,
+            "non_opaque": 0,
+            "mean_alpha": 65535,
+            "rgb_exceeds_alpha": 0,
+            "premul_compatible": 0,
+            "straight_evidence": 0
+          },
+          "variant_model": "opaque",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 3205.632908950617,
+            "g_mean_abs_error": 4270.168402777777,
+            "b_mean_abs_error": 3854.8261959876545,
+            "a_mean_abs_error": 44065.03395061728,
+            "rgb_mean_abs_error": 3776.87583590535
+          },
+          "models": {
+            "straight_rgb_error": 4738.812527091461,
+            "premultiplied_error": 14448.53110510133,
+            "alpha_error": 44065.03395061728,
+            "winner": "straight"
+          },
+          "attach_source_alpha": true,
+          "unpremultiply": false,
+          "repair_confidence": "high: source alpha available",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_repaired.png",
+            "source_aligned": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+              "frame": 3,
+              "code": "pixel_alpha_channel_dropped",
+              "severity": "error",
+              "parameter": "RGBA.A",
+              "expected": "source non-opaque pixels=4629",
+              "actual": "variant non-opaque pixels=0",
+              "message": "decoded variant frame is opaque where the ProRes source has transparency",
+              "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": {
+        "path": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+        "codec": "prores",
+        "profile": "4444",
+        "pixel_format": "yuva444p12le",
+        "width": 96,
+        "height": 54,
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "color_matrix": "bt709",
+        "prores_alpha_type": 2,
+        "alpha_stats": {
+          "pixels": 5184,
+          "min": 0,
+          "max": 56752,
+          "transparent": 2119,
+          "partial": 3065,
+          "opaque": 0,
+          "non_opaque": 5184,
+          "mean_alpha": 18640.320987654322,
+          "rgb_exceeds_alpha": 1457,
+          "premul_compatible": 1608,
+          "straight_evidence": 1457
+        },
+        "alpha_model": "straight_confirmed",
+        "mov_metadata": {
+          "major_brand": "qt  ",
+          "color_box": {
+            "offset": 57245,
+            "size": 18,
+            "color_type": "nclc",
+            "primaries": 1,
+            "transfer": 1,
+            "matrix": 1,
+            "primaries_name": "bt709",
+            "transfer_name": "bt709",
+            "matrix_name": "bt709"
+          },
+          "prores_alpha_types": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "prores_alpha_marked": true,
+          "icpf_count": 4
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 56752,
+            "transparent": 2119,
+            "partial": 3065,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18640.320987654322,
+            "rgb_exceeds_alpha": 3065,
+            "premul_compatible": 0,
+            "straight_evidence": 3065
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 56752,
+            "transparent": 2119,
+            "partial": 3065,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18640.320987654322,
+            "rgb_exceeds_alpha": 1457,
+            "premul_compatible": 1608,
+            "straight_evidence": 1457
+          },
+          "variant_model": "straight_confirmed",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 9068.753665123457,
+            "g_mean_abs_error": 13138.440393518518,
+            "b_mean_abs_error": 5281.706790123457,
+            "a_mean_abs_error": 0,
+            "rgb_mean_abs_error": 9162.966949588477
+          },
+          "models": {
+            "straight_rgb_error": 13235.953235454052,
+            "premultiplied_error": 360.055956640484,
+            "alpha_error": 0,
+            "winner": "premultiplied"
+          },
+          "attach_source_alpha": false,
+          "unpremultiply": true,
+          "repair_confidence": "medium: reference pixel model",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_repaired.png",
+            "source_aligned": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+              "frame": 0,
+              "code": "pixel_premultiplied_rgb_misread_as_straight",
+              "severity": "error",
+              "parameter": "alpha_interpretation",
+              "expected": "straight RGB for PNG/normal players",
+              "actual": "premultiplied model MAE=360.1 \u003c straight MAE=13236.0",
+              "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+              "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 59696,
+            "transparent": 2237,
+            "partial": 2947,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18809.01851851852,
+            "rgb_exceeds_alpha": 2947,
+            "premul_compatible": 0,
+            "straight_evidence": 2947
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 59696,
+            "transparent": 2237,
+            "partial": 2947,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 18809.01851851852,
+            "rgb_exceeds_alpha": 1479,
+            "premul_compatible": 1468,
+            "straight_evidence": 1479
+          },
+          "variant_model": "straight_confirmed",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 8806.66261574074,
+            "g_mean_abs_error": 12128.507908950618,
+            "b_mean_abs_error": 4748.712577160494,
+            "a_mean_abs_error": 0,
+            "rgb_mean_abs_error": 8561.29436728395
+          },
+          "models": {
+            "straight_rgb_error": 12575.765976699468,
+            "premultiplied_error": 384.64243872791377,
+            "alpha_error": 0,
+            "winner": "premultiplied"
+          },
+          "attach_source_alpha": false,
+          "unpremultiply": true,
+          "repair_confidence": "medium: reference pixel model",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_repaired.png",
+            "source_aligned": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+              "frame": 1,
+              "code": "pixel_premultiplied_rgb_misread_as_straight",
+              "severity": "error",
+              "parameter": "alpha_interpretation",
+              "expected": "straight RGB for PNG/normal players",
+              "actual": "premultiplied model MAE=384.6 \u003c straight MAE=12575.8",
+              "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+              "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 62640,
+            "transparent": 2118,
+            "partial": 3066,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 20594.956790123455,
+            "rgb_exceeds_alpha": 3066,
+            "premul_compatible": 0,
+            "straight_evidence": 3066
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 62640,
+            "transparent": 2118,
+            "partial": 3066,
+            "opaque": 0,
+            "non_opaque": 5184,
+            "mean_alpha": 20594.956790123455,
+            "rgb_exceeds_alpha": 1544,
+            "premul_compatible": 1522,
+            "straight_evidence": 1544
+          },
+          "variant_model": "straight_confirmed",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 8336.990547839507,
+            "g_mean_abs_error": 12172.444830246914,
+            "b_mean_abs_error": 4424.692322530864,
+            "a_mean_abs_error": 0,
+            "rgb_mean_abs_error": 8311.375900205761
+          },
+          "models": {
+            "straight_rgb_error": 11792.949554250925,
+            "premultiplied_error": 398.0442873999455,
+            "alpha_error": 0,
+            "winner": "premultiplied"
+          },
+          "attach_source_alpha": false,
+          "unpremultiply": true,
+          "repair_confidence": "medium: reference pixel model",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_repaired.png",
+            "source_aligned": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+              "frame": 2,
+              "code": "pixel_premultiplied_rgb_misread_as_straight",
+              "severity": "error",
+              "parameter": "alpha_interpretation",
+              "expected": "straight RGB for PNG/normal players",
+              "actual": "premultiplied model MAE=398.0 \u003c straight MAE=11792.9",
+              "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+              "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "width": 96,
+          "height": 54,
+          "source_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 65520,
+            "transparent": 2108,
+            "partial": 2521,
+            "opaque": 555,
+            "non_opaque": 4629,
+            "mean_alpha": 21469.966049382718,
+            "rgb_exceeds_alpha": 2521,
+            "premul_compatible": 0,
+            "straight_evidence": 2521
+          },
+          "variant_alpha": {
+            "pixels": 5184,
+            "min": 0,
+            "max": 65520,
+            "transparent": 2108,
+            "partial": 2521,
+            "opaque": 555,
+            "non_opaque": 4629,
+            "mean_alpha": 21469.966049382718,
+            "rgb_exceeds_alpha": 992,
+            "premul_compatible": 1529,
+            "straight_evidence": 992
+          },
+          "variant_model": "straight_confirmed",
+          "metrics": {
+            "pixels": 5184,
+            "r_mean_abs_error": 7955.495563271605,
+            "g_mean_abs_error": 11838.05401234568,
+            "b_mean_abs_error": 4239.682098765432,
+            "a_mean_abs_error": 0,
+            "rgb_mean_abs_error": 8011.077224794239
+          },
+          "models": {
+            "straight_rgb_error": 11259.125270914608,
+            "premultiplied_error": 289.0331574097819,
+            "alpha_error": 0,
+            "winner": "premultiplied"
+          },
+          "attach_source_alpha": false,
+          "unpremultiply": true,
+          "repair_confidence": "medium: reference pixel model",
+          "outputs": {
+            "checker_before_after": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_checker_before_after.png",
+            "repaired_alpha_mask": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_alpha.png",
+            "repaired_rgba_png": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_repaired.png",
+            "source_aligned": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_source_aligned.png",
+            "variant_decoded": "examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_variant_decoded.png"
+          },
+          "wrong_parameters": [
+            {
+              "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+              "frame": 3,
+              "code": "pixel_premultiplied_rgb_misread_as_straight",
+              "severity": "error",
+              "parameter": "alpha_interpretation",
+              "expected": "straight RGB for PNG/normal players",
+              "actual": "premultiplied model MAE=289.0 \u003c straight MAE=11259.1",
+              "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+              "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "wrong_parameters": [
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "code": "alpha_flag_missing_after_transcode",
+      "severity": "error",
+      "parameter": "alpha_channel_type/pix_fmt",
+      "expected": "alpha_channel_type=1|2 and yuva444p/rgba pixel format",
+      "actual": "yuv422p10le",
+      "message": "source carries an alpha marker, but the converted proxy cannot signal or store transparency",
+      "ffmpeg_arguments": [
+        "-c:v",
+        "prores_ks",
+        "-profile:v",
+        "4444",
+        "-pix_fmt",
+        "yuva444p10le",
+        "-alpha_bits",
+        "16",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709"
+      ],
+      "repair_action": "rebuild proxy from source with ProRes 4444/QTRLE/PNG alpha; repaired PNG frames recover visible edges when source alpha is available"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "code": "color_descriptor_mismatch",
+      "severity": "error",
+      "parameter": "color_primaries",
+      "expected": "bt709",
+      "actual": "smpte170m",
+      "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+      "ffmpeg_arguments": [
+        "-color_primaries",
+        "bt709"
+      ],
+      "repair_action": "re-encode or rewrite metadata with the source color tags"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "code": "color_descriptor_mismatch",
+      "severity": "error",
+      "parameter": "color_trc",
+      "expected": "bt709",
+      "actual": "smpte170m",
+      "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+      "ffmpeg_arguments": [
+        "-color_trc",
+        "bt709"
+      ],
+      "repair_action": "re-encode or rewrite metadata with the source color tags"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "code": "color_descriptor_mismatch",
+      "severity": "error",
+      "parameter": "colorspace",
+      "expected": "bt709",
+      "actual": "smpte170m",
+      "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+      "ffmpeg_arguments": [
+        "-colorspace",
+        "bt709"
+      ],
+      "repair_action": "re-encode or rewrite metadata with the source color tags"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "code": "color_range_unspecified_both",
+      "severity": "info",
+      "parameter": "color_range",
+      "expected": "explicit tv or pc from delivery contract",
+      "actual": "unspecified",
+      "message": "neither file declares range; this is not a source/variant conflict, but players may still choose different defaults",
+      "ffmpeg_arguments": [
+        "-color_range",
+        "tv"
+      ],
+      "repair_action": "set tv for conventional limited-range SDR YUV, or pc only if the master is full-range"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "frame": 0,
+      "code": "pixel_alpha_channel_dropped",
+      "severity": "error",
+      "parameter": "RGBA.A",
+      "expected": "source non-opaque pixels=5184",
+      "actual": "variant non-opaque pixels=0",
+      "message": "decoded variant frame is opaque where the ProRes source has transparency",
+      "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "frame": 1,
+      "code": "pixel_alpha_channel_dropped",
+      "severity": "error",
+      "parameter": "RGBA.A",
+      "expected": "source non-opaque pixels=5184",
+      "actual": "variant non-opaque pixels=0",
+      "message": "decoded variant frame is opaque where the ProRes source has transparency",
+      "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "frame": 2,
+      "code": "pixel_alpha_channel_dropped",
+      "severity": "error",
+      "parameter": "RGBA.A",
+      "expected": "source non-opaque pixels=5184",
+      "actual": "variant non-opaque pixels=0",
+      "message": "decoded variant frame is opaque where the ProRes source has transparency",
+      "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+      "frame": 3,
+      "code": "pixel_alpha_channel_dropped",
+      "severity": "error",
+      "parameter": "RGBA.A",
+      "expected": "source non-opaque pixels=4629",
+      "actual": "variant non-opaque pixels=0",
+      "message": "decoded variant frame is opaque where the ProRes source has transparency",
+      "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+      "code": "color_range_unspecified_both",
+      "severity": "info",
+      "parameter": "color_range",
+      "expected": "explicit tv or pc from delivery contract",
+      "actual": "unspecified",
+      "message": "neither file declares range; this is not a source/variant conflict, but players may still choose different defaults",
+      "ffmpeg_arguments": [
+        "-color_range",
+        "tv"
+      ],
+      "repair_action": "set tv for conventional limited-range SDR YUV, or pc only if the master is full-range"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+      "frame": 0,
+      "code": "pixel_premultiplied_rgb_misread_as_straight",
+      "severity": "error",
+      "parameter": "alpha_interpretation",
+      "expected": "straight RGB for PNG/normal players",
+      "actual": "premultiplied model MAE=360.1 \u003c straight MAE=13236.0",
+      "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+      "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+      "frame": 1,
+      "code": "pixel_premultiplied_rgb_misread_as_straight",
+      "severity": "error",
+      "parameter": "alpha_interpretation",
+      "expected": "straight RGB for PNG/normal players",
+      "actual": "premultiplied model MAE=384.6 \u003c straight MAE=12575.8",
+      "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+      "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+      "frame": 2,
+      "code": "pixel_premultiplied_rgb_misread_as_straight",
+      "severity": "error",
+      "parameter": "alpha_interpretation",
+      "expected": "straight RGB for PNG/normal players",
+      "actual": "premultiplied model MAE=398.0 \u003c straight MAE=11792.9",
+      "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+      "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+    },
+    {
+      "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+      "frame": 3,
+      "code": "pixel_premultiplied_rgb_misread_as_straight",
+      "severity": "error",
+      "parameter": "alpha_interpretation",
+      "expected": "straight RGB for PNG/normal players",
+      "actual": "premultiplied model MAE=289.0 \u003c straight MAE=11259.1",
+      "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+      "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+    }
+  ],
+  "output_directory": "examples/demo/report",
+  "repaired_video": "examples/demo/report/repaired-alpha-proxy.mov",
+  "repair_script": "examples/demo/report/repair-from-source.sh"
+}

@@ -1,0 +1,133 @@
+ProRes/Alpha 元数据与像素一致性报告
+结论: FAIL — 发现 12 个错误参数/通道冲突，0 个警告，2 个提示；修复帧已输出
+基准源: examples/demo/fixtures/source-prores4444-alpha.mov
+  编码: prores profile=4444 pix_fmt=yuva444p12le ProRes alpha_type=2 尺寸=96x54
+  颜色: primaries=bt709 transfer=bt709 matrix=bt709 range=unspecified
+整段修复代理: examples/demo/report/repaired-alpha-proxy.mov
+修复脚本: examples/demo/report/repair-from-source.sh
+
+错误/风险参数 (14):
+1. [error/alpha_flag_missing_after_transcode] alpha_channel_type/pix_fmt
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: alpha_channel_type=1|2 and yuva444p/rgba pixel format
+   实际: yuv422p10le
+   说明: source carries an alpha marker, but the converted proxy cannot signal or store transparency
+   修复参数: ffmpeg ... -c:v prores_ks -profile:v 4444 -pix_fmt yuva444p10le -alpha_bits 16 -color_primaries bt709 -color_trc bt709 -colorspace bt709
+   帧修复: rebuild proxy from source with ProRes 4444/QTRLE/PNG alpha; repaired PNG frames recover visible edges when source alpha is available
+2. [error/color_descriptor_mismatch] color_primaries
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: bt709
+   实际: smpte170m
+   说明: converted proxy changes the color description; this can shift channels and fringe interpretation
+   修复参数: ffmpeg ... -color_primaries bt709
+   帧修复: re-encode or rewrite metadata with the source color tags
+3. [error/color_descriptor_mismatch] color_trc
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: bt709
+   实际: smpte170m
+   说明: converted proxy changes the color description; this can shift channels and fringe interpretation
+   修复参数: ffmpeg ... -color_trc bt709
+   帧修复: re-encode or rewrite metadata with the source color tags
+4. [error/color_descriptor_mismatch] colorspace
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: bt709
+   实际: smpte170m
+   说明: converted proxy changes the color description; this can shift channels and fringe interpretation
+   修复参数: ffmpeg ... -colorspace bt709
+   帧修复: re-encode or rewrite metadata with the source color tags
+5. [info/color_range_unspecified_both] color_range
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: explicit tv or pc from delivery contract
+   实际: unspecified
+   说明: neither file declares range; this is not a source/variant conflict, but players may still choose different defaults
+   修复参数: ffmpeg ... -color_range tv
+   帧修复: set tv for conventional limited-range SDR YUV, or pc only if the master is full-range
+6. [error/pixel_alpha_channel_dropped] frame=0 RGBA.A
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: source non-opaque pixels=5184
+   实际: variant non-opaque pixels=0
+   说明: decoded variant frame is opaque where the ProRes source has transparency
+   帧修复: copy aligned source alpha into repaired PNG; inspect RGB before using for production
+7. [error/pixel_alpha_channel_dropped] frame=1 RGBA.A
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: source non-opaque pixels=5184
+   实际: variant non-opaque pixels=0
+   说明: decoded variant frame is opaque where the ProRes source has transparency
+   帧修复: copy aligned source alpha into repaired PNG; inspect RGB before using for production
+8. [error/pixel_alpha_channel_dropped] frame=2 RGBA.A
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: source non-opaque pixels=5184
+   实际: variant non-opaque pixels=0
+   说明: decoded variant frame is opaque where the ProRes source has transparency
+   帧修复: copy aligned source alpha into repaired PNG; inspect RGB before using for production
+9. [error/pixel_alpha_channel_dropped] frame=3 RGBA.A
+   文件: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+   应为: source non-opaque pixels=4629
+   实际: variant non-opaque pixels=0
+   说明: decoded variant frame is opaque where the ProRes source has transparency
+   帧修复: copy aligned source alpha into repaired PNG; inspect RGB before using for production
+10. [info/color_range_unspecified_both] color_range
+   文件: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+   应为: explicit tv or pc from delivery contract
+   实际: unspecified
+   说明: neither file declares range; this is not a source/variant conflict, but players may still choose different defaults
+   修复参数: ffmpeg ... -color_range tv
+   帧修复: set tv for conventional limited-range SDR YUV, or pc only if the master is full-range
+11. [error/pixel_premultiplied_rgb_misread_as_straight] frame=0 alpha_interpretation
+   文件: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+   应为: straight RGB for PNG/normal players
+   实际: premultiplied model MAE=360.1 < straight MAE=13236.0
+   说明: RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes
+   帧修复: unpremultiply RGB while preserving alpha in repaired frame
+12. [error/pixel_premultiplied_rgb_misread_as_straight] frame=1 alpha_interpretation
+   文件: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+   应为: straight RGB for PNG/normal players
+   实际: premultiplied model MAE=384.6 < straight MAE=12575.8
+   说明: RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes
+   帧修复: unpremultiply RGB while preserving alpha in repaired frame
+13. [error/pixel_premultiplied_rgb_misread_as_straight] frame=2 alpha_interpretation
+   文件: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+   应为: straight RGB for PNG/normal players
+   实际: premultiplied model MAE=398.0 < straight MAE=11792.9
+   说明: RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes
+   帧修复: unpremultiply RGB while preserving alpha in repaired frame
+14. [error/pixel_premultiplied_rgb_misread_as_straight] frame=3 alpha_interpretation
+   文件: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+   应为: straight RGB for PNG/normal players
+   实际: premultiplied model MAE=289.0 < straight MAE=11259.1
+   说明: RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes
+   帧修复: unpremultiply RGB while preserving alpha in repaired frame
+
+变体: examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov
+  编码: prores profile=Proxy pix_fmt=yuv422p10le ProRes alpha_type=0 尺寸=96x54
+  颜色: primaries=smpte170m transfer=smpte170m matrix=smpte170m range=unspecified
+  帧 0: alpha min=65535 max=65535 非不透明=0/5184, 判定=opaque, 挂回源Alpha=true, 反预乘=false
+    修复帧: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_repaired.png
+    前后棋盘对照: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0000_checker_before_after.png
+  帧 1: alpha min=65535 max=65535 非不透明=0/5184, 判定=opaque, 挂回源Alpha=true, 反预乘=false
+    修复帧: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_repaired.png
+    前后棋盘对照: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0001_checker_before_after.png
+  帧 2: alpha min=65535 max=65535 非不透明=0/5184, 判定=opaque, 挂回源Alpha=true, 反预乘=false
+    修复帧: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_repaired.png
+    前后棋盘对照: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0002_checker_before_after.png
+  帧 3: alpha min=65535 max=65535 非不透明=0/5184, 判定=opaque, 挂回源Alpha=true, 反预乘=false
+    修复帧: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_repaired.png
+    前后棋盘对照: examples/demo/report/variant-0-proxy-prores-dropped-alpha-wrong-color_frame_0003_checker_before_after.png
+
+变体: examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov
+  编码: prores profile=4444 pix_fmt=yuva444p12le ProRes alpha_type=2 尺寸=96x54
+  颜色: primaries=bt709 transfer=bt709 matrix=bt709 range=unspecified
+  帧 0: alpha min=0 max=56752 非不透明=5184/5184, 判定=straight_confirmed, 挂回源Alpha=false, 反预乘=true
+    修复帧: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_repaired.png
+    前后棋盘对照: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0000_checker_before_after.png
+  帧 1: alpha min=0 max=59696 非不透明=5184/5184, 判定=straight_confirmed, 挂回源Alpha=false, 反预乘=true
+    修复帧: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_repaired.png
+    前后棋盘对照: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0001_checker_before_after.png
+  帧 2: alpha min=0 max=62640 非不透明=5184/5184, 判定=straight_confirmed, 挂回源Alpha=false, 反预乘=true
+    修复帧: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_repaired.png
+    前后棋盘对照: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0002_checker_before_after.png
+  帧 3: alpha min=0 max=65520 非不透明=4629/5184, 判定=straight_confirmed, 挂回源Alpha=false, 反预乘=true
+    修复帧: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_repaired.png
+    前后棋盘对照: examples/demo/report/variant-1-proxy-prores-premultiplied-rgb_frame_0003_checker_before_after.png
+
+Demo report: examples/demo/report/report.json

@@ -1,0 +1,186 @@
+[
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "code": "alpha_flag_missing_after_transcode",
+    "severity": "error",
+    "parameter": "alpha_channel_type/pix_fmt",
+    "expected": "alpha_channel_type=1|2 and yuva444p/rgba pixel format",
+    "actual": "yuv422p10le",
+    "message": "source carries an alpha marker, but the converted proxy cannot signal or store transparency",
+    "ffmpeg_arguments": [
+      "-c:v",
+      "prores_ks",
+      "-profile:v",
+      "4444",
+      "-pix_fmt",
+      "yuva444p10le",
+      "-alpha_bits",
+      "16",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-colorspace",
+      "bt709"
+    ],
+    "repair_action": "rebuild proxy from source with ProRes 4444/QTRLE/PNG alpha; repaired PNG frames recover visible edges when source alpha is available"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "code": "color_descriptor_mismatch",
+    "severity": "error",
+    "parameter": "color_primaries",
+    "expected": "bt709",
+    "actual": "smpte170m",
+    "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+    "ffmpeg_arguments": [
+      "-color_primaries",
+      "bt709"
+    ],
+    "repair_action": "re-encode or rewrite metadata with the source color tags"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "code": "color_descriptor_mismatch",
+    "severity": "error",
+    "parameter": "color_trc",
+    "expected": "bt709",
+    "actual": "smpte170m",
+    "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+    "ffmpeg_arguments": [
+      "-color_trc",
+      "bt709"
+    ],
+    "repair_action": "re-encode or rewrite metadata with the source color tags"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "code": "color_descriptor_mismatch",
+    "severity": "error",
+    "parameter": "colorspace",
+    "expected": "bt709",
+    "actual": "smpte170m",
+    "message": "converted proxy changes the color description; this can shift channels and fringe interpretation",
+    "ffmpeg_arguments": [
+      "-colorspace",
+      "bt709"
+    ],
+    "repair_action": "re-encode or rewrite metadata with the source color tags"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "code": "color_range_unspecified_both",
+    "severity": "info",
+    "parameter": "color_range",
+    "expected": "explicit tv or pc from delivery contract",
+    "actual": "unspecified",
+    "message": "neither file declares range; this is not a source/variant conflict, but players may still choose different defaults",
+    "ffmpeg_arguments": [
+      "-color_range",
+      "tv"
+    ],
+    "repair_action": "set tv for conventional limited-range SDR YUV, or pc only if the master is full-range"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "frame": 0,
+    "code": "pixel_alpha_channel_dropped",
+    "severity": "error",
+    "parameter": "RGBA.A",
+    "expected": "source non-opaque pixels=5184",
+    "actual": "variant non-opaque pixels=0",
+    "message": "decoded variant frame is opaque where the ProRes source has transparency",
+    "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "frame": 1,
+    "code": "pixel_alpha_channel_dropped",
+    "severity": "error",
+    "parameter": "RGBA.A",
+    "expected": "source non-opaque pixels=5184",
+    "actual": "variant non-opaque pixels=0",
+    "message": "decoded variant frame is opaque where the ProRes source has transparency",
+    "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "frame": 2,
+    "code": "pixel_alpha_channel_dropped",
+    "severity": "error",
+    "parameter": "RGBA.A",
+    "expected": "source non-opaque pixels=5184",
+    "actual": "variant non-opaque pixels=0",
+    "message": "decoded variant frame is opaque where the ProRes source has transparency",
+    "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-dropped-alpha-wrong-color.mov",
+    "frame": 3,
+    "code": "pixel_alpha_channel_dropped",
+    "severity": "error",
+    "parameter": "RGBA.A",
+    "expected": "source non-opaque pixels=4629",
+    "actual": "variant non-opaque pixels=0",
+    "message": "decoded variant frame is opaque where the ProRes source has transparency",
+    "repair_action": "copy aligned source alpha into repaired PNG; inspect RGB before using for production"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+    "code": "color_range_unspecified_both",
+    "severity": "info",
+    "parameter": "color_range",
+    "expected": "explicit tv or pc from delivery contract",
+    "actual": "unspecified",
+    "message": "neither file declares range; this is not a source/variant conflict, but players may still choose different defaults",
+    "ffmpeg_arguments": [
+      "-color_range",
+      "tv"
+    ],
+    "repair_action": "set tv for conventional limited-range SDR YUV, or pc only if the master is full-range"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+    "frame": 0,
+    "code": "pixel_premultiplied_rgb_misread_as_straight",
+    "severity": "error",
+    "parameter": "alpha_interpretation",
+    "expected": "straight RGB for PNG/normal players",
+    "actual": "premultiplied model MAE=360.1 \u003c straight MAE=13236.0",
+    "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+    "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+    "frame": 1,
+    "code": "pixel_premultiplied_rgb_misread_as_straight",
+    "severity": "error",
+    "parameter": "alpha_interpretation",
+    "expected": "straight RGB for PNG/normal players",
+    "actual": "premultiplied model MAE=384.6 \u003c straight MAE=12575.8",
+    "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+    "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+    "frame": 2,
+    "code": "pixel_premultiplied_rgb_misread_as_straight",
+    "severity": "error",
+    "parameter": "alpha_interpretation",
+    "expected": "straight RGB for PNG/normal players",
+    "actual": "premultiplied model MAE=398.0 \u003c straight MAE=11792.9",
+    "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+    "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+  },
+  {
+    "file": "examples/demo/fixtures/proxy-prores-premultiplied-rgb.mov",
+    "frame": 3,
+    "code": "pixel_premultiplied_rgb_misread_as_straight",
+    "severity": "error",
+    "parameter": "alpha_interpretation",
+    "expected": "straight RGB for PNG/normal players",
+    "actual": "premultiplied model MAE=289.0 \u003c straight MAE=11259.1",
+    "message": "RGB channels are already darkened by alpha; players treating them as straight RGBA show dark/black fringes",
+    "repair_action": "unpremultiply RGB while preserving alpha in repaired frame"
+  }
+]
