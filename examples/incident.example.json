@@ -1,0 +1,57 @@
+{
+  "observations": [
+    {
+      "layer": "container",
+      "status": "fail",
+      "check": "mkvalidator",
+      "message": "example only: element size/sample metadata mismatch",
+      "frame": {"key": "frame-0003", "decode_order": 3, "display_order": 3, "pts": 3003, "dts": 3003}
+    },
+    {"layer": "bitstream_crc", "status": "pass", "check": "packet_crc32", "frame": {"key": "frame-0003", "decode_order": 3}},
+    {"layer": "decode", "status": "pass", "check": "ffmpeg", "frame": {"key": "frame-0003", "decode_order": 3}},
+    {"layer": "pixels", "status": "pass", "trusted_reference": true, "check": "sha256_framehash", "frame": {"key": "frame-0003", "decode_order": 3}},
+
+    {
+      "layer": "container",
+      "status": "fail",
+      "check": "ffprobe_packet_pts",
+      "message": "example only: pts/dts or duration anomaly",
+      "frame": {"key": "frame-0007", "decode_order": 7, "display_order": 7, "pts": 7007, "dts": 7007}
+    },
+    {"layer": "bitstream_crc", "status": "pass", "check": "packet_crc32", "frame": {"key": "frame-0007", "decode_order": 7}},
+    {"layer": "decode", "status": "pass", "check": "ffmpeg", "frame": {"key": "frame-0007", "decode_order": 7}},
+    {"layer": "pixels", "status": "pass", "trusted_reference": true, "check": "sha256_framehash", "frame": {"key": "frame-0007", "decode_order": 7}},
+
+    {
+      "layer": "container",
+      "status": "pass",
+      "check": "ffprobe",
+      "frame": {"key": "frame-0012", "decode_order": 12, "display_order": 12, "pts": 12012, "dts": 12012, "key_frame": false}
+    },
+    {
+      "layer": "bitstream_crc",
+      "status": "fail",
+      "check": "slice_crc",
+      "expected": "9f2c",
+      "actual": "21a7",
+      "coverage": ["slice NAL bytes excluding start code"],
+      "frame": {"key": "frame-0012", "decode_order": 12, "key_frame": false}
+    },
+    {
+      "layer": "decode",
+      "status": "warn",
+      "check": "decoder",
+      "message": "error concealment observed",
+      "frame": {"key": "frame-0012", "decode_order": 12, "key_frame": false}
+    },
+    {
+      "layer": "pixels",
+      "status": "fail",
+      "trusted_reference": true,
+      "check": "sha256_framehash",
+      "expected": "trusted-baseline-hash",
+      "actual": "decoded-output-hash",
+      "frame": {"key": "frame-0012", "decode_order": 12, "key_frame": false}
+    }
+  ]
+}
