@@ -1,0 +1,1162 @@
+{
+  "combinations": [
+    {
+      "id": "effective-only-square",
+      "title": "有效像素 + 方形像素，无 clean aperture",
+      "spec": {
+        "name": "effective-only-square",
+        "effective_pixels": {
+          "width": 3840,
+          "height": 2160
+        },
+        "pixel_aspect_ratio": "1",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact"
+      },
+      "ok": true,
+      "result": {
+        "name": "effective-only-square",
+        "effective_pixels": {
+          "width": 3840,
+          "height": 2160
+        },
+        "effective_pixel_aspect": "16/9",
+        "source_pixel_aspect": "16/9",
+        "pixel_aspect_ratio": "1",
+        "full_aperture_display_aspect": "16/9",
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "derived-from-effective-pixels-and-par",
+        "declared_display_accepted": false,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "-1/2",
+            "y": "-1/2"
+          },
+          "max": {
+            "x": "7679/2",
+            "y": "4319/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "0"
+          },
+          "max": {
+            "x": "1920",
+            "y": "1080"
+          }
+        },
+        "transform": {
+          "scale_x": "1/2",
+          "scale_y": "1/2",
+          "translate_x": "1/4",
+          "translate_y": "1/4"
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "1",
+          "uniform_physical_scale": true,
+          "player_cropped": false,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "0",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "-1/2",
+                "y": "-1/2"
+              },
+              "max": {
+                "x": "7679/2",
+                "y": "4319/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "3840",
+                "y": "2160"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "1/2",
+              "translate_y": "1/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "3840",
+                "y": "2160"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "1/2160",
+              "scale_y": "1/2160",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1080",
+              "scale_y": "1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "effective-par-anamorphic",
+      "title": "有效像素 + PAR 恢复显示比例",
+      "spec": {
+        "name": "effective-par-anamorphic",
+        "effective_pixels": {
+          "width": 1440,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "4/3",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact"
+      },
+      "ok": true,
+      "result": {
+        "name": "effective-par-anamorphic",
+        "effective_pixels": {
+          "width": 1440,
+          "height": 1080
+        },
+        "effective_pixel_aspect": "4/3",
+        "source_pixel_aspect": "4/3",
+        "pixel_aspect_ratio": "4/3",
+        "full_aperture_display_aspect": "16/9",
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "derived-from-effective-pixels-and-par",
+        "declared_display_accepted": false,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "-1/2",
+            "y": "-1/2"
+          },
+          "max": {
+            "x": "2879/2",
+            "y": "2159/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "0"
+          },
+          "max": {
+            "x": "1920",
+            "y": "1080"
+          }
+        },
+        "transform": {
+          "scale_x": "4/3",
+          "scale_y": "1",
+          "translate_x": "2/3",
+          "translate_y": "1/2"
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "1",
+          "uniform_physical_scale": true,
+          "player_cropped": false,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "0",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "-1/2",
+                "y": "-1/2"
+              },
+              "max": {
+                "x": "2879/2",
+                "y": "2159/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1440",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "1/2",
+              "translate_y": "1/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1440",
+                "y": "1080"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "1/810",
+              "scale_y": "1/1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1080",
+              "scale_y": "1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "effective-clap-padding",
+      "title": "有效像素 + clean aperture 去除编码填充",
+      "spec": {
+        "name": "effective-clap-padding",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1088
+        },
+        "pixel_aspect_ratio": "1",
+        "clean_aperture": {
+          "width": "1920",
+          "height": "1080",
+          "horizontal_offset": "0",
+          "vertical_offset": "-4"
+        },
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact"
+      },
+      "ok": true,
+      "result": {
+        "name": "effective-clap-padding",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1088
+        },
+        "effective_pixel_aspect": "30/17",
+        "source_pixel_aspect": "30/17",
+        "pixel_aspect_ratio": "1",
+        "full_aperture_display_aspect": "30/17",
+        "clean_aperture": {
+          "declaration": {
+            "width": "1920",
+            "height": "1080",
+            "horizontal_offset": "0",
+            "vertical_offset": "-4"
+          },
+          "center": {
+            "x": "1919/2",
+            "y": "1079/2"
+          },
+          "exact_rect": {
+            "min": {
+              "x": "-1/2",
+              "y": "-1/2"
+            },
+            "max": {
+              "x": "3839/2",
+              "y": "2159/2"
+            }
+          },
+          "pixel_x": {
+            "first": 0,
+            "last": 1919,
+            "count": 1920
+          },
+          "pixel_y": {
+            "first": 0,
+            "last": 1079,
+            "count": 1080
+          },
+          "clean_pixel_aspect": "16/9",
+          "clean_display_aspect": "16/9"
+        },
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "derived-from-clean-aperture-and-par",
+        "declared_display_accepted": false,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "-1/2",
+            "y": "-1/2"
+          },
+          "max": {
+            "x": "3839/2",
+            "y": "2159/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "0"
+          },
+          "max": {
+            "x": "1920",
+            "y": "1080"
+          }
+        },
+        "transform": {
+          "scale_x": "1",
+          "scale_y": "1",
+          "translate_x": "1/2",
+          "translate_y": "1/2"
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "1",
+          "uniform_physical_scale": true,
+          "player_cropped": false,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "0",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "-1/2",
+                "y": "-1/2"
+              },
+              "max": {
+                "x": "3839/2",
+                "y": "2159/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "1/2",
+              "translate_y": "1/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "1/1080",
+              "scale_y": "1/1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1080",
+              "scale_y": "1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "all-declarations-compound",
+      "title": "有效像素 + PAR + DAR + clean aperture 联合校验",
+      "spec": {
+        "name": "all-declarations-compound",
+        "effective_pixels": {
+          "width": 1440,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "4/3",
+        "display_aspect_ratio": "16/9",
+        "clean_aperture": {
+          "width": "1368",
+          "height": "1026",
+          "horizontal_offset": "0",
+          "vertical_offset": "0"
+        },
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact"
+      },
+      "ok": true,
+      "result": {
+        "name": "all-declarations-compound",
+        "effective_pixels": {
+          "width": 1440,
+          "height": 1080
+        },
+        "effective_pixel_aspect": "4/3",
+        "source_pixel_aspect": "4/3",
+        "pixel_aspect_ratio": "4/3",
+        "full_aperture_display_aspect": "16/9",
+        "clean_aperture": {
+          "declaration": {
+            "width": "1368",
+            "height": "1026",
+            "horizontal_offset": "0",
+            "vertical_offset": "0"
+          },
+          "center": {
+            "x": "1439/2",
+            "y": "1079/2"
+          },
+          "exact_rect": {
+            "min": {
+              "x": "71/2",
+              "y": "53/2"
+            },
+            "max": {
+              "x": "2807/2",
+              "y": "2105/2"
+            }
+          },
+          "pixel_x": {
+            "first": 36,
+            "last": 1403,
+            "count": 1368
+          },
+          "pixel_y": {
+            "first": 27,
+            "last": 1052,
+            "count": 1026
+          },
+          "clean_pixel_aspect": "4/3",
+          "clean_display_aspect": "16/9"
+        },
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "declared-and-verified",
+        "declared_display_accepted": true,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "fit": "exact",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "71/2",
+            "y": "53/2"
+          },
+          "max": {
+            "x": "2807/2",
+            "y": "2105/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "0"
+          },
+          "max": {
+            "x": "1920",
+            "y": "1080"
+          }
+        },
+        "transform": {
+          "scale_x": "80/57",
+          "scale_y": "20/19",
+          "translate_x": "-2840/57",
+          "translate_y": "-530/19"
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "1",
+          "uniform_physical_scale": true,
+          "player_cropped": false,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "0",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "71/2",
+                "y": "53/2"
+              },
+              "max": {
+                "x": "2807/2",
+                "y": "2105/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1368",
+                "y": "1026"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "-71/2",
+              "translate_y": "-53/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1368",
+                "y": "1026"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "2/1539",
+              "scale_y": "1/1026",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1080",
+              "scale_y": "1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "player_mismatch": [
+    {
+      "id": "wide-viewport-stretch",
+      "title": "播放器强制拉伸到更宽视口",
+      "spec": {
+        "name": "wide-viewport-stretch",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "1",
+        "viewport": {
+          "width": 2000,
+          "height": 1000
+        },
+        "fit": "stretch"
+      },
+      "ok": true,
+      "result": {
+        "name": "wide-viewport-stretch",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "effective_pixel_aspect": "16/9",
+        "source_pixel_aspect": "16/9",
+        "pixel_aspect_ratio": "1",
+        "full_aperture_display_aspect": "16/9",
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "derived-from-effective-pixels-and-par",
+        "declared_display_accepted": false,
+        "viewport": {
+          "width": 2000,
+          "height": 1000
+        },
+        "fit": "stretch",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "-1/2",
+            "y": "-1/2"
+          },
+          "max": {
+            "x": "3839/2",
+            "y": "2159/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "0"
+          },
+          "max": {
+            "x": "2000",
+            "y": "1000"
+          }
+        },
+        "transform": {
+          "scale_x": "25/24",
+          "scale_y": "25/27",
+          "translate_x": "25/48",
+          "translate_y": "25/54"
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "9/8",
+          "uniform_physical_scale": false,
+          "player_cropped": false,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "0",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "-1/2",
+                "y": "-1/2"
+              },
+              "max": {
+                "x": "3839/2",
+                "y": "2159/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "1/2",
+              "translate_y": "1/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "1/1080",
+              "scale_y": "1/1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "2000",
+                "y": "1000"
+              }
+            },
+            "transform": {
+              "scale_x": "1125",
+              "scale_y": "1000",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "wide-viewport-cover",
+      "title": "播放器 cover 再次裁切画面",
+      "spec": {
+        "name": "wide-viewport-cover",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "1",
+        "viewport": {
+          "width": 2000,
+          "height": 1000
+        },
+        "fit": "cover"
+      },
+      "ok": true,
+      "result": {
+        "name": "wide-viewport-cover",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "effective_pixel_aspect": "16/9",
+        "source_pixel_aspect": "16/9",
+        "pixel_aspect_ratio": "1",
+        "full_aperture_display_aspect": "16/9",
+        "display_aspect_ratio": "16/9",
+        "display_aspect_source": "derived-from-effective-pixels-and-par",
+        "declared_display_accepted": false,
+        "viewport": {
+          "width": 2000,
+          "height": 1000
+        },
+        "fit": "cover",
+        "source_rect_in_effective_pixel_coordinates": {
+          "min": {
+            "x": "-1/2",
+            "y": "-1/2"
+          },
+          "max": {
+            "x": "3839/2",
+            "y": "2159/2"
+          }
+        },
+        "target_rect_in_viewport_coordinates": {
+          "min": {
+            "x": "0",
+            "y": "-125/2"
+          },
+          "max": {
+            "x": "2000",
+            "y": "2125/2"
+          }
+        },
+        "transform": {
+          "scale_x": "25/24",
+          "scale_y": "25/24",
+          "translate_x": "25/48",
+          "translate_y": "-2975/48"
+        },
+        "visible_source_rect": {
+          "min": {
+            "x": "-1/2",
+            "y": "119/2"
+          },
+          "max": {
+            "x": "3839/2",
+            "y": "2039/2"
+          }
+        },
+        "diagnosis": {
+          "physical_stretch_factor": "1",
+          "uniform_physical_scale": true,
+          "player_cropped": true,
+          "crop_width_fraction": "0",
+          "crop_height_fraction": "1/9",
+          "letterboxed": false,
+          "horizontal_bar_fraction": "0",
+          "vertical_bar_fraction": "0"
+        },
+        "mappings": [
+          {
+            "name": "aperture-crop",
+            "from": "effective-pixel outer-edge coordinates",
+            "to": "clean-aperture local outer-edge coordinates",
+            "source_rect": {
+              "min": {
+                "x": "-1/2",
+                "y": "-1/2"
+              },
+              "max": {
+                "x": "3839/2",
+                "y": "2159/2"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "transform": {
+              "scale_x": "1",
+              "scale_y": "1",
+              "translate_x": "1/2",
+              "translate_y": "1/2"
+            }
+          },
+          {
+            "name": "par-and-normalize",
+            "from": "clean-aperture counted pixels",
+            "to": "physical aspect coordinates (height normalized to 1)",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "1920",
+                "y": "1080"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "transform": {
+              "scale_x": "1/1080",
+              "scale_y": "1/1080",
+              "translate_x": "0",
+              "translate_y": "0"
+            }
+          },
+          {
+            "name": "viewport-placement",
+            "from": "normalized display aperture",
+            "to": "player viewport coordinates",
+            "source_rect": {
+              "min": {
+                "x": "0",
+                "y": "0"
+              },
+              "max": {
+                "x": "16/9",
+                "y": "1"
+              }
+            },
+            "target_rect": {
+              "min": {
+                "x": "0",
+                "y": "-125/2"
+              },
+              "max": {
+                "x": "2000",
+                "y": "2125/2"
+              }
+            },
+            "transform": {
+              "scale_x": "1125",
+              "scale_y": "1125",
+              "translate_x": "0",
+              "translate_y": "-125/2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "wide-viewport-exact-rejected",
+      "title": "要求不变形且不二次裁切时拒绝",
+      "spec": {
+        "name": "wide-viewport-exact-rejected",
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "1",
+        "viewport": {
+          "width": 2000,
+          "height": 1000
+        },
+        "fit": "exact"
+      },
+      "ok": false,
+      "error": "presentation constraints cannot be satisfied: exact fit requires viewport AR 2 to equal clean DAR 16/9; choose contain/cover/stretch or correct metadata",
+      "kind": "presentation_impossible"
+    }
+  ],
+  "rejections": [
+    {
+      "id": "dar-conflicts-with-par-and-pixels",
+      "title": "显式 DAR 与像素/PAR 几何冲突",
+      "spec": {
+        "effective_pixels": {
+          "width": 1440,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "4/3",
+        "display_aspect_ratio": "4/3"
+      },
+      "ok": false,
+      "error": "inconsistent aspect-ratio declarations: declared DAR 4/3 != geometric DAR 16/9 (effective=4/3, PAR=4/3, clean=false)",
+      "kind": "inconsistent_ratio"
+    },
+    {
+      "id": "clap-outside-effective-grid",
+      "title": "clean aperture 超出有效像素边界",
+      "spec": {
+        "effective_pixels": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pixel_aspect_ratio": "1",
+        "clean_aperture": {
+          "width": "1920",
+          "height": "1080",
+          "horizontal_offset": "2",
+          "vertical_offset": "0"
+        }
+      },
+      "ok": false,
+      "error": "clean aperture lies outside effective pixel grid: clap rect x=[3/2,3843/2], y=[-1/2,2159/2] is not contained by x=[-1/2,3839/2], y=[-1/2,2159/2]",
+      "kind": "aperture_out_of_bounds"
+    }
+  ]
+}
