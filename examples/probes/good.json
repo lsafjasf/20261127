@@ -1,0 +1,22 @@
+{
+  "path": "/deliveries/US-0042-night_scene.mp4",
+  "container": "mp4",
+  "video": [
+    {
+      "codec": "h264",
+      "frameRate": {"num": 30000, "den": 1001},
+      "bps": 8000000
+    }
+  ],
+  "audio": [
+    {
+      "codec": "aac",
+      "channelLayout": "stereo",
+      "channels": 2,
+      "bps": 192000
+    }
+  ],
+  "subtitles": [
+    {"codec": "mov_text", "language": "eng"}
+  ]
+}

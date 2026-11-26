@@ -1,0 +1,20 @@
+{
+  "path": "/deliveries/US-0043-partial_metadata.mp4",
+  "container": "mp4",
+  "video": [
+    {
+      "codec": "h264",
+      "frameRate": {"num": 30000, "den": 1001}
+    }
+  ],
+  "audio": [
+    {
+      "codec": "aac",
+      "channelLayout": "",
+      "channels": 0
+    }
+  ],
+  "subtitles": [
+    {"codec": "mov_text", "language": ""}
+  ]
+}

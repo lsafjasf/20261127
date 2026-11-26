@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "platform": "CinemaUHD",
+  "contractId": "cuhd-mezzanine-v1",
+  "containers": ["matroska", "webm"],
+  "video": {
+    "required": true,
+    "codecs": ["hevc", "av1"],
+    "frameRate": {
+      "allowed": [
+        {"num": 24, "den": 1},
+        {"num": 24000, "den": 1001}
+      ],
+      "tolerance": 0.005
+    },
+    "bitrate": {"minBps": 15000000}
+  },
+  "audio": {
+    "required": true,
+    "minStreams": 1,
+    "codecs": ["eac3", "ac3"],
+    "channelLayouts": ["5.1", "7.1"],
+    "bitrate": {"minBps": 448000, "maxBps": 1536000}
+  },
+  "subtitles": {
+    "required": false,
+    "codecs": ["subrip", "ass"],
+    "languages": ["eng", "zho", "jpn"]
+  },
+  "filename": {
+    "regex": "^[A-Za-z0-9_.-]+\\.mkv$",
+    "extensions": ["mkv"],
+    "maxLength": 120
+  }
+}

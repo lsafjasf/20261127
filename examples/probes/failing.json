@@ -1,0 +1,20 @@
+{
+  "path": "/deliveries/rush cut (final).mp4",
+  "container": "mp4",
+  "video": [
+    {
+      "codec": "h264",
+      "frameRate": {"num": 60, "den": 1},
+      "bps": 3000000
+    }
+  ],
+  "audio": [
+    {
+      "codec": "aac",
+      "channelLayout": "5.1",
+      "channels": 6,
+      "bps": 192000
+    }
+  ],
+  "subtitles": []
+}

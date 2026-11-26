@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "platform": "StreamingHD",
+  "contractId": "shd-master-v3",
+  "containers": ["mov,mp4,m4a,3gp,3g2,mj2", "mp4"],
+  "video": {
+    "required": true,
+    "codecs": ["h264", "hevc"],
+    "frameRate": {
+      "allowed": [
+        {"num": 24000, "den": 1001},
+        {"num": 25, "den": 1},
+        {"num": 30000, "den": 1001}
+      ],
+      "tolerance": 0.01
+    },
+    "bitrate": {"minBps": 5000000, "maxBps": 20000000}
+  },
+  "audio": {
+    "required": true,
+    "minStreams": 1,
+    "maxStreams": 2,
+    "codecs": ["aac"],
+    "channelLayouts": ["stereo"],
+    "bitrate": {"minBps": 128000, "maxBps": 320000}
+  },
+  "subtitles": {
+    "required": true,
+    "codecs": ["mov_text"],
+    "languages": ["eng", "zho"]
+  },
+  "filename": {
+    "regex": "^[A-Z]{2}-[0-9]{4}-[A-Za-z0-9_]+\\.mp4$",
+    "extensions": ["mp4"],
+    "maxLength": 80
+  }
+}
