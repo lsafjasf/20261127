@@ -1,0 +1,31 @@
+{
+  "contract": {
+    "fps": "30/1",
+    "start_pts": "0/1",
+    "content_frames": 10,
+    "delivery_frames": 10,
+    "delivery_duration": "1/3",
+    "allowed_tail_black_frames": 0,
+    "tail_policy": "reject_tail_black",
+    "container_duration": "2/5",
+    "audio_duration": "2/5",
+    "player": {
+      "reported_duration": "2/5"
+    },
+    "time_tolerance": "1/1000"
+  },
+  "output": [
+    {"index": 0, "pts": "0/30", "origin": "source", "source_index": 0},
+    {"index": 1, "pts": "1/30", "origin": "source", "source_index": 1},
+    {"index": 2, "pts": "2/30", "origin": "source", "source_index": 2},
+    {"index": 3, "pts": "3/30", "origin": "source", "source_index": 3},
+    {"index": 4, "pts": "4/30", "origin": "source", "source_index": 4},
+    {"index": 5, "pts": "5/30", "origin": "source", "source_index": 5},
+    {"index": 6, "pts": "6/30", "origin": "source", "source_index": 6},
+    {"index": 7, "pts": "7/30", "origin": "source", "source_index": 7},
+    {"index": 8, "pts": "8/30", "origin": "source", "source_index": 8},
+    {"index": 9, "pts": "9/30", "origin": "source", "source_index": 9},
+    {"index": 10, "pts": "10/30", "black": true, "origin": "tail_pad"},
+    {"index": 11, "pts": "11/30", "black": true, "origin": "tail_pad"}
+  ]
+}
