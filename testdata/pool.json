@@ -1,0 +1,17 @@
+[
+  {"path": "/media/a/take_01.mov", "name": "take_01.mov",
+   "frames": [{"frame": 100, "hash": 12297829382473031681},
+              {"frame": 149, "hash": 12297829382473031682}]},
+  {"path": "/media/b/take_01.mov", "name": "take_01.mov",
+   "frames": [{"frame": 40, "hash": 13448013990586613761},
+              {"frame": 88, "hash": 13448013990586613762}]},
+  {"path": "/media/c/take_02.mov", "name": "take_02.mov",
+   "frames": [{"frame": 500, "hash": 14598214598700195841},
+              {"frame": 450, "hash": 14598214598700195842}]},
+  {"path": "/media/d/take_02.mov", "name": "take_02.mov",
+   "frames": [{"frame": 500, "hash": 14598214598700195841},
+              {"frame": 450, "hash": 14598214598700195842}]},
+  {"path": "/media/e/take_03.mov", "name": "take_03.mov",
+   "frames": [{"frame": 10, "hash": 15748415298813777921},
+              {"frame": 20, "hash": 15748415298813777922}]}
+]

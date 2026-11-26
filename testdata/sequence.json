@@ -1,0 +1,12 @@
+[
+  {"id": "c1", "name": "take_01.mov", "seqIn": 0,   "seqOut": 50,  "srcIn": 100, "srcOut": 150,
+   "firstHash": 12297829382473031681, "lastHash": 12297829382473031682},
+  {"id": "c2", "name": "take_01.mov", "seqIn": 50,  "seqOut": 75,  "srcIn": 40,  "srcOut": 90,
+   "firstHash": 13448013990586613761, "lastHash": 13448013990586613762},
+  {"id": "c3", "name": "take_02.mov", "seqIn": 75,  "seqOut": 126, "srcIn": 500, "srcOut": 449,
+   "firstHash": 14598214598700195841, "lastHash": 14598214598700195842},
+  {"id": "c4", "name": "take_03.mov", "seqIn": 126, "seqOut": 136, "srcIn": 10,  "srcOut": 21,
+   "firstHash": 17026411239972552705, "lastHash": 17026411239972552706},
+  {"id": "c5", "name": "wrong_name.mov", "seqIn": 186, "seqOut": 236, "srcIn": 100, "srcOut": 150,
+   "firstHash": 12297829382473031681, "lastHash": 12297829382473031682}
+]
