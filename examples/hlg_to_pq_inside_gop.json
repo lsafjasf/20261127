@@ -1,0 +1,100 @@
+{
+  "switch_at": "600",
+  "expected_before_transfer": "HLG",
+  "expected_after_transfer": "PQ",
+  "frame_rate": "30/1",
+  "bit_depth": 10,
+  "full_range": false,
+  "player": {
+    "uses_first_frame_metadata": true
+  },
+  "policy": {
+    "require_idr": true,
+    "require_parameter_set_update": true,
+    "check_sticky_player": true
+  },
+  "access_units": [
+    {
+      "index": 0,
+      "pts": "0",
+      "gop_id": "gop-0",
+      "idr": true,
+      "random_access": true,
+      "rap_type": "IDR_W_RADL",
+      "closed_gop": true,
+      "parameter_sets_updated": true,
+      "metadata": {
+        "transfer": "HLG",
+        "transfer_code": 18,
+        "primaries": "BT.2020",
+        "primaries_code": 9,
+        "matrix": "BT.2020_NCL",
+        "matrix_code": 9,
+        "full_range": false,
+        "bit_depth": 10,
+        "nominal_peak_nits": "1000",
+        "max_cll": "1000",
+        "max_fall": "600",
+        "mastering": {
+          "primaries": "BT.2020",
+          "max_luminance_nits": "1000",
+          "min_luminance_nits": "0.005"
+        }
+      }
+    },
+    {
+      "index": 17940,
+      "pts": "598",
+      "gop_id": "gop-17940",
+      "idr": true,
+      "random_access": true,
+      "rap_type": "IDR_W_RADL",
+      "closed_gop": true,
+      "parameter_sets_updated": true
+    },
+    {
+      "index": 17999,
+      "pts": "17999/30",
+      "gop_id": "gop-17940"
+    },
+    {
+      "index": 18000,
+      "pts": "600",
+      "gop_id": "gop-17940",
+      "rap_type": "TRAIL_R",
+      "metadata": {
+        "transfer": "PQ",
+        "transfer_code": 16,
+        "primaries": "BT.2020",
+        "primaries_code": 9,
+        "matrix": "BT.2020_NCL",
+        "matrix_code": 9,
+        "full_range": false,
+        "bit_depth": 10,
+        "nominal_peak_nits": "4000",
+        "max_cll": "4000",
+        "max_fall": "1500",
+        "mastering": {
+          "primaries": "BT.2020",
+          "max_luminance_nits": "4000",
+          "min_luminance_nits": "0.005"
+        }
+      }
+    },
+    {
+      "index": 18001,
+      "pts": "18001/30",
+      "gop_id": "gop-17940"
+    },
+    {
+      "index": 18060,
+      "pts": "602",
+      "gop_id": "gop-18060",
+      "idr": true,
+      "random_access": true,
+      "rap_type": "IDR_N_LP",
+      "closed_gop": true,
+      "parameter_sets_updated": true
+    }
+  ]
+}
